@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies and project
         run: |
           python -m pip install poetry==1.3.1
-          poetry install --with devs
+          poetry install --with dev
       - name: Check with isort
         run: |
           poetry run isort --check-only ./blitzly  ./tests
@@ -39,4 +39,4 @@ jobs:
           poetry run pylint --rcfile=pyproject.toml ./blitzly ./tests
       - name: Test with pytest
         run: |
-          poetry run pytest --cov blitzly --cov-report term-missing
+          poetry run pytest blitzly

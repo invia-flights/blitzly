@@ -1,1 +1,1 @@
-from histogram import simple_histogram
+from blitzly.histogram import simple_histogram

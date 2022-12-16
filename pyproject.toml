@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "blitzly"
 version = "0.1.0"
-description = "Lightning-fast way to get plots with Plotly ⚡️"
+description = "Lightning-fast way to get plots with Plotly"
 authors = ["Prem Srinivasan <prem.srinivasan@invia.de>, Christopher Lemke <christopher.lemke@invia.de>"]
 packages = [{include = "blitzly"}]
 readme = "docs/README.md"
 documentation = ""
 repository = "https://github.com/invia-flights/blitzly"
-license = "MIT"
+license = "BSD 3-Clause"
 
 classifiers = [
     "Topic :: Scientific/Engineering :: Information Analysis",
