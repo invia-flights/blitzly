@@ -1,6 +1,7 @@
-<img src="https://github.com/invia-flights/blitzly/blob/main/docs/assets/images/icon.png" alt="blitzly icon" width="200" height="200"/><br>
+<img src="https://github.com/invia-flights/blitzly/blob/main/docs/assets/images/icon.png" alt="" width="200" height="200"/><br>
 # blitzly ⚡️
 ***Lightning-fast way to get plots with Plotly***
+
 [![Testing](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml/badge.svg?branch=main)](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml)
 [![docs](https://img.shields.io/badge/docs-mkdoks%20material-blue)](https://invia-flights.github.io/blitzly/)
 [![license](https://img.shields.io/github/license/invia-flights/blitzly)](https://github.com/invia-flights/blitzly/blob/main/LICENSE)

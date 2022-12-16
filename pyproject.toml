@@ -22,7 +22,7 @@ keywords = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
+python = ">=3.8,<3.12"
 plotly = "5.11.0"
 pandas = "1.5.2"
 numpy = "1.23.5"
