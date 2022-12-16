@@ -39,4 +39,4 @@ jobs:
           poetry run pylint --rcfile=pyproject.toml ./blitzly ./tests
       - name: Test with pytest
         run: |
-          poetry run pytest blitzly
+          poetry run pytest .

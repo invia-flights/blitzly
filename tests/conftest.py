@@ -1,40 +1,50 @@
 import numpy as np
 import pandas as pd
 import pytest
-from expected_figs.utils import expected_json_string
 
 # pylint: disable=missing-function-docstring, missing-class-docstring
 
-np.random.seed(42)
+
+def expected_json_string(filename: str) -> str:
+
+    with open(f"tests/expected_figs/json_strings/{filename}", encoding="utf-8") as file:
+        json_sting = file.read().rstrip().replace("'", "")
+    return json_sting
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
 def list_data():
+    np.random.seed(42)
     return np.random.randn(100).tolist()
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
 def numpy_1d_data():
+    np.random.seed(42)
     return np.random.randn(100)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
 def pandas_1d_data():
+    np.random.seed(42)
     return pd.DataFrame(np.random.randn(100), columns=["a"])
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
 def pandas_series_1d_data():
+    np.random.seed(42)
     return pd.Series(np.random.randn(100), name="a")
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
 def numpy_2d_data():
+    np.random.seed(42)
     return np.random.randn(100, 2)
 
 
 @pytest.fixture()
 def pandas_2d_data():
+    np.random.seed(42)
     return pd.DataFrame(np.random.randn(100, 2), columns=["a", "b"])
 
 
