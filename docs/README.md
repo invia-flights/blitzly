@@ -1,4 +1,4 @@
-<img src="https://github.com/invia-flights/blitzly/blob/main/docs/assets/images/icon.png" alt="" width="200" height="200"/><br>
+<img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/icon.png" alt="blitzly logo" width="200" height="200"/><br>
 # blitzly ⚡️
 ***Lightning-fast way to get plots with Plotly***
 
