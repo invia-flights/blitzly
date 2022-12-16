@@ -1,0 +1,11 @@
+/config.local
+/tmp
+/cache
+/research
+/__pycache__
+/test
+poetry.lock
+Brewfile
+pyproject.toml
+.pre-commit-config.yaml
+README.md
