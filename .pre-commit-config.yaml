@@ -17,6 +17,11 @@ repos:
       - id: fix-byte-order-marker
       - id: forbid-new-submodules
 
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.3.1
+    hooks:
+      - id: pyupgrade
+
   - repo: https://github.com/psf/black
     rev: 22.12.0
     hooks:
@@ -29,7 +34,7 @@ repos:
         args: ["--rcfile=pyproject.toml"]
 
   - repo: https://github.com/PyCQA/isort
-    rev: 5.11.1
+    rev: 5.11.2
     hooks:
       - id: isort
         args: ["--profile=black"]
@@ -49,11 +54,6 @@ repos:
         exclude: "^tests/"
         args:
           - "-r"
-
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.1
-    hooks:
-      - id: pyupgrade
 
   - repo: https://github.com/python-poetry/poetry
     rev: 1.3.1

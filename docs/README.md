@@ -9,7 +9,18 @@
 [![black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://github.com/PyCQA/isort)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+## Introduction
 
+## Installation
+If you are using [pip](https://pip.pypa.io/en/stable/), you can install the package with the following command:
+```bash
+pip install blitzly
+```
+
+If you are using [Poetry](https://python-poetry.org/), you can install the package with the following command:
+```bash
+poetry add blitzly
+```
 ## installing dependencies
 With [pip](https://pip.pypa.io/en/stable/):
 ```bash
@@ -20,3 +31,5 @@ With [Poetry](https://python-poetry.org/):
 ```bash
 poetry install
 ```
+
+## Usage

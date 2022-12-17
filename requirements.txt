@@ -77,9 +77,9 @@ iniconfig==1.1.1 ; python_version >= "3.8" and python_version < "3.12" \
 ipython==8.7.0 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:352042ddcb019f7c04e48171b4dd78e4c4bb67bf97030d170e154aac42b656d9 \
     --hash=sha256:882899fe78d5417a0aa07f995db298fa28b58faeba2112d2e3a4c95fe14bb738
-isort==5.11.2 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:dd8bbc5c0990f2a095d754e50360915f73b4c26fc82733eb5bfc6b48396af4d2 \
-    --hash=sha256:e486966fba83f25b8045f8dd7455b0a0d1e4de481e1d7ce4669902d9fb85e622
+isort==5.11.3 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:83155ffa936239d986b0f190347a3f2285f42a9b9e1725c89d865b27dd0627e5 \
+    --hash=sha256:a8ca25fbfad0f7d5d8447a4314837298d9f6b23aed8618584c894574f626b64b
 jedi==0.18.2 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:203c1fd9d969ab8f2119ec0a3342e0b49910045abe6af0a3ae83a5764d54639e \
     --hash=sha256:bae794c30d07f6d910d32a7048af09b5a39ed740918da923c6b780790ebac612
