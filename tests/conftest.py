@@ -7,6 +7,11 @@ import pytest
 
 
 @pytest.fixture()
+def invalid_data():
+    return "invalid"
+
+
+@pytest.fixture()
 def list_data():
     np.random.seed(42)
     return np.random.randn(100).tolist()
@@ -40,6 +45,12 @@ def numpy_2d_data():
 def pandas_2d_data():
     np.random.seed(42)
     return pd.DataFrame(np.random.randn(100, 2), columns=["a", "b"])
+
+
+@pytest.fixture()
+def numpy_3d_data():
+    np.random.seed(42)
+    return np.random.randn(100, 2, 2)
 
 
 @pytest.fixture(scope="session")

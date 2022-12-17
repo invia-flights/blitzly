@@ -1,7 +1,7 @@
 import numpy as np
 from helper import fig_to_array
 
-from blitzly import simple_histogram
+from blitzly.plots.histogram import simple_histogram
 
 # pylint: disable=missing-function-docstring, missing-class-docstring
 

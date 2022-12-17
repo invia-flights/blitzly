@@ -43,7 +43,3 @@ plugins:
         python:
           rendering:
             show_root_heading: false
-
-nav:
-  - Plots:
-      - Histogram: histogram.md

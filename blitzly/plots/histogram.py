@@ -6,6 +6,8 @@ import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
+from blitzly.utils import check_data
+
 
 def simple_histogram(
     data: Union[
@@ -51,6 +53,8 @@ def simple_histogram(
         show (Optional[bool]): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file. If None, the histogram will not be saved.
     """
+
+    check_data(data)
 
     if (isinstance(data, np.ndarray) and data.ndim == 1) or isinstance(
         data, (list, pd.Series)
