@@ -44,9 +44,13 @@ def pandas_2d_data():
 
 @pytest.fixture(scope="session")
 def expected_1d_numpy_pandas():
-    return joblib.load("tests/expected_figs/simple_histogram/1d_numpy_pandas.joblib")
+    return joblib.load(
+        "tests/expected_figs/simple_histogram/1d_numpy_pandas_fig.joblib"
+    )
 
 
 @pytest.fixture(scope="session")
 def expected_2d_numpy_pandas():
-    return joblib.load("tests/expected_figs/simple_histogram/2d_numpy_pandas.joblib")
+    return joblib.load(
+        "tests/expected_figs/simple_histogram/2d_numpy_pandas_fig.joblib"
+    )
