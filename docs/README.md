@@ -34,6 +34,6 @@ poetry install
 ## Available plots
 | Module | Method | Description |
 | ----- | ------ |-------------|
-| [`Histogram`](plots/histogram.md) | [`simple_histogram`](plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
+| [`Histogram`](https://invia-flights.github.io/blitzly/plots/histogram/) | [`simple_histogram`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
 
 ## Usage
