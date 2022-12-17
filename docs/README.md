@@ -31,5 +31,9 @@ With [Poetry](https://python-poetry.org/):
 ```bash
 poetry install
 ```
+## Available plots
+| Module | Method | Description |
+| ----- | ------ |-------------|
+| [`Histogram`](plots/histogram.md) | [`simple_histogram`](plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
 
 ## Usage

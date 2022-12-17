@@ -74,6 +74,7 @@ disallow_subclassing_any = false
 ignore_missing_imports = true
 disallow_any_generics = false
 warn_return_any = false
+no_namespace_packages = true
 exclude = ["tests/*, docs/*"]
 
 [tool.pylint.format]

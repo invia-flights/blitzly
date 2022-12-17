@@ -1,1 +1,1 @@
-::: blitzly.utils
+::: blitzly.etc.utils

@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.utils import check_data
+from blitzly.etc.utils import check_data
 
 
 def simple_histogram(
