@@ -1,18 +1,15 @@
-from typing import List, Optional, Union
+from typing import Optional, Union
 
-import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.etc.utils import check_data
+from blitzly.etc.utils import check_data, save_show_return
 
 
 def simple_histogram(
-    data: Union[
-        pd.DataFrame, NDArray, List[Union[pd.Series, NDArray, List[Union[int, float]]]]
-    ],
+    data: Union[pd.DataFrame, pd.Series, NDArray],
     showlegend: bool = True,
     opacity: float = 0.75,
     title: str = "Histogram",
@@ -32,9 +29,10 @@ def simple_histogram(
 
     foo = np.random.randn(500)
     bar = np.random.randn(500) + 1
+    data = np.array([foo, bar])
 
     simple_histogram(
-        [a, b],
+        data,
         title="Histogram of foo and bar",
         x_label="Value",
         y_label="Count",
@@ -43,7 +41,7 @@ def simple_histogram(
     ```
 
     Args:
-        data (Union[pd.DataFrame, NDArray, List[Union[pd.Series, NDArray, List[Union[int, float]]]]]): The data which should be plotted.
+        data (Union[pd.DataFrame, pd.Series, NDArray]): The data which should be plotted.
             Either one or multiple columns of data.
         showlegend (Optional[bool]): Whether to show the legend.
         opacity (Optional[float]): The opacity of the histogram.
@@ -54,18 +52,12 @@ def simple_histogram(
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file. If None, the histogram will not be saved.
     """
 
-    check_data(data)
+    data = check_data(data)
 
-    if (isinstance(data, np.ndarray) and data.ndim == 1) or isinstance(
-        data, (list, pd.Series)
-    ):
+    if data.ndim == 1:
         data = [data]
-
-    elif isinstance(data, np.ndarray):
+    else:
         data = data.T
-
-    elif isinstance(data, pd.DataFrame):
-        data = [data[col] for col in data.columns]
 
     fig = go.Figure()
     for d in data:
@@ -78,8 +70,4 @@ def simple_histogram(
     fig.update_yaxes(title_text=y_label)
     fig.update_traces(opacity=opacity)
 
-    if write_html_path:
-        fig.write_html(write_html_path)
-    if show:
-        fig.show()
-    return fig
+    return save_show_return(fig, write_html_path, show)

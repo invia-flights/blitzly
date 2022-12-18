@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 
 from blitzly.etc.utils import check_data
@@ -9,8 +10,14 @@ class TestCheckData:
     @staticmethod
     def test_check_data_for_3d_numpy(numpy_3d_data):
         with pytest.raises(ValueError) as error:
-            check_data(numpy_3d_data)
+            check_data(numpy_3d_data, force_numerical=False)
         assert str(error.value) == "NumPy array must be 1- or 2-dimensional!"
+
+    @staticmethod
+    def test_check_data_for_non_numerical_data(object_array):
+        with pytest.raises(TypeError) as error:
+            check_data(object_array)
+        assert str(error.value) == "Data must be numerical (`np.number`)!"
 
     @staticmethod
     def test_check_data_for_invalid_data(invalid_data):
@@ -18,5 +25,32 @@ class TestCheckData:
             check_data(invalid_data)
         assert (
             str(error.value)
-            == "Data must be a DataFrame, numpy array, or list of values! Type `str` is not supported.`"
+            == """
+            Invalid data type! Type `str` is not supported.
+            Please choose between a DataFrame, numpy array, or list of values.
+        """
         )
+
+    @staticmethod
+    def test_check_data_for_min_rows():
+        with pytest.raises(ValueError) as error:
+            check_data(np.array([[1]]), min_rows=2)
+        assert str(error.value) == "The data must have at least 2 row(s)!"
+
+    @staticmethod
+    def test_check_data_for_max_rows():
+        with pytest.raises(ValueError) as error:
+            check_data(np.array([[1], [2]]), max_rows=1)
+        assert str(error.value) == "The data must have a maximum of 1 row(s)!"
+
+    @staticmethod
+    def test_check_data_for_min_columns():
+        with pytest.raises(ValueError) as error:
+            check_data(np.array([[1, 2]]), min_columns=3)
+        assert str(error.value) == "The data must have at least 3 column(s)!"
+
+    @staticmethod
+    def test_check_data_for_max_columns():
+        with pytest.raises(ValueError) as error:
+            check_data(np.array([[1, 2]]), max_columns=1)
+        assert str(error.value) == "The data must have a maximum of 1 column(s)!"

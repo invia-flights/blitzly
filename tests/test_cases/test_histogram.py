@@ -8,13 +8,6 @@ from blitzly.plots.histogram import simple_histogram
 
 class TestSimpleHistogram:
     @staticmethod
-    def test_simple_histogram_with_list(list_data, expected_1d_numpy_pandas):
-        fig = simple_histogram(list_data, show=False)
-        np.testing.assert_equal(
-            fig_to_array(fig), fig_to_array(expected_1d_numpy_pandas)
-        )
-
-    @staticmethod
     def test_simple_histogram_with_1d_numpy(numpy_1d_data, expected_1d_numpy_pandas):
         fig = simple_histogram(numpy_1d_data, show=False)
         np.testing.assert_equal(
