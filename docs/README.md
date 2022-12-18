@@ -9,9 +9,9 @@
 [![black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://github.com/PyCQA/isort)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
-## Introduction
+## Introduction 🎉
 
-## Installation
+## Installation 📦
 If you are using [pip](https://pip.pypa.io/en/stable/), you can install the package with the following command:
 ```bash
 pip install blitzly
@@ -21,7 +21,7 @@ If you are using [Poetry](https://python-poetry.org/), you can install the packa
 ```bash
 poetry add blitzly
 ```
-## installing dependencies
+## installing dependencies 🧑‍🔧
 With [pip](https://pip.pypa.io/en/stable/):
 ```bash
 pip install -r requirements.txt
@@ -33,9 +33,10 @@ poetry install
 ```
 ## Available plots (so far 🚀)
 | Module | Method | Description |
-| ----- | ------ |-------------|
+| ------ | ------ | ----------- |
+| [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.bar.group_chart) | Creates a bar chart with multiple groups. |
 | [`histogram`](https://invia-flights.github.io/blitzly/plots/histogram/) | [`simple_histogram`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
-| [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.matrix.binary_confusion_matrix) | Plots a confusion matrix for binary classification data. |
+| [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a confusion matrix for binary classification data. |
 
-## Usage
+## Usage 🤌
 Here are some examples:

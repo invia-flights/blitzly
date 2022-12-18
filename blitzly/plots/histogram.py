@@ -15,6 +15,7 @@ def simple_histogram(
     title: str = "Histogram",
     x_label: str = "x",
     y_label: str = "y",
+    plotly_kwargs: Optional[dict] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
@@ -25,7 +26,7 @@ def simple_histogram(
     Example:
     ```python
     import numpy as np
-    from blitzly import simple_histogram
+    from blitzly.histogram import simple_histogram
 
     foo = np.random.randn(500)
     bar = np.random.randn(500) + 1
@@ -48,8 +49,10 @@ def simple_histogram(
         title (Optional[str]): The title of the histogram.
         x_label (Optional[str]): The label of the x-axis.
         y_label (Optional[str]): The label of the y-axis.
+        plotly_kwargs (Optional[dict]): Additional keyword arguments to pass to Plotly `Histogram`.
         show (Optional[bool]): Whether to show the figure.
-        write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file. If None, the histogram will not be saved.
+        write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
+            If None, the histogram will not be saved.
     """
 
     data = check_data(data)
@@ -61,7 +64,7 @@ def simple_histogram(
 
     fig = go.Figure()
     for d in data:
-        fig.add_trace(go.Histogram(x=d))
+        fig.add_trace(go.Histogram(x=d, **plotly_kwargs if plotly_kwargs else {}))
 
     fig.update_layout(barmode="overlay")
     fig.update_layout(title_text=title)

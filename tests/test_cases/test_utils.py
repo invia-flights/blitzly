@@ -8,21 +8,22 @@ from blitzly.etc.utils import check_data
 
 class TestCheckData:
     @staticmethod
-    def test_check_data_for_3d_numpy(numpy_3d_data):
+    def test_check_data_for_3d_numpy():
+        np.random.seed(42)
         with pytest.raises(ValueError) as error:
-            check_data(numpy_3d_data, force_numerical=False)
+            check_data(np.random.randn(100, 2, 2), force_numerical=False)
         assert str(error.value) == "NumPy array must be 1- or 2-dimensional!"
 
     @staticmethod
-    def test_check_data_for_non_numerical_data(object_array):
+    def test_check_data_for_non_numerical_data():
         with pytest.raises(TypeError) as error:
-            check_data(object_array)
+            check_data(np.array(["1", "2", "3"]))
         assert str(error.value) == "Data must be numerical (`np.number`)!"
 
     @staticmethod
-    def test_check_data_for_invalid_data(invalid_data):
+    def test_check_data_for_invalid_data():
         with pytest.raises(TypeError) as error:
-            check_data(invalid_data)
+            check_data("invalid")
         assert (
             str(error.value)
             == """

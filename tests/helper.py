@@ -22,4 +22,4 @@ def fig_to_array(fig: Figure) -> NDArray[Any]:
     fig_bytes = fig.to_image(format="png")
     buf = io.BytesIO(fig_bytes)
     img = Image.open(buf)
-    return np.asarray(img)
+    return np.array(img)

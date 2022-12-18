@@ -1,0 +1,1 @@
+::: blitzly.plots.bar
