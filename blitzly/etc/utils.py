@@ -81,7 +81,15 @@ def check_data(
     if isinstance(data, (pd.DataFrame, pd.Series)):
         data = data.to_numpy()
 
-    if force_numerical and data.dtype not in [np.number, np.int, np.float]:
+    if force_numerical and data.dtype not in [
+        np.int8,
+        np.int16,
+        np.int32,
+        np.int64,
+        np.float16,
+        np.float32,
+        np.float64,
+    ]:
         raise TypeError("Data must be numerical (`np.number`)!")
 
     if data.ndim > 2:
