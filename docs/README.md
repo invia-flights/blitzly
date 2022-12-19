@@ -42,22 +42,22 @@ poetry install
 Here are some examples:
 [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
 ```python
-    from blitzly.bar import multi_chart
-    import numpy as np
+from blitzly.bar import multi_chart
+import numpy as np
 
-    data = np.array([[8, 3, 6], [9, 7, 5]])
-    error_array = np.array([[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]])
+data = np.array([[8, 3, 6], [9, 7, 5]])
+error_array = np.array([[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]])
 
-    multi_chart(
-        data,
-        x_labels=["Vienna", "Berlin", "Lisbon"],
-        group_labels=["Personal rating", "Global rating"],
-        hover_texts=["foo", "bar", "blitzly"],
-        errors=error_array,
-        title="City ratings 🏙",
-        mark_x_labels=["Lisbon"],
-        write_html_path="see_the_blitz.html",
-    )
+multi_chart(
+    data,
+    x_labels=["Vienna", "Berlin", "Lisbon"],
+    group_labels=["Personal rating", "Global rating"],
+    hover_texts=["foo", "bar", "blitzly"],
+    errors=error_array,
+    title="City ratings 🏙",
+    mark_x_labels=["Lisbon"],
+    write_html_path="see_the_blitz.html",
+)
 ```
 Gives you this:
 
