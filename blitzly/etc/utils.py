@@ -33,6 +33,7 @@ def save_show_return(
 def check_data(
     data: Union[pd.DataFrame, pd.Series, NDArray],
     force_numerical: bool = True,
+    force_square_matrix: bool = False,
     min_rows: Optional[int] = None,
     max_rows: Optional[int] = None,
     min_columns: Optional[int] = None,
@@ -47,6 +48,8 @@ def check_data(
 
     - *(Optional)* if the data is numerical.
 
+    - *(Optional)* if data is a square matrix.
+
     - *(Optional)* If the data is a numpy array, it must have at least `min_rows` rows.
 
     - *(Optional)* If the data is a numpy array, it must have at most `max_rows` rows.
@@ -59,6 +62,7 @@ def check_data(
         data (Union[pd.DataFrame, pd.Series, NDArray]): The data which should be plotted.
             Either one or multiple columns of data.
         force_numerical (Optional[bool]): Whether to force the data to be numerical.
+        force_square_matrix (Optional[bool]): Whether to force the data to be a square matrix.
         min_rows (Optional[int]): The minimum number of rows the data must have.
         max_rows (Optional[int]): The maximum number of rows the data must have.
         min_columns (Optional[int]): The minimum number of columns the data must have.
@@ -67,6 +71,7 @@ def check_data(
     Raises:
         TypeError: If the data is not a DataFrame, numpy array, or list of values.
         TypeError: If the data is a numpy array with a non-numerical `dtype`.
+        ValueError: If the data is a numpy array is not a square matrix.
         ValueError: If the data is a numpy array with more than 2 dimensions.
     """
 
@@ -91,6 +96,11 @@ def check_data(
         np.float64,
     ]:
         raise TypeError("Data must be numerical (`np.number`)!")
+
+    if force_square_matrix and data.shape[0] != data.shape[1]:
+        raise ValueError(
+            f"Data must be a square matrix! But it's shape is: `{data.shape}`."
+        )
 
     if data.ndim > 2:
         raise ValueError("NumPy array must be 1- or 2-dimensional!")

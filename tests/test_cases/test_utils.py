@@ -8,6 +8,15 @@ from blitzly.etc.utils import check_data
 
 class TestCheckData:
     @staticmethod
+    def test_check_data_for_non_square_matrix():
+        with pytest.raises(ValueError) as error:
+            check_data(np.array([[1, 2], [3, 4], [5, 6]]), force_square_matrix=True)
+        assert (
+            str(error.value)
+            == "Data must be a square matrix! But it's shape is: `(3, 2)`."
+        )
+
+    @staticmethod
     def test_check_data_for_3d_numpy():
         np.random.seed(42)
         with pytest.raises(ValueError) as error:
