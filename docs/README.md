@@ -11,7 +11,7 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 ## Introduction 🎉
 
-## Installation 📦
+## Install the package 📦
 If you are using [pip](https://pip.pypa.io/en/stable/), you can install the package with the following command:
 ```bash
 pip install blitzly
@@ -34,9 +34,31 @@ poetry install
 ## Available plots (so far 🚀)
 | Module | Method | Description |
 | ------ | ------ | ----------- |
-| [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.bar.group_chart) | Creates a bar chart with multiple groups. |
+| [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart) | Creates a bar chart with multiple groups. |
 | [`histogram`](https://invia-flights.github.io/blitzly/plots/histogram/) | [`simple_histogram`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a confusion matrix for binary classification data. |
 
 ## Usage 🤌
 Here are some examples:
+[`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
+```python
+    from blitzly.bar import multi_chart
+    import numpy as np
+
+    data = np.array([[8, 3, 6], [9, 7, 5]])
+    error_array = np.array([[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]])
+
+    multi_chart(
+        data,
+        x_labels=["Vienna", "Berlin", "Lisbon"],
+        group_labels=["Personal rating", "Global rating"],
+        hover_texts=["foo", "bar", "blitzly"],
+        errors=error_array,
+        title="City ratings 🏙",
+        mark_x_labels=["Lisbon"],
+        write_html_path="see_the_blitz.html",
+    )
+```
+Gives you this:
+
+<img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/city_rating.png" alt="city rating plot" width="1000" height="555"/>

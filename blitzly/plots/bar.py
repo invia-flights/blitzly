@@ -107,7 +107,7 @@ def multi_chart(
         )
 
     fig.update_layout(barmode="stack" if stack else "group", xaxis_tickangle=-45)
-    fig.update_layout(showlegend=show_legend)
+    fig.update_layout(showlegend=show_legend and mark_x_labels is None)
     fig.update_layout(title_text=f"<i><b>{title}</b></i>")
 
     return save_show_return(fig, write_html_path, show)
