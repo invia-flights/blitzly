@@ -2,7 +2,7 @@
 name = "blitzly"
 version = "0.1.0"
 description = "Lightning-fast way to get plots with Plotly"
-authors = ["Prem Srinivasan <prem.srinivasan@invia.de>, Christopher Lemke <christopher.lemke@invia.de>"]
+authors = ["Prem Srinivasan <prem.srinivasan@invia.de>", "Christopher Lemke <christopher.lemke@invia.de>"]
 packages = [{include = "blitzly"}]
 readme = "docs/README.md"
 documentation = "https://invia-flights.github.io/blitzly"
