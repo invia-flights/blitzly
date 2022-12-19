@@ -1,2 +1,6 @@
 brew "poetry"
 brew "pre-commit"
+brew "black"
+brew "mypy"
+brew "pylint"
+brew "isort"

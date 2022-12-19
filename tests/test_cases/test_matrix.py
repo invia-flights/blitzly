@@ -2,9 +2,9 @@ import joblib
 import numpy as np
 import pandas as pd
 import pytest
-from helper import fig_to_array
 
 from blitzly.plots.matrix import binary_confusion_matrix, pearson_corr_matrix
+from tests.helper import fig_to_array
 
 # pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name
 
