@@ -3,6 +3,7 @@
 ***Lightning-fast way to get plots with Plotly***
 
 [![Testing](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml/badge.svg?branch=main)](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml)
+[![codecov](https://codecov.io/gh/invia-flights/blitzly/branch/develop/graph/badge.svg?token=ROCDJJV8JV)](https://codecov.io/gh/invia-flights/blitzly)
 [![pypi](https://img.shields.io/pypi/v/blitzly)](https://pypi.org/project/blitzly/)
 [![python version](https://img.shields.io/pypi/pyversions/blitzly?logo=python&logoColor=yellow)](https://www.python.org/)
 [![docs](https://img.shields.io/badge/docs-mkdoks%20material-blue)](https://invia-flights.github.io/blitzly/)
@@ -45,7 +46,7 @@ poetry install
 ## Usage 🤌
 Here are some examples:
 
-### [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
+#### [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
 ```python
 from blitzly.bar import multi_chart
 import numpy as np
@@ -67,7 +68,7 @@ Gives you this:
 
 <img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/multi_bars.png" alt="multi bars plot" width="1000" height="555"/>
 
-### [`scatter matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix):
+#### [`scatter matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix):
 ```python
     from blitzly.scatter import scatter_matrix
     import numpy as np
