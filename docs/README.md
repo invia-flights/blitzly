@@ -3,6 +3,8 @@
 ***Lightning-fast way to get plots with Plotly***
 
 [![Testing](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml/badge.svg?branch=main)](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml)
+[![pypi](https://img.shields.io/pypi/v/blitzly)](https://pypi.org/project/blitzly/)
+[![python version](https://img.shields.io/pypi/pyversions/blitzly?logo=python&logoColor=yellow)](https://www.python.org/)
 [![docs](https://img.shields.io/badge/docs-mkdoks%20material-blue)](https://invia-flights.github.io/blitzly/)
 [![license](https://img.shields.io/github/license/invia-flights/blitzly)](https://github.com/invia-flights/blitzly/blob/main/LICENSE)
 [![mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](https://github.com/python/mypy)
@@ -10,7 +12,7 @@
 [![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://github.com/PyCQA/isort)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 ## Introduction 🎉
-Plotly is great and powerful. But ...
+Plotly is great and powerful. But with great power comes great responsibility. And sometimes you just want to get a plot up and running as fast as possible. That's where blitzly ⚡️ comes in. It provides a set of functions that allow you to create plots with Plotly in a lightning-fast way. It's not meant to replace Plotly, but rather to complement it.
 
 ## Install the package 📦
 If you are using [pip](https://pip.pypa.io/en/stable/), you can install the package with the following command:
