@@ -10,7 +10,7 @@ class TestCheckData:
     @staticmethod
     def test_check_data_for_non_square_matrix():
         with pytest.raises(ValueError) as error:
-            check_data(np.array([[1, 2], [3, 4], [5, 6]]), force_square_matrix=True)
+            check_data(np.array([[1, 2], [3, 4], [5, 6]]), only_square_matrix=True)
         assert (
             str(error.value)
             == "Data must be a square matrix! But it's shape is: `(3, 2)`."
@@ -20,7 +20,7 @@ class TestCheckData:
     def test_check_data_for_3d_numpy():
         np.random.seed(42)
         with pytest.raises(ValueError) as error:
-            check_data(np.random.randn(100, 2, 2), force_numerical=False)
+            check_data(np.random.randn(100, 2, 2), only_numerical_values=False)
         assert str(error.value) == "NumPy array must be 1- or 2-dimensional!"
 
     @staticmethod

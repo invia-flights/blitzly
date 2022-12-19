@@ -32,8 +32,8 @@ def save_show_return(
 
 def check_data(
     data: Union[pd.DataFrame, pd.Series, NDArray],
-    force_numerical: bool = True,
-    force_square_matrix: bool = False,
+    only_numerical_values: bool = True,
+    only_square_matrix: bool = False,
     min_rows: Optional[int] = None,
     max_rows: Optional[int] = None,
     min_columns: Optional[int] = None,
@@ -61,8 +61,8 @@ def check_data(
     Args:
         data (Union[pd.DataFrame, pd.Series, NDArray]): The data which should be plotted.
             Either one or multiple columns of data.
-        force_numerical (Optional[bool]): Whether to force the data to be numerical.
-        force_square_matrix (Optional[bool]): Whether to force the data to be a square matrix.
+        only_numerical_values (Optional[bool]): Whether to fail if the data is not numerical.
+        only_square_matrix (Optional[bool]): Whether to fail the data is not a square matrix.
         min_rows (Optional[int]): The minimum number of rows the data must have.
         max_rows (Optional[int]): The maximum number of rows the data must have.
         min_columns (Optional[int]): The minimum number of columns the data must have.
@@ -86,7 +86,7 @@ def check_data(
     if isinstance(data, (pd.DataFrame, pd.Series)):
         data = data.to_numpy()
 
-    if force_numerical and data.dtype not in [
+    if only_numerical_values and data.dtype not in [
         np.int8,
         np.int16,
         np.int32,
@@ -97,7 +97,7 @@ def check_data(
     ]:
         raise TypeError("Data must be numerical (`np.number`)!")
 
-    if force_square_matrix and data.shape[0] != data.shape[1]:
+    if only_square_matrix and data.shape[0] != data.shape[1]:
         raise ValueError(
             f"Data must be a square matrix! But it's shape is: `{data.shape}`."
         )

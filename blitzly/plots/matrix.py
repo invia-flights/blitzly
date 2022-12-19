@@ -146,7 +146,7 @@ def pearson_corr_matrix(
     if isinstance(data, pd.DataFrame):
         labels = data.columns
 
-    data = check_data(data, force_square_matrix=True, min_columns=2, min_rows=2)
+    data = check_data(data, only_square_matrix=True, min_columns=2, min_rows=2)
 
     correlation = np.corrcoef(data, rowvar=row_var)
 
