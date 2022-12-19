@@ -23,10 +23,11 @@ keywords = [
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
+
 plotly = "5.11.0"
 pandas = "1.5.2"
-numpy = "1.23.5"
-nbformat = "5.7.0"
+numpy = "1.24.0"
+nbformat = "5.7.1"
 scikit-learn = "1.2.0"
 
 [tool.poetry.group.dev.dependencies]
@@ -58,6 +59,11 @@ optional = true
 requires = ["poetry-core>=1.4.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+]
+
 [tool.pylint.messages_control]
 disable = [
     "C0301",
@@ -83,3 +89,5 @@ max-line-length = 88
 
 [tool.isort]
 profile = "black"
+src_paths = ["blitzly", "tests"]
+known_third_party = ["poetry.core", "numpy.typing.mypy_plugin"]
