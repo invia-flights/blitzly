@@ -40,10 +40,12 @@ poetry install
 | [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart) | Creates a bar chart with multiple groups. |
 | [`histogram`](https://invia-flights.github.io/blitzly/plots/histogram/) | [`simple_histogram`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.binary_confusion_matrix) | Plots a confusion matrix for binary classification data. |
+| [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`scatter_matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix) | Plots a scatter matrix. |
 
 ## Usage 🤌
 Here are some examples:
-[`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
+
+### [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
 ```python
 from blitzly.bar import multi_chart
 import numpy as np
@@ -55,7 +57,6 @@ multi_chart(
     data,
     x_labels=["Vienna", "Berlin", "Lisbon"],
     group_labels=["Personal rating", "Global rating"],
-    hover_texts=["foo", "bar", "blitzly"],
     errors=error_array,
     title="City ratings 🏙",
     mark_x_labels=["Lisbon"],
@@ -64,4 +65,33 @@ multi_chart(
 ```
 Gives you this:
 
-<img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/city_rating.png" alt="city rating plot" width="1000" height="555"/>
+<img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/multi_bars.png" alt="multi bars plot" width="1000" height="555"/>
+
+### [`scatter matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix):
+```python
+    from blitzly.scatter import scatter_matrix
+    import numpy as np
+    import pandas as pd
+
+    foo = np.random.randn(1000)
+    bar = np.random.randn(1000) + 1
+    blitz = np.random.randint(2, size=1000)
+    licht = np.random.randint(2, size=1000)
+    data = np.array([foo, bar, blitz, licht])
+    df = pd.DataFrame(data.T, columns=["foo", "bar", "blitz", "licht"])
+
+    scatter_matrix(
+        df,
+        dimensions=["foo", "bar", "blitz"],
+        color_dim=df["licht"],
+        title="My first scatter matrix 🙃",
+        show_upper_half=True,
+        diagonal_visible=False,
+        marker_color_scale="Rainbow",
+        marker_line_color="blue",
+        size=500,
+    )
+```
+Gives you:
+
+<img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/scatter_matrix.png" alt="scatter-matrix plot" width="500" height="500"/>

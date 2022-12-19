@@ -555,9 +555,9 @@ tomli==2.0.1 ; python_version >= "3.8" and python_full_version < "3.11.0a7" \
 tomlkit==0.11.6 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:07de26b0d8cfc18f871aec595fda24d95b08fef89d147caa861939f37230bf4b \
     --hash=sha256:71b952e5721688937fb02cf9d354dbcf0785066149d2855e44531ebdd2b65d73
-traitlets==5.7.1 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:57ba2ba951632eeab9388fa45f342a5402060a5cc9f0bb942f760fafb6641581 \
-    --hash=sha256:fde8f62c05204ead43c2c1b9389cfc85befa7f54acb5da28529d671175bb4108
+traitlets==5.8.0 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:6cc57d6dc28c85d5365961726ffd19b538739347749e13ebe34e03323a0e8f84 \
+    --hash=sha256:c864831efa0ba6576d09b44884b34e41defc18c0d7e720b4a2d6698c842cab3e
 typing-extensions==4.4.0 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:1511434bb92bf8dd198c12b1cc812e800d4181cfcb867674e0f8279cc93087aa \
     --hash=sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e
