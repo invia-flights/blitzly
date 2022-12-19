@@ -2,6 +2,7 @@
 # blitzly ⚡️
 ***Lightning-fast way to get plots with Plotly***
 
+[![DeployPackage](https://github.com/invia-flights/blitzly/actions/workflows/deploy-package.yml/badge.svg)](https://github.com/invia-flights/blitzly/actions/workflows/deploy-package.yml)
 [![Testing](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml/badge.svg?branch=main)](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml)
 [![pypi](https://img.shields.io/pypi/v/blitzly)](https://pypi.org/project/blitzly/)
 [![python version](https://img.shields.io/pypi/pyversions/blitzly?logo=python&logoColor=yellow)](https://www.python.org/)
