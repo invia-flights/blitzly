@@ -1,9 +1,9 @@
 import joblib
 import numpy as np
 import pytest
-from helper import fig_to_array
 
 from blitzly.plots.matrix import binary_confusion_matrix
+from tests.helper import fig_to_array
 
 # pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name
 
