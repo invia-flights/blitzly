@@ -11,7 +11,7 @@ from plotly.basedatatypes import BaseFigure
 from blitzly.etc.utils import check_data, save_show_return
 
 
-def multi_chart(
+def multi_bar(
     data: Union[pd.DataFrame, pd.Series, NDArray],
     group_labels: List[str],
     x_labels: List[str],
@@ -34,13 +34,13 @@ def multi_chart(
 
     Example:
     ```python
-    from blitzly.bar import multi_chart
+    from blitzly.plots.bar import multi_bar
     import numpy as np
 
     data=np.array([[1, 2, 3], [4, 5, 6]])
     errors=np.array([[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]]),
 
-    multi_chart(
+    multi_bar(
         data,
         x_labels=["X1", "X2", "X3"],
         group_labels=["Z1", "Z2"],

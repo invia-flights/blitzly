@@ -29,7 +29,7 @@ def binary_confusion_matrix(
 
     Example:
     ```python
-    from blitzly.matrix import binary_confusion_matrix
+    from blitzly.plots.matrix import binary_confusion_matrix
     import numpy as np
 
     data = np.array([[1, 0, 1, 1, 0, 1], [0, 0, 1, 1, 0, 1]])
