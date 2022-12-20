@@ -1,4 +1,4 @@
-from typing import Optional, Union
+from typing import Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
@@ -12,7 +12,7 @@ from blitzly.etc.utils import check_data, save_show_return
 def simple_dumbbell(
     data: Union[pd.DataFrame, NDArray],
     title: str = "Dumbbell plot",
-    size: Optional[tuple[int, int]] = None,
+    size: Optional[Tuple[int, int]] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
