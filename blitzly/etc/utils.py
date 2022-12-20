@@ -38,7 +38,8 @@ def check_data(
     max_rows: Optional[int] = None,
     min_columns: Optional[int] = None,
     max_columns: Optional[int] = None,
-) -> NDArray[Any]:
+    keep_as_pandas: bool = False,
+) -> Union[NDArray[Any], pd.DataFrame, pd.Series]:
     """
     Checks if the data is valid for plotting. The function checks for:
 
@@ -84,9 +85,11 @@ def check_data(
         )
 
     if isinstance(data, (pd.DataFrame, pd.Series)):
-        data = data.to_numpy()
+        np_data = data.to_numpy()
+    else:
+        np_data = data
 
-    if only_numerical_values and data.dtype not in [
+    if only_numerical_values and np_data.dtype not in [
         np.int8,
         np.int16,
         np.int32,
@@ -97,24 +100,27 @@ def check_data(
     ]:
         raise TypeError("Data must be numerical (`np.number`)!")
 
-    if only_square_matrix and data.shape[0] != data.shape[1]:
+    if only_square_matrix and np_data.shape[0] != np_data.shape[1]:
         raise ValueError(
-            f"Data must be a square matrix! But it's shape is: `{data.shape}`."
+            f"Data must be a square matrix! But it's shape is: `{np_data.shape}`."
         )
 
-    if data.ndim > 2:
+    if np_data.ndim > 2:
         raise ValueError("NumPy array must be 1- or 2-dimensional!")
 
-    if min_rows and data.shape[0] < min_rows:
+    if min_rows and np_data.shape[0] < min_rows:
         raise ValueError(f"The data must have at least {min_rows} row(s)!")
 
-    if max_rows and data.shape[0] > max_rows:
+    if max_rows and np_data.shape[0] > max_rows:
         raise ValueError(f"The data must have a maximum of {max_rows} row(s)!")
 
-    if min_columns and data.shape[1] < min_columns:
+    if min_columns and np_data.shape[1] < min_columns:
         raise ValueError(f"The data must have at least {min_columns} column(s)!")
 
-    if max_columns and data.shape[1] > max_columns:
+    if max_columns and np_data.shape[1] > max_columns:
         raise ValueError(f"The data must have a maximum of {max_columns} column(s)!")
 
-    return data.copy()
+    if keep_as_pandas and isinstance(data, (pd.DataFrame, pd.Series)):
+        return data.copy()
+
+    return np_data.copy()
