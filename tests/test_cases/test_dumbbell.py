@@ -41,5 +41,5 @@ class TestSimpleDumbbell:
     @staticmethod
     def test_simple_dumbbell_with_2d_numpy(expected_2d_numpy):
         np.random.seed(42)
-        fig = simple_dumbbell(np.random.randn(10, 2), size=(500, 500), show=True)
+        fig = simple_dumbbell(np.random.randn(10, 2), size=(500, 500), show=False)
         np.testing.assert_equal(fig_to_array(fig), fig_to_array(expected_2d_numpy))
