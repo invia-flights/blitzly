@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import pytest
 
 from blitzly.etc.utils import check_data
@@ -64,3 +65,8 @@ class TestCheckData:
         with pytest.raises(ValueError) as error:
             check_data(np.array([[1, 2]]), max_columns=1)
         assert str(error.value) == "The data must have a maximum of 1 column(s)!"
+
+    @staticmethod
+    def test_check_data_with_keep_as_pandas():
+        data = check_data(pd.DataFrame(np.array([[1, 2]])), keep_as_pandas=True)
+        assert isinstance(data, pd.DataFrame)
