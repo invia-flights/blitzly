@@ -39,7 +39,7 @@ def check_data(
     min_columns: Optional[int] = None,
     max_columns: Optional[int] = None,
     keep_as_pandas: bool = False,
-) -> NDArray[Any]:
+) -> Union[NDArray[Any], pd.DataFrame, pd.Series]:
     """
     Checks if the data is valid for plotting. The function checks for:
 

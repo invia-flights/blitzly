@@ -26,7 +26,7 @@ def simple_histogram(
     Example:
     ```python
     import numpy as np
-    from blitzly.histogram import simple_histogram
+    from blitzly.plots.histogram import simple_histogram
 
     foo = np.random.randn(500)
     bar = np.random.randn(500) + 1

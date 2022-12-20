@@ -2,7 +2,7 @@ import joblib
 import numpy as np
 import pytest
 
-from blitzly.plots.bar import multi_chart
+from blitzly.plots.bar import multi_bar
 from tests.helper import fig_to_array
 
 # pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name
@@ -28,7 +28,7 @@ def expected_2d_numpy_highlighted():
 class TestMultiChart:
     @staticmethod
     def test_multi_bar_with_1_row_and_errors(expected_1d_numpy):
-        fig = multi_chart(
+        fig = multi_bar(
             data=np.array([[4, 5, 6]]),
             errors=np.array([[0.4, 0.5, 0.6]]),
             x_labels=["X1", "X2", "X3"],
@@ -39,7 +39,7 @@ class TestMultiChart:
 
     @staticmethod
     def test_multi_bar_with_2_row_and_errors(expected_2d_numpy):
-        fig = multi_chart(
+        fig = multi_bar(
             data=np.array([[1, 2, 3], [4, 5, 6]]),
             errors=np.array([[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]]),
             x_labels=["X1", "X2", "X3"],
@@ -52,7 +52,7 @@ class TestMultiChart:
     def test_multi_bar_with_2_row_highlighted_and_text_position(
         expected_2d_numpy_highlighted,
     ):
-        fig = multi_chart(
+        fig = multi_bar(
             data=np.array([[1, 2, 3], [4, 5, 6]]),
             x_labels=["X1", "X2", "X3"],
             group_labels=["Z1", "Z2"],
@@ -67,7 +67,7 @@ class TestMultiChart:
     @staticmethod
     def test_multi_bar_1_dim_exception():
         with pytest.raises(ValueError) as error:
-            _ = multi_chart(
+            _ = multi_bar(
                 data=np.array([1, 2, 3]),
                 x_labels=["X1", "X2", "X3"],
                 group_labels=["Z1", "Z2"],
@@ -81,7 +81,7 @@ class TestMultiChart:
     @staticmethod
     def test_multi_bar_group_labels_exception():
         with pytest.raises(ValueError) as error:
-            _ = multi_chart(
+            _ = multi_bar(
                 data=np.array([[1, 2, 3], [4, 5, 6]]),
                 x_labels=["X1", "X2", "X3"],
                 group_labels=["Z1"],
@@ -95,7 +95,7 @@ class TestMultiChart:
     @staticmethod
     def test_multi_bar_x_labels_exception():
         with pytest.raises(ValueError) as error:
-            _ = multi_chart(
+            _ = multi_bar(
                 data=np.array([[1, 2, 3], [4, 5, 6]]),
                 x_labels=["X1"],
                 group_labels=["Z1", "Z2"],
@@ -109,7 +109,7 @@ class TestMultiChart:
     @staticmethod
     def test_multi_bar_errors_exception():
         with pytest.raises(ValueError) as error:
-            _ = multi_chart(
+            _ = multi_bar(
                 data=np.array([[1, 2, 3], [4, 5, 6]]),
                 x_labels=["X1", "X2", "X3"],
                 group_labels=["Z1", "Z2"],
@@ -124,7 +124,7 @@ class TestMultiChart:
     @staticmethod
     def test_multi_bar_hover_text_exception():
         with pytest.raises(ValueError) as error:
-            _ = multi_chart(
+            _ = multi_bar(
                 data=np.array([[1, 2, 3], [4, 5, 6]]),
                 x_labels=["X1", "X2", "X3"],
                 group_labels=["Z1", "Z2"],

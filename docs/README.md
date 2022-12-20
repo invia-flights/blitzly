@@ -14,7 +14,7 @@
 [![isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://github.com/PyCQA/isort)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 ## Introduction 🎉
-Plotly is great and powerful. But with great power comes great responsibility. And sometimes you just want to get a plot up and running as fast as possible. That's where blitzly ⚡️ comes in. It provides a set of functions that allow you to create plots with Plotly in a lightning-fast way. It's not meant to replace Plotly, but rather to complement it.
+Plotly is great and powerful. But with great power comes great responsibility 🕸. And sometimes you just want to get a plot up and running as fast as possible. That's where blitzly ⚡️ comes in. It provides a set of functions that allow you to create plots with Plotly in a lightning-fast way. It's not meant to replace Plotly, but rather to complement it.
 
 ## Install the package 📦
 If you are using [pip](https://pip.pypa.io/en/stable/), you can install the package with the following command:
@@ -44,6 +44,7 @@ poetry install
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.binary_confusion_matrix) | Plots a confusion matrix for binary classification data. |
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`pearson_corr_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.pearson_corr_matrix) | Plots a Pearson product-moment correlation coefficients matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`scatter_matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix) | Plots a scatter matrix. |
+| [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`multi_scatter`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.multi_scatter) | Create a multi scatter plot. It can be used to visualize the relationship between multiple variables from the same Pandas DataFrame. |
 | [`dumbbell`](https://invia-flights.github.io/blitzly/plots/dumbbell/) | [`simple_dumbbell`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.dumbbell.simple_dumbbell) | Plots a dumbbell plot. |
 
 ## Usage 🤌
@@ -51,7 +52,7 @@ Here are some examples:
 
 #### [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
 ```python
-from blitzly.bar import multi_chart
+from blitzly.plots.bar import multi_chart
 import numpy as np
 
 data = np.array([[8, 3, 6], [9, 7, 5]])
@@ -73,7 +74,7 @@ Gives you this:
 
 #### [`scatter matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix):
 ```python
-    from blitzly.scatter import scatter_matrix
+    from blitzly.plots.scatter import scatter_matrix
     import numpy as np
     import pandas as pd
 
