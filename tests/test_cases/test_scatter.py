@@ -23,7 +23,35 @@ def expected_pandas_without_color():
     )
 
 
+@pytest.fixture(scope="session")
+def expected_pandas_without_dims_with_size():
+    return joblib.load(
+        "tests/expected_figs/scatter/scatter_matrix/expected_pandas_without_dims_with_size.joblib"
+    )
+
+
 class TestScatterMatrix:
+    @staticmethod
+    def test_scatter_matrix_with_valid_values_without_dims_with_size(
+        expected_pandas_without_dims_with_size,
+    ):
+        np.random.seed(42)
+        foo = np.random.randn(100)
+        bar = np.random.randn(100) + 1
+        blitz = np.random.randint(2, size=100)
+        licht = np.random.randint(2, size=100)
+        data = np.array([foo, bar, blitz, licht])
+        df = pd.DataFrame(data.T, columns=["A", "B", "C", "D"])
+
+        fig = scatter_matrix(
+            df,
+            size=500,
+            show=False,
+        )
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(expected_pandas_without_dims_with_size)
+        )
+
     @staticmethod
     def test_scatter_matrix_with_valid_values(expected_pandas_with_color):
         np.random.seed(42)

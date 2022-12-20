@@ -23,6 +23,13 @@ def valid_pearson_corr_matrix_from_pandas():
     )
 
 
+@pytest.fixture(scope="session")
+def valid_pearson_corr_matrix_without_label_with_size():
+    return joblib.load(
+        "tests/expected_figs/matrix/pearson_corr_matrix/valid_pearson_corr_matrix_without_label_with_size.joblib"
+    )
+
+
 @pytest.fixture()
 def valid_pearson_corr_matrix_data():
     return np.array(
@@ -104,4 +111,16 @@ class TestPearsonCorrMatrix:
         )
         np.testing.assert_equal(
             fig_to_array(fig), fig_to_array(valid_pearson_corr_matrix_from_pandas)
+        )
+
+    @staticmethod
+    def test_matrix_with_valid_numpy_data_without_label(
+        valid_pearson_corr_matrix_data,
+        valid_pearson_corr_matrix_without_label_with_size,
+    ):
+
+        fig = pearson_corr_matrix(valid_pearson_corr_matrix_data, size=500, show=False)
+        np.testing.assert_equal(
+            fig_to_array(fig),
+            fig_to_array(valid_pearson_corr_matrix_without_label_with_size),
         )
