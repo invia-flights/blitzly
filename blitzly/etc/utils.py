@@ -119,7 +119,7 @@ def check_data(
     if max_columns and data.shape[1] > max_columns:
         raise ValueError(f"The data must have a maximum of {max_columns} column(s)!")
 
-    if keep_as_pandas and isinstance(df, (pd.DataFrame, pd.Series)):
+    if "df" in locals() and keep_as_pandas:
         return df
 
     return data.copy()

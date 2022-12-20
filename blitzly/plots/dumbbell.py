@@ -1,14 +1,16 @@
-from typing import Optional
+from typing import Optional, Union
 
+import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
+from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
 from blitzly.etc.utils import check_data, save_show_return
 
 
 def simple_dumbbell(
-    data: pd.DataFrame,
+    data: Union[pd.DataFrame, NDArray],
     title: str = "Dumbbell plot",
     size: Optional[tuple[int, int]] = None,
     show: bool = True,
@@ -38,7 +40,7 @@ def simple_dumbbell(
     ```
 
     Args:
-        data (pd.DataFrame): Data to plot.
+        data (Union[pd.DataFrame, NDArray]): Data to plot.
         title (str): Title of the plot.
         size (Optional[Tuple[int, int]): Size of the plot.
         show (Optional[bool]): Whether to show the figure.
@@ -52,6 +54,9 @@ def simple_dumbbell(
     data = check_data(
         data, min_rows=1, min_columns=2, max_columns=2, keep_as_pandas=True
     )
+
+    if isinstance(data, np.ndarray):
+        data = pd.DataFrame(data)
 
     fig = go.Figure(
         data=[
