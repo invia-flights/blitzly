@@ -62,9 +62,9 @@ gitdb==4.0.10 ; python_version >= "3.8" and python_version < "3.12" \
 gitpython==3.1.29 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:41eea0deec2deea139b459ac03656f0dd28fc4a3387240ec1d3c259a2c47850f \
     --hash=sha256:cc36bfc4a3f913e66805a28e84703e419d9c264c1077e537b54f0e1af85dbefd
-identify==2.5.10 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:dce9e31fee7dbc45fea36a9e855c316b8fbf807e65a862f160840bb5a2bf5dfd \
-    --hash=sha256:fb7c2feaeca6976a3ffa31ec3236a6911fbc51aec9acc111de2aed99f244ade2
+identify==2.5.11 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:14b7076b29c99b1b0b8b08e96d448c7b877a9b07683cd8cfda2ea06af85ffa1c \
+    --hash=sha256:e7db36b772b188099616aaf2accbee122949d1c6a1bac4f38196720d6f9f06db
 importlib-resources==5.10.1 ; python_version >= "3.8" and python_version < "3.9" \
     --hash=sha256:32bb095bda29741f6ef0e5278c42df98d135391bee5f932841efc0041f748dc3 \
     --hash=sha256:c09b067d82e72c66f4f8eb12332f5efbebc9b007c0b6c40818108c9870adc363

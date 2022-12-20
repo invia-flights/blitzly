@@ -24,7 +24,7 @@ jobs:
           poetry install --with test
       - name: Check with isort
         run: |
-          poetry run isort --check-only ./blitzly  ./tests
+          poetry run isort --check-only .
       - name: Check with black
         run: |
           poetry run black --check ./blitzly  ./tests

@@ -93,7 +93,12 @@ exclude = ["tests", "docs"]
 [tool.pylint.format]
 max-line-length = 88
 
+[tool.black]
+target-version = ['py311']
+
+
 [tool.isort]
 profile = "black"
+skip_glob = ["docs/*"]
 src_paths = ["blitzly", "tests"]
-known_third_party = ["poetry.core", "numpy.typing.mypy_plugin"]
+extend_skip = [".md", ".joblib"]
