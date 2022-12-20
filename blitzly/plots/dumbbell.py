@@ -7,7 +7,7 @@ from plotly.basedatatypes import BaseFigure
 from blitzly.etc.utils import save_show_return
 
 
-def dumbbell(
+def simple_dumbbell(
     data: pd.DataFrame,
     title: str = "Dumbbell plot",
     size: Optional[tuple[int, int]] = None,
