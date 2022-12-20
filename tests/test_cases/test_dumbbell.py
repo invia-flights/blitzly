@@ -6,7 +6,7 @@ import pytest
 from blitzly.plots.dumbbell import simple_dumbbell
 from tests.helper import fig_to_array
 
-# pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name, disallowed-name, too-few-public-methods
+# pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name, disallowed-name
 
 
 @pytest.fixture(scope="session")

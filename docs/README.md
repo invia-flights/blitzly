@@ -44,6 +44,7 @@ poetry install
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.binary_confusion_matrix) | Plots a confusion matrix for binary classification data. |
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`pearson_corr_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.pearson_corr_matrix) | Plots a Pearson product-moment correlation coefficients matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`scatter_matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix) | Plots a scatter matrix. |
+| [`dumbbell`](https://invia-flights.github.io/blitzly/plots/dumbbell/) | [`simple_dumbbell`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.dumbbell.simple_dumbbell) | Plots a dumbbell plot. |
 
 ## Usage 🤌
 Here are some examples:
