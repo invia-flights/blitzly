@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.etc.utils import save_show_return
+from blitzly.etc.utils import check_data, save_show_return
 
 
 def simple_dumbbell(
@@ -48,6 +48,10 @@ def simple_dumbbell(
     Returns:
         BaseFigure: The dumbbell plot.
     """
+
+    data = check_data(
+        data, min_rows=1, min_columns=2, max_columns=2, keep_as_pandas=True
+    )
 
     fig = go.Figure(
         data=[

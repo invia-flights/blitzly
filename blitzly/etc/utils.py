@@ -38,6 +38,7 @@ def check_data(
     max_rows: Optional[int] = None,
     min_columns: Optional[int] = None,
     max_columns: Optional[int] = None,
+    keep_as_pandas: bool = False,
 ) -> NDArray[Any]:
     """
     Checks if the data is valid for plotting. The function checks for:
@@ -84,6 +85,7 @@ def check_data(
         )
 
     if isinstance(data, (pd.DataFrame, pd.Series)):
+        df = data.copy()
         data = data.to_numpy()
 
     if only_numerical_values and data.dtype not in [
@@ -116,5 +118,8 @@ def check_data(
 
     if max_columns and data.shape[1] > max_columns:
         raise ValueError(f"The data must have a maximum of {max_columns} column(s)!")
+
+    if keep_as_pandas and isinstance(df, (pd.DataFrame, pd.Series)):
+        return df
 
     return data.copy()
