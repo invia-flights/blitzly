@@ -12,6 +12,9 @@ from blitzly.etc.utils import check_data, save_show_return
 def simple_dumbbell(
     data: Union[pd.DataFrame, NDArray],
     title: str = "Dumbbell plot",
+    marker_size: int = 16,
+    marker_line_width: int = 8,
+    plotly_kwargs: Optional[dict] = None,
     size: Optional[Tuple[int, int]] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -36,12 +39,15 @@ def simple_dumbbell(
     index = [f"category_{i+1}" for i in range(10)]
     df = pd.DataFrame(data, index=index)
 
-    dumbbell(df)
+    simple_dumbbell(df)
     ```
 
     Args:
         data (Union[pd.DataFrame, NDArray]): Data to plot.
         title (str): Title of the plot.
+        marker_size (int): Size of the circular marker of the dumbbells.
+        marker_line_width (int): Thickness of the line joining the markers.
+        plotly_kwargs (Optional[dict]): Additional keyword arguments to pass to Plotly `go.Scatter`.
         size (Optional[Tuple[int, int]): Size of the plot.
         show (Optional[bool]): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -65,12 +71,14 @@ def simple_dumbbell(
                 y=data.index,
                 mode="markers",
                 name=data.columns[0],
+                **plotly_kwargs if plotly_kwargs else {},
             ),
             go.Scatter(
                 x=data.iloc[:, 1],
                 y=data.index,
                 mode="markers",
                 name=data.columns[1],
+                **plotly_kwargs if plotly_kwargs else {},
             ),
         ]
     )
@@ -83,11 +91,11 @@ def simple_dumbbell(
             x1=row.iloc[1],
             y0=index,
             y1=index,
-            line=dict(width=8),
+            line=dict(width=marker_line_width),
         )
 
     fig.update_traces(
-        marker=dict(size=16),
+        marker=dict(size=marker_size),
     )
 
     fig.update_layout(
