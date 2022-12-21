@@ -1,13 +1,14 @@
 name: BuildDocs
 
 on:
-  pull_request_review:
-    types: [submitted]
+  push:
     branches:
       - main
-
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
 jobs:
   deploy:
+    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
