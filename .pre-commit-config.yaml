@@ -7,7 +7,6 @@ repos:
         args:
           [
             "build",
-            "chore",
             "ci",
             "docs",
             "feat",
