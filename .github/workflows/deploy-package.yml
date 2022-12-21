@@ -1,15 +1,11 @@
 name: DeployPackage
 
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
+  release:
+    types: [published]
 
 jobs:
   deploy:
-    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     environment: deploy-package
     steps:
