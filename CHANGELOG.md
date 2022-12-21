@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/invia-flights/blitzly/compare/v0.2.0...v0.2.1) (2022-12-21)
+
+
+### Bug Fixes
+
+* improve process of starting deploy and docu workflow ([af61661](https://github.com/invia-flights/blitzly/commit/af6166150ced7ca118519b44d730f6ea50552134))
+
 ## [0.2.0](https://github.com/invia-flights/blitzly/compare/v0.1.1...v0.2.0) (2022-12-21)
 
 
