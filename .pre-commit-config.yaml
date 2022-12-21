@@ -9,7 +9,6 @@ repos:
             "major",
             "breaking",
             "breaking change",
-            "!",
             "feature",
             "improvement",
             "add",
