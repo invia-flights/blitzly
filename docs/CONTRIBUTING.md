@@ -9,6 +9,17 @@ We are using [pre-commit](https://pre-commit.com/) to ensure a consistent code s
 ## Homebrew
 We are using [Homebrew](https://brew.sh/) to manage the dependencies for the development environment. Please install Homebrew and run `brew bundle` to install the dependencies. If you don't want/can't use Homebrew, you can also install the dependencies manually.
 
+## Conventional Commits
+We are using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to ensure a consistent commit message style. Please use the following commit message format:
+```bash
+<type>[optional scope]: <description>
+```
+
+E.g.:
+```bash
+feat: add a new fantastic plot
+```
+
 ## How to contribute
 The following steps will give a short guide on how to contribute to this project:
 
