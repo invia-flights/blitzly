@@ -100,3 +100,7 @@ Gives you this:
 Gives you:
 
 <img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/scatter_matrix.png" alt="scatter-matrix plot" width="500" height="500"/>
+
+## Contributing 👩‍💻
+
+Please check out the [guide](https://invia-flights.github.io/blitzly/CONTRIBUTING/) on how to contribute to this project.
