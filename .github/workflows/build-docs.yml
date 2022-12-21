@@ -1,7 +1,8 @@
 name: BuildDocs
 
 on:
-  push:
+  pull_request_review:
+    types: [submitted]
     branches:
       - main
 

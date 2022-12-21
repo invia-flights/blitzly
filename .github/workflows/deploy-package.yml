@@ -1,8 +1,10 @@
 name: DeployPackage
 on:
-  push:
+  pull_request_review:
+    types: [submitted]
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
