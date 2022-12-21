@@ -46,7 +46,6 @@ pylint = "^2.15.9"
 pre-commit = "^2.20.0"
 nbstripout = "^0.6.1"
 
-
 [tool.poetry.group.docs.dependencies]
 mkdocs = "1.4.2"
 mkdocstrings = {extras = ["python"], version = "0.19.1"}
