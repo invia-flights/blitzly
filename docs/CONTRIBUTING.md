@@ -27,10 +27,10 @@ The following steps will give a short guide on how to contribute to this project
 - Clone the fork on your local machine. Your remote repo on [GitHub](https://github.com/) is called `origin`.
 - Add the original repository as a remote called `upstream`.
 - If you created your fork a while ago be sure to pull upstream changes into your local repository.
-- Create a new branch to work on! Start from from `develop` if it exists, else from `main`.
+- Create a new branch to work on! Start from `develop` if it exists, else from `main`.
 - Implement/fix your feature, comment your code, and add some examples.
 - Follow the code style of the project, including indentation. [Black](https://github.com/psf/black), [isort](https://github.com/PyCQA/isort), [Pylint](https://github.com/PyCQA/pylint), and [mypy](https://github.com/python/mypy) can help you with it.
-- Run the tests.
+- Run all tests.
 - Write or adapt tests as needed.
 - Add or change the documentation as needed. Please follow the "[Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)".
 - Squash your commits into a single commit with git's [interactive rebase](https://help.github.com/articles/interactive-rebase). Create a new branch if necessary.
