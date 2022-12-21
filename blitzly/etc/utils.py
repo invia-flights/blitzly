@@ -85,11 +85,10 @@ def check_data(
         )
 
     if isinstance(data, (pd.DataFrame, pd.Series)):
-        np_data = data.to_numpy()
-    else:
-        np_data = data
+        df = data.copy()
+        data = data.to_numpy()
 
-    if only_numerical_values and np_data.dtype not in [
+    if only_numerical_values and data.dtype not in [
         np.int8,
         np.int16,
         np.int32,
@@ -100,27 +99,27 @@ def check_data(
     ]:
         raise TypeError("Data must be numerical (`np.number`)!")
 
-    if only_square_matrix and np_data.shape[0] != np_data.shape[1]:
+    if only_square_matrix and data.shape[0] != data.shape[1]:
         raise ValueError(
-            f"Data must be a square matrix! But it's shape is: `{np_data.shape}`."
+            f"Data must be a square matrix! But it's shape is: `{data.shape}`."
         )
 
-    if np_data.ndim > 2:
+    if data.ndim > 2:
         raise ValueError("NumPy array must be 1- or 2-dimensional!")
 
-    if min_rows and np_data.shape[0] < min_rows:
+    if min_rows and data.shape[0] < min_rows:
         raise ValueError(f"The data must have at least {min_rows} row(s)!")
 
-    if max_rows and np_data.shape[0] > max_rows:
+    if max_rows and data.shape[0] > max_rows:
         raise ValueError(f"The data must have a maximum of {max_rows} row(s)!")
 
-    if min_columns and np_data.shape[1] < min_columns:
+    if min_columns and data.shape[1] < min_columns:
         raise ValueError(f"The data must have at least {min_columns} column(s)!")
 
-    if max_columns and np_data.shape[1] > max_columns:
+    if max_columns and data.shape[1] > max_columns:
         raise ValueError(f"The data must have a maximum of {max_columns} column(s)!")
 
-    if keep_as_pandas and isinstance(data, (pd.DataFrame, pd.Series)):
-        return data.copy()
+    if "df" in locals() and keep_as_pandas:
+        return df
 
-    return np_data.copy()
+    return data.copy()
