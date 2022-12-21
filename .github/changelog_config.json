@@ -13,10 +13,8 @@
             "title": "⚡️ Features",
             "labels": [
                 "feature",
-                "enhancement",
                 "improvement",
-                "add",
-                "implement"
+                "add"
             ]
         },
         {
@@ -40,12 +38,10 @@
                 "chore",
                 "refactor",
                 "update",
-                "change",
                 "patch",
                 "ci",
                 "test",
                 "perf",
-                "performance"
             ]
         },
         {
