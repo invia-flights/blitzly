@@ -7,7 +7,6 @@ repos:
         args:
           [
             "major",
-            "breaking",
             "breaking change",
             "feature",
             "improvement",
@@ -23,7 +22,6 @@ repos:
             "ci",
             "test",
             "security",
-            "vulnerability",
           ]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks

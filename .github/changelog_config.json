@@ -4,9 +4,7 @@
             "title": "🚀 Major changes",
             "labels": [
                 "major",
-                "breaking",
-                "breaking change",
-                "!"
+                "breaking"
             ]
         },
         {
@@ -41,14 +39,13 @@
                 "patch",
                 "ci",
                 "test",
-                "perf",
+                "perf"
             ]
         },
         {
             "title": "🔒 Security",
             "labels": [
-                "security",
-                "vulnerability"
+                "security"
             ]
         }
     ],
