@@ -12,4 +12,5 @@ jobs:
           release-type: python
           package-name: blitzly
           prerelease: true
-          default-branch: release_action
+          default-branch: main
+          pull-request-header: ":robot: I have created a release *beep* *boop*. This was predictable."
