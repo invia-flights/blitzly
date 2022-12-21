@@ -27,16 +27,16 @@ jobs:
           poetry run isort --check-only .
       - name: Check with black
         run: |
-          poetry run black --check ./blitzly  ./tests
+          poetry run black --check ./src/blitzly  ./tests
       - name: Check with mypy
         run: |
           poetry run mypy --config-file=pyproject.toml .
       - name: Check with bandit
         run: |
-          poetry run bandit -r ./blitzly/*
+          poetry run bandit -r ./src/blitzly/*
       - name: Lint with pylint
         run: |
-          poetry run pylint --rcfile=pyproject.toml ./blitzly ./tests
+          poetry run pylint --rcfile=pyproject.toml ./src/blitzly ./tests
       - name: Test with pytest
         run: |
           poetry run pytest --cov blitzly --cov-fail-under=90 --cov-report term-missing

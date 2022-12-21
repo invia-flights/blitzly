@@ -3,7 +3,7 @@ name = "blitzly"
 version = "0.1.0"
 description = "Lightning-fast way to get plots with Plotly"
 authors = ["Prem Srinivasan <prem.srinivasan@invia.de>", "Christopher Lemke <christopher.lemke@invia.de>"]
-packages = [{include = "blitzly"}]
+packages = [{ include = "blitzly", from = "src" }]
 readme = "docs/README.md"
 documentation = "https://invia-flights.github.io/blitzly"
 repository = "https://github.com/invia-flights/blitzly"
@@ -81,6 +81,9 @@ disable = [
     "R0916",
     ]
 
+[tool.pylint.format]
+max-line-length = 88
+
 [tool.mypy]
 strict = true
 disallow_subclassing_any = false
@@ -90,9 +93,6 @@ warn_return_any = false
 no_namespace_packages = true
 exclude = ["tests", "docs"]
 
-[tool.pylint.format]
-max-line-length = 88
-
 [tool.black]
 target-version = ['py311']
 
@@ -100,5 +100,5 @@ target-version = ['py311']
 [tool.isort]
 profile = "black"
 skip_glob = ["docs/*"]
-src_paths = ["blitzly", "tests"]
-extend_skip = [".md", ".joblib"]
+src_paths = ["src/blitzly", "tests"]
+extend_skip = [".md", ".joblib", ".json"]
