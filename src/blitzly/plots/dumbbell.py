@@ -28,7 +28,7 @@ def simple_dumbbell(
 
     Example:
     ```python
-    from blitzly.plots.dumbbell import dumbbell
+    from blitzly.plots.dumbbell import simple_dumbbell
     import numpy as np
     import pandas as pd
 
