@@ -2,65 +2,36 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - release_action
 jobs:
-  release:
+  changelog:
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Versioning
-        uses: paulhatch/semantic-version@v4.0.2
-        with:
-          # The prefix to use to identify tags
-          tag_prefix: "v"
-          # A string which, if present in a git commit, indicates that a change represents a
-          # major (breaking) change, supports regular expressions wrapped with '/'
-          major_pattern: "(MAJOR)"
-          # A string which indicates the flags used by the `major_pattern` regular expression. Supported flags: idgs
-          major_regexp_flags: ""
-          # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
-          minor_pattern: "(MINOR)"
-          # A string which indicates the flags used by the `minor_pattern` regular expression. Supported flags: idgs
-          minor_regexp_flags: ""
-          # A string to determine the format of the version output
-          format: "${major}.${minor}.${patch}-prerelease${increment}"
-          # Optional path to check for changes. If any changes are detected in the path the
-          # 'changed' output will true. Enter multiple paths separated by spaces.
-          change_path: "src/my-service"
-          # Named version, will be used as suffix for name version tag
-          namespace: my-service
-          # If this is set to true, *every* commit will be treated as a new version.
-          bump_each_commit: false
-          # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
-          search_commit_body: false
-          # The output method used to generate list of users, 'csv' or 'json'.
-          user_format_type: "csv"
       - name: Build Changelog
         uses: mikepenz/release-changelog-builder-action@v3
         with:
           configuration: "./.github/changelog_config.yml"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          body_path: ${{ github.workspace }}-CHANGELOG.txt
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
-        env:
-          GITHUB_REPOSITORY: invia-flights/blitzly
-  deploy:
+
+  release-please:
     runs-on: ubuntu-latest
-    environment: deploy-package
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: google-github-actions/release-please-action@v3
         with:
-          python-version: "3.10"
-      - run: pip install poetry==1.3.1
-      - run: poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
-      - run: poetry publish --build
+          release-type: python
+          package-name: blitzly
+          prerelease: true
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   environment: deploy-package
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-python@v2
+  #       with:
+  #         python-version: "3.10"
+  #     - run: pip install poetry==1.3.1
+  #     - run: poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+  #     - run: poetry publish --build

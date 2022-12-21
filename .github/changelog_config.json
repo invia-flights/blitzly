@@ -1,11 +1,24 @@
 {
     "categories": [
         {
+            "title": "🚀 Major changes",
+            "labels": [
+                "🚀",
+                "major",
+                "breaking",
+                "breaking change",
+                "!"
+            ]
+        },
+        {
             "title": "⚡️ Features",
             "labels": [
                 "⚡️",
                 "feature",
-                "enhancement"
+                "enhancement",
+                "improvement",
+                "add",
+                "implement"
             ]
         },
         {
@@ -30,7 +43,14 @@
                 "🧰",
                 "maintenance",
                 "chore",
-                "refactor"
+                "refactor",
+                "update",
+                "change",
+                "patch",
+                "ci",
+                "test",
+                "perf",
+                "performance"
             ]
         },
         {
