@@ -45,6 +45,7 @@ poetry install
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`pearson_corr_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.pearson_corr_matrix) | Plots a Pearson product-moment correlation coefficients matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`scatter_matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix) | Plots a scatter matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`multi_scatter`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.multi_scatter) | Create a multi scatter plot. It can be used to visualize the relationship between multiple variables from the same Pandas DataFrame. |
+| [`dumbbell`](https://invia-flights.github.io/blitzly/plots/dumbbell/) | [`simple_dumbbell`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.dumbbell.simple_dumbbell) | Plots a dumbbell plot. This can be used to compare two columns of data to visualize changes. |
 
 ## Usage 🤌
 Here are some examples:
