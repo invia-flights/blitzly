@@ -10,7 +10,7 @@ from blitzly.etc.utils import check_data, save_show_return
 
 def simple_histogram(
     data: Union[pd.DataFrame, pd.Series, NDArray],
-    showlegend: bool = True,
+    show_legend: bool = True,
     opacity: float = 0.75,
     title: str = "Histogram",
     x_label: str = "x",
@@ -26,7 +26,7 @@ def simple_histogram(
     Example:
     ```python
     import numpy as np
-    from blitzly.histogram import simple_histogram
+    from blitzly.plots.histogram import simple_histogram
 
     foo = np.random.randn(500)
     bar = np.random.randn(500) + 1
@@ -44,7 +44,7 @@ def simple_histogram(
     Args:
         data (Union[pd.DataFrame, pd.Series, NDArray]): The data which should be plotted.
             Either one or multiple columns of data.
-        showlegend (Optional[bool]): Whether to show the legend.
+        show_legend (Optional[bool]): Whether to show the legend.
         opacity (Optional[float]): The opacity of the histogram.
         title (Optional[str]): The title of the histogram.
         x_label (Optional[str]): The label of the x-axis.
@@ -68,7 +68,7 @@ def simple_histogram(
 
     fig.update_layout(barmode="overlay")
     fig.update_layout(title_text=title)
-    fig.update_layout(showlegend=showlegend)
+    fig.update_layout(showlegend=show_legend)
     fig.update_xaxes(title_text=x_label)
     fig.update_yaxes(title_text=y_label)
     fig.update_traces(opacity=opacity)

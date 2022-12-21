@@ -32,12 +32,14 @@ def save_show_return(
 
 def check_data(
     data: Union[pd.DataFrame, pd.Series, NDArray],
-    force_numerical: bool = True,
+    only_numerical_values: bool = True,
+    only_square_matrix: bool = False,
     min_rows: Optional[int] = None,
     max_rows: Optional[int] = None,
     min_columns: Optional[int] = None,
     max_columns: Optional[int] = None,
-) -> NDArray[Any]:
+    keep_as_pandas: bool = False,
+) -> Union[NDArray[Any], pd.DataFrame, pd.Series]:
     """
     Checks if the data is valid for plotting. The function checks for:
 
@@ -46,6 +48,8 @@ def check_data(
     - If the data is a numpy array, it must be 1- or 2-dimensional.
 
     - *(Optional)* if the data is numerical.
+
+    - *(Optional)* if data is a square matrix.
 
     - *(Optional)* If the data is a numpy array, it must have at least `min_rows` rows.
 
@@ -58,7 +62,8 @@ def check_data(
     Args:
         data (Union[pd.DataFrame, pd.Series, NDArray]): The data which should be plotted.
             Either one or multiple columns of data.
-        force_numerical (Optional[bool]): Whether to force the data to be numerical.
+        only_numerical_values (Optional[bool]): Whether to fail if the data is not numerical.
+        only_square_matrix (Optional[bool]): Whether to fail the data is not a square matrix.
         min_rows (Optional[int]): The minimum number of rows the data must have.
         max_rows (Optional[int]): The maximum number of rows the data must have.
         min_columns (Optional[int]): The minimum number of columns the data must have.
@@ -67,6 +72,7 @@ def check_data(
     Raises:
         TypeError: If the data is not a DataFrame, numpy array, or list of values.
         TypeError: If the data is a numpy array with a non-numerical `dtype`.
+        ValueError: If the data is a numpy array is not a square matrix.
         ValueError: If the data is a numpy array with more than 2 dimensions.
     """
 
@@ -79,9 +85,11 @@ def check_data(
         )
 
     if isinstance(data, (pd.DataFrame, pd.Series)):
-        data = data.to_numpy()
+        np_data = data.to_numpy()
+    else:
+        np_data = data
 
-    if force_numerical and data.dtype not in [
+    if only_numerical_values and np_data.dtype not in [
         np.int8,
         np.int16,
         np.int32,
@@ -92,19 +100,27 @@ def check_data(
     ]:
         raise TypeError("Data must be numerical (`np.number`)!")
 
-    if data.ndim > 2:
+    if only_square_matrix and np_data.shape[0] != np_data.shape[1]:
+        raise ValueError(
+            f"Data must be a square matrix! But it's shape is: `{np_data.shape}`."
+        )
+
+    if np_data.ndim > 2:
         raise ValueError("NumPy array must be 1- or 2-dimensional!")
 
-    if min_rows and data.shape[0] < min_rows:
+    if min_rows and np_data.shape[0] < min_rows:
         raise ValueError(f"The data must have at least {min_rows} row(s)!")
 
-    if max_rows and data.shape[0] > max_rows:
+    if max_rows and np_data.shape[0] > max_rows:
         raise ValueError(f"The data must have a maximum of {max_rows} row(s)!")
 
-    if min_columns and data.shape[1] < min_columns:
+    if min_columns and np_data.shape[1] < min_columns:
         raise ValueError(f"The data must have at least {min_columns} column(s)!")
 
-    if max_columns and data.shape[1] > max_columns:
+    if max_columns and np_data.shape[1] > max_columns:
         raise ValueError(f"The data must have a maximum of {max_columns} column(s)!")
 
-    return data.copy()
+    if keep_as_pandas and isinstance(data, (pd.DataFrame, pd.Series)):
+        return data.copy()
+
+    return np_data.copy()
