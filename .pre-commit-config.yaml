@@ -6,20 +6,16 @@ repos:
         stages: [commit-msg]
         args:
           [
-            "major",
-            "breaking change",
-            "feature",
-            "improvement",
-            "add",
-            "bug",
-            "fix",
-            "maintenance",
+            "build",
             "chore",
-            "refactor",
-            "perf",
-            "update",
-            "patch",
             "ci",
+            "docs",
+            "feat",
+            "fix",
+            "perf",
+            "refactor",
+            "revert",
+            "style",
             "test",
             "security",
           ]
