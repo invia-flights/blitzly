@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/invia-flights/blitzly/compare/v0.2.3...v0.2.4) (2022-12-22)
+
+
+### Documentation
+
+* add playground notebook ([8e4f815](https://github.com/invia-flights/blitzly/commit/8e4f8151275b6ed56883e5e951cb60f457ef2de6))
+
 ## [0.2.3](https://github.com/invia-flights/blitzly/compare/v0.2.2...v0.2.3) (2022-12-21)
 
 
