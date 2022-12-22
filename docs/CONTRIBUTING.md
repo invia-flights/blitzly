@@ -23,7 +23,7 @@ We are using [Homebrew](https://brew.sh/) to manage the dependencies for the dev
 to install the dependencies. If you don't want/can't use Homebrew, you can also install the dependencies manually.
 
 ## Conventional Commits
-We are using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to ensure a consistent commit message style. Please use the following commit message format:
+We are using [Conventional Commits](https://www.conventionalcommits.org) to ensure a consistent commit message style. Please use the following commit message format:
 ```bash
 <type>[optional scope]: <description>
 ```
