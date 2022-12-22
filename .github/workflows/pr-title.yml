@@ -2,6 +2,7 @@ name: "PRTitle"
 
 on:
   pull_request:
+    branches: [develop]
     types: [opened, edited, synchronize, reopened]
 
 jobs:
@@ -13,4 +14,4 @@ jobs:
           regex: "^(build:|ci:|docs:|feat:|fix:|perf:|refactor:|revert:|style:|test:|security:).{12,30}$"
           min_length: 10
           max_length: 20
-          github_token: ${{ github.token }}
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
