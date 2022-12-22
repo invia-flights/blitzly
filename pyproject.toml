@@ -100,4 +100,4 @@ target-version = ['py311']
 profile = "black"
 skip_glob = ["docs/*"]
 src_paths = ["src/blitzly", "tests"]
-extend_skip = [".md", ".joblib", ".json"]
+extend_skip = [".md", ".joblib", ".json", ".yaml", ".yml"]
