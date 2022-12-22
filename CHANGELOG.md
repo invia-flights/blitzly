@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.5](https://github.com/invia-flights/blitzly/compare/v0.2.4...v0.2.5) (2022-12-22)
+
+
+### CI/CD
+
+* improve release workflow ([413389b](https://github.com/invia-flights/blitzly/commit/413389b1169563698c4495e31f9ee9833b9e0e24))
+
 ## [0.2.4](https://github.com/invia-flights/blitzly/compare/v0.2.3...v0.2.4) (2022-12-22)
 
 
