@@ -50,17 +50,17 @@ poetry install
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`multi_scatter`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.multi_scatter) | Create a multi scatter plot. It can be used to visualize the relationship between multiple variables from the same Pandas DataFrame. |
 
 ## Usage 🤌
-Here are some examples:
+Here are some examples. You can also check out the [playground notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) 📒.
 
-#### [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart):
+**[`multi_bar`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_bar):**
 ```python
-from blitzly.plots.bar import multi_chart
+from blitzly.plots.bar import multi_bar
 import numpy as np
 
 data = np.array([[8, 3, 6], [9, 7, 5]])
 error_array = np.array([[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]])
 
-multi_chart(
+multi_bar(
     data,
     x_labels=["Vienna", "Berlin", "Lisbon"],
     group_labels=["Personal rating", "Global rating"],
@@ -74,7 +74,7 @@ Gives you this:
 
 <img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/multi_bars.png" alt="multi bars plot" width="1000" height="555"/>
 
-#### [`scatter matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix):
+**[`scatter matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix):**
 ```python
     from blitzly.plots.scatter import scatter_matrix
     import numpy as np

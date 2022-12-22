@@ -10,7 +10,7 @@ jobs:
     permissions:
       pull-requests: write
     if: |
-      github.actor == 'github-actions'
+      github.actor == 'github-actions[bot]'
       && github.event.label.name == 'autorelease: pending'
       && startsWith(github.event.head_commit.message, 'chore(main): release')
     steps:
