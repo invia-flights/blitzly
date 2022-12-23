@@ -11,6 +11,7 @@ repos:
             "docs",
             "feat",
             "fix",
+            "bug",
             "refactor",
             "revert",
             "test",

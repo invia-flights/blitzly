@@ -83,9 +83,9 @@ joblib==1.2.0 ; python_version >= "3.8" and python_version < "3.12" \
 jsonschema==4.17.3 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d \
     --hash=sha256:a870ad254da1a8ca84b6a2905cac29d265f805acc57af304784962a2aa6508f6
-jupyter-core==5.1.0 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:a5ae7c09c55c0b26f692ec69323ba2b62e8d7295354d20f6cd57b749de4a05bf \
-    --hash=sha256:f5740d99606958544396914b08e67b668f45e7eff99ab47a7f4bcead419c02f4
+jupyter-core==5.1.1 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:f1038179d0f179b0e92c8fa2289c012b29dafdc9484b41821079f1a496f5a0f2 \
+    --hash=sha256:f342d29eb6edb06f8dffa69adea987b3a9ee2b6702338a8cb6911516ea0b432d
 lazy-object-proxy==1.8.0 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:0c1c7c0433154bb7c54185714c6929acc0ba04ee1b167314a779b9025517eada \
     --hash=sha256:14010b49a2f56ec4943b6cf925f597b534ee2fe1f0738c84b3bce0c1a11ff10d \
