@@ -236,9 +236,9 @@ platformdirs==2.6.0 ; python_version >= "3.8" and python_version < "3.12" \
 plotly==5.11.0 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:4efef479c2ec1d86dcdac8405b6ca70ca65649a77408e39a7e84a1ea2db6c787 \
     --hash=sha256:52fd74b08aa4fd5a55b9d3034a30dbb746e572d7ed84897422f927fdf687ea5f
-pre-commit==2.20.0 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:51a5ba7c480ae8072ecdb6933df22d2f812dc897d5fe848778116129a681aac7 \
-    --hash=sha256:a978dac7bc9ec0bcee55c18a277d553b0f419d259dadb4b9418ff2d00eb43959
+pre-commit==2.21.0 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:31ef31af7e474a8d8995027fefdfcf509b5c913ff31f2015b4ec4beb26a6f658 \
+    --hash=sha256:e2f91727039fc39a92f58a588a25b87f936de6567eed4f0e673e0507edc75bad
 prompt-toolkit==3.0.36 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63 \
     --hash=sha256:aa64ad242a462c5ff0363a7b9cfe696c20d55d9fc60c11fd8e632d064804d305
@@ -407,9 +407,6 @@ threadpoolctl==3.1.0 ; python_version >= "3.8" and python_version < "3.12" \
 tokenize-rt==5.0.0 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:3160bc0c3e8491312d0485171dea861fc160a240f5f5766b72a1165408d10740 \
     --hash=sha256:c67772c662c6b3dc65edf66808577968fb10badfc2042e3027196bed4daf9e5a
-toml==0.10.2 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b \
-    --hash=sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f
 tomli==2.0.1 ; python_version >= "3.8" and python_full_version < "3.11.0a7" \
     --hash=sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc \
     --hash=sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f
