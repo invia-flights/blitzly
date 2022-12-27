@@ -31,3 +31,19 @@ class TestSubplots:
         np.testing.assert_equal(
             fig_to_array(fig), fig_to_array(expected_histogram_grid)
         )
+
+    @staticmethod
+    def test_subplots_with_invalid_shape():
+        np.random.seed(42)
+        subfig = simple_histogram(pd.Series(np.random.randn(100), name="a"), show=False)
+        with pytest.raises(ValueError) as error:
+            _ = make_subplots(
+                [subfig, subfig, subfig, subfig],
+                (2, 1),
+                size=(800, 800),
+                show=False,
+            )
+        assert (
+            str(error.value)
+            == "The number of subfigures (4) is too large for the provided `shape` (2, 1)."
+        )

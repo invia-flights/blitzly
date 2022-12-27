@@ -1,5 +1,6 @@
 from typing import List, Optional, Tuple
 
+import numpy as np
 import plotly.subplots as sp
 from plotly.basedatatypes import BaseFigure
 
@@ -45,6 +46,8 @@ def make_subplots(
         BaseFigure: The provided list figures as subplots in a single figure object.
     """
 
+    _check_shape_for_subplots(subfig_list, shape)
+
     subfig_traces: List = [[] for _ in subfig_list]
 
     for idx, subfig in enumerate(subfig_list):
@@ -53,10 +56,11 @@ def make_subplots(
 
     fig = sp.make_subplots(rows=shape[0], cols=shape[1])
 
-    for row in range(shape[0]):
-        for col in range(shape[1]):
-            for traces in subfig_traces[row * shape[1] + col]:
-                fig.append_trace(traces, row=row + 1, col=col + 1)
+    for idx, traces in enumerate(subfig_traces):
+        row = idx // shape[1]
+        col = idx % shape[1]
+        for trace in traces:
+            fig.append_trace(trace, row=row + 1, col=col + 1)
 
     if title:
         fig.update_layout(
@@ -68,3 +72,23 @@ def make_subplots(
             height=size[1],
         )
     return save_show_return(fig, write_html_path, show)
+
+
+def _check_shape_for_subplots(
+    subfig_list: List[BaseFigure], shape: Tuple[int, int]
+) -> None:
+    """
+    Checks whether the `shape` is compatible for making subplots.
+
+    Args:
+        subfig_list (List[BaseFigure]): A list of figure objects.
+        shape (Tuple[int, int]): The grid shape of the subplots.
+
+    Raises:
+        ValueError: If the provided `shape` is too small for the list of subfigures.
+    """
+
+    if len(subfig_list) > np.sum(shape):
+        raise ValueError(
+            f"The number of subfigures ({len(subfig_list)}) is too large for the provided `shape` {shape}."
+        )
