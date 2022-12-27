@@ -2,7 +2,7 @@ from typing import List, Optional, Tuple
 
 import numpy as np
 import plotly.subplots as sp
-from plotly.basedatatypes import BaseFigure
+from plotly.basedatatypes import BaseFigure, BaseTraceType
 
 from blitzly.etc.utils import save_show_return
 
@@ -48,7 +48,7 @@ def make_subplots(
 
     _check_shape_for_subplots(subfig_list, shape)
 
-    subfig_traces: List = [[] for _ in subfig_list]
+    subfig_traces: List[List[BaseTraceType]] = [[] for _ in subfig_list]
 
     for idx, subfig in enumerate(subfig_list):
         for trace in range(len(subfig["data"])):
