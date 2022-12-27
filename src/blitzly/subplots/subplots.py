@@ -7,7 +7,7 @@ from blitzly.etc.utils import save_show_return
 
 
 def make_subplots(
-    subfig_list: List,
+    subfig_list: List[BaseFigure],
     shape: Tuple[int, int],
     title: Optional[str] = None,
     size: Optional[Tuple[int, int]] = None,
@@ -22,7 +22,7 @@ def make_subplots(
 
     Example:
     ```python
-    from blitzly.subplots.subplots import make_subplots
+    from blitzly.subplots import make_subplots
     from blitzly.plots.histogram import simple_histogram
     import numpy as np
 
@@ -33,7 +33,7 @@ def make_subplots(
     ```
 
     Args:
-        subfig_list (List): A list of figure objects.
+        subfig_list (List[BaseFigure]): A list of figure objects.
         shape (Tuple[int, int]): The grid shape of the subplots.
         title (str): Title of the plot.
         size (Optional[Tuple[int, int]): Size of the plot.
