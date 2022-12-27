@@ -69,7 +69,7 @@ def scatter_matrix(
         marker_line_width (float): Width of the marker line.
         marker_color_scale (str): Color scale of the markers.
         size (Optional[int]): Size of the plot.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 
@@ -158,7 +158,7 @@ def multi_scatter(
         size (OptionalTuple[int, int]): Size of the plot - height and width.
         show_legend (bool): Whether to show the legend.
         plotly_kwargs (Optional[dict]): Additional plotly kwargs.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 

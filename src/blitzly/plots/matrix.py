@@ -46,7 +46,7 @@ def binary_confusion_matrix(
         show_scale (Optional[bool]): Whether to show the color scale.
         color_scale (Optional[str]): The color scale of the confusion matrix.
         plotly_kwargs (Optional[dict]): Additional keyword arguments for Plotly.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 
@@ -138,7 +138,7 @@ def pearson_corr_matrix(
         row_var (Optional[bool]): If rowvar is True (default), then each row represents a variable, with observations in the columns.
             Otherwise, the relationship is transposed: each column represents a variable, while the rows contain observations.
         plotly_kwargs (Optional[dict]): Additional keyword arguments for Plotly.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
     """

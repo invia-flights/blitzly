@@ -37,7 +37,7 @@ def make_subplots(
         shape (Tuple[int, int]): The grid shape of the subplots.
         title (str): Title of the plot.
         size (Optional[Tuple[int, int]): Size of the plot.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 

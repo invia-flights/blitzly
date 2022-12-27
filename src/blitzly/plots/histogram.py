@@ -50,7 +50,7 @@ def simple_histogram(
         x_label (Optional[str]): The label of the x-axis.
         y_label (Optional[str]): The label of the y-axis.
         plotly_kwargs (Optional[dict]): Additional keyword arguments to pass to Plotly `Histogram`.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
     """

@@ -78,6 +78,7 @@ disable = [
     "R0913",
     "R0914",
     "R0916",
+    "R0801",
     ]
 
 [tool.pylint.format]

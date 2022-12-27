@@ -62,7 +62,7 @@ def multi_bar(
         hover_texts (Optional[List[str]]): The hover texts for the data.
         errors (Optional[Union[pd.DataFrame, pd.Series, NDArray]]): The errors for the data.
         show_legend (Optional[bool]): Whether to show the legend.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 
