@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.etc.utils import check_data, save_show_return
+from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
 
 def simple_dumbbell(
@@ -49,7 +49,7 @@ def simple_dumbbell(
         marker_line_width (int): Thickness of the line joining the markers.
         plotly_kwargs (Optional[dict]): Additional keyword arguments to pass to Plotly `go.Scatter`.
         size (Optional[Tuple[int, int]): Size of the plot.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 
@@ -98,12 +98,5 @@ def simple_dumbbell(
         marker=dict(size=marker_size),
     )
 
-    fig.update_layout(
-        title=f"<i><b>{title}</b></i>",
-    )
-    if size:
-        fig.update_layout(
-            width=size[0],
-            height=size[1],
-        )
+    fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)

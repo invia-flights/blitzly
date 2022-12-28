@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.etc.utils import check_data, save_show_return
+from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
 
 def scatter_matrix(
@@ -69,7 +69,7 @@ def scatter_matrix(
         marker_line_width (float): Width of the marker line.
         marker_color_scale (str): Color scale of the markers.
         size (Optional[int]): Size of the plot.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 
@@ -102,14 +102,12 @@ def scatter_matrix(
         )
     )
 
-    fig.update_layout(
-        title=f"<i><b>{title}</b></i>",
-    )
     if size:
         fig.update_layout(
             width=size,
             height=size,
         )
+    fig = update_figure_layout(fig, title)
     return save_show_return(fig, write_html_path, show)
 
 
@@ -158,7 +156,7 @@ def multi_scatter(
         size (OptionalTuple[int, int]): Size of the plot - height and width.
         show_legend (bool): Whether to show the legend.
         plotly_kwargs (Optional[dict]): Additional plotly kwargs.
-        show (Optional[bool]): Whether to show the figure.
+        show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
 
@@ -201,13 +199,5 @@ def multi_scatter(
             )
         )
 
-    fig.update_layout(
-        title=f"<i><b>{title}</b></i>",
-    )
-    if size:
-        fig.update_layout(
-            width=size[0],
-            height=size[1],
-        )
-
+    fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
