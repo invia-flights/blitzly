@@ -50,7 +50,7 @@ def update_figure_layout(
 
     if title:
         fig.update_layout(
-            title=f"<i><b>{title}</b></i>",
+            title_text=f"<i><b>{title}</b></i>",
         )
     if size:
         fig.update_layout(

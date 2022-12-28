@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.etc.utils import check_data, save_show_return
+from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
 
 def simple_dumbbell(
@@ -98,12 +98,5 @@ def simple_dumbbell(
         marker=dict(size=marker_size),
     )
 
-    fig.update_layout(
-        title=f"<i><b>{title}</b></i>",
-    )
-    if size:
-        fig.update_layout(
-            width=size[0],
-            height=size[1],
-        )
+    fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)

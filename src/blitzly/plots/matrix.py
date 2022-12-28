@@ -8,7 +8,7 @@ from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 from sklearn.metrics import confusion_matrix as sk_confusion_matrix
 
-from blitzly.etc.utils import check_data, save_show_return
+from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
 
 def binary_confusion_matrix(
@@ -75,7 +75,6 @@ def binary_confusion_matrix(
     )
 
     fig.update_layout(
-        title_text=f"<i><b>{title}</b></i>",
         xaxis=dict(title="Predicted value"),
         yaxis=dict(title="Real value"),
     )
@@ -83,6 +82,7 @@ def binary_confusion_matrix(
     fig.update_layout(margin=dict(t=100, l=180))
     fig["data"][0]["showscale"] = show_scale
 
+    fig = update_figure_layout(fig, title)
     return save_show_return(fig, write_html_path, show)
 
 
@@ -163,7 +163,7 @@ def pearson_corr_matrix(
 
     if size:
         fig.update_layout(height=size, width=size)
-    fig.update_layout(title_text=f"<i><b>{title}</b></i>")
     fig["data"][0]["showscale"] = show_scale
 
+    fig = update_figure_layout(fig, title)
     return save_show_return(fig, write_html_path, show)

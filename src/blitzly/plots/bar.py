@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.etc.utils import check_data, save_show_return
+from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
 
 def multi_bar(
@@ -108,8 +108,8 @@ def multi_bar(
 
     fig.update_layout(barmode="stack" if stack else "group", xaxis_tickangle=-45)
     fig.update_layout(showlegend=show_legend and mark_x_labels is None)
-    fig.update_layout(title_text=f"<i><b>{title}</b></i>")
 
+    fig = update_figure_layout(fig, title)
     return save_show_return(fig, write_html_path, show)
 
 
