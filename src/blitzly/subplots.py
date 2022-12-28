@@ -90,7 +90,7 @@ def _check_shape_for_subplots(
         ValueError: If the provided `shape` is too small for the list of subfigures.
     """
 
-    if len(subfig_list) > np.sum(shape):
+    if len(subfig_list) > np.prod(shape):
         raise ValueError(
             f"The number of subfigures ({len(subfig_list)}) is too large for the provided `shape` {shape}."
         )
