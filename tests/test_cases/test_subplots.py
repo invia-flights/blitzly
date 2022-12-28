@@ -21,10 +21,13 @@ class TestSubplots:
     @staticmethod
     def test_subplots(expected_histogram_grid):
         np.random.seed(42)
-        subfig = simple_histogram(pd.Series(np.random.randn(100), name="a"), show=False)
+        subfig = simple_histogram(
+            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+        )
         fig = make_subplots(
             [subfig, subfig, subfig, subfig],
-            (2, 2),
+            shape=(2, 2),
+            title="A figure with subplots",
             size=(800, 800),
             show=False,
         )

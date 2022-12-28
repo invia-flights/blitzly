@@ -54,7 +54,13 @@ def make_subplots(
         for trace in range(len(subfig["data"])):
             subfig_traces[idx].append(subfig["data"][trace])
 
-    fig = sp.make_subplots(rows=shape[0], cols=shape[1])
+    subplot_titles = [subfig.layout.title.text for subfig in subfig_list]
+
+    fig = sp.make_subplots(
+        rows=shape[0],
+        cols=shape[1],
+        subplot_titles=subplot_titles,
+    )
 
     for idx, traces in enumerate(subfig_traces):
         row = idx // shape[1]
@@ -62,6 +68,7 @@ def make_subplots(
         for trace in traces:
             fig.append_trace(trace, row=row + 1, col=col + 1)
 
+    fig.update_layout(showlegend=False)
     fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
 
