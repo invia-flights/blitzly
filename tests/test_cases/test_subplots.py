@@ -24,6 +24,13 @@ def expected_histogram_grid_unequal_columns():
     )
 
 
+@pytest.fixture(scope="session")
+def expected_histogram_grid_filled_row():
+    return joblib.load(
+        "tests/expected_figs/subplots/make_subplots/expected_histogram_grid_filled_row.joblib"
+    )
+
+
 class TestSubplots:
     @staticmethod
     def test_subplots(expected_histogram_grid):
@@ -74,4 +81,22 @@ class TestSubplots:
         )
         np.testing.assert_equal(
             fig_to_array(fig), fig_to_array(expected_histogram_grid_unequal_columns)
+        )
+
+    @staticmethod
+    def test_subplots_filled_row(expected_histogram_grid_filled_row):
+        np.random.seed(42)
+        subfig = simple_histogram(
+            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+        )
+        fig = make_subplots(
+            [subfig, subfig, subfig, subfig],
+            shape=(2, 3),
+            title="A figure with filled last row of subplot grid",
+            fill_row=True,
+            size=(800, 800),
+            show=False,
+        )
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(expected_histogram_grid_filled_row)
         )

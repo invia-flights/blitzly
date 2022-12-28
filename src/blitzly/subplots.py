@@ -12,6 +12,7 @@ def make_subplots(
     shape: Tuple[int, int],
     title: Optional[str] = None,
     column_widths: Optional[List[float]] = None,
+    fill_row: bool = False,
     size: Optional[Tuple[int, int]] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -39,6 +40,7 @@ def make_subplots(
         shape (Tuple[int, int]): The grid shape of the subplots.
         title (str): Title of the plot.
         column_width (Optional[List[float]]): The width of each column in the subplot grid.
+        fill_row (bool): If True, resize the last subplot in the grid to fill the row.
         size (Optional[Tuple[int, int]): Size of the plot.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -58,11 +60,17 @@ def make_subplots(
 
     subplot_titles = [subfig.layout.title.text for subfig in subfig_list]
 
+    specs: List[List[dict]] = [[{} for _ in range(shape[1])] for _ in range(shape[0])]
+    n_missing_slots = np.prod(shape) - len(subfig_list)
+    if n_missing_slots in range(1, shape[1]) and fill_row:
+        specs[-1][-1 - n_missing_slots]["colspan"] = 1 + n_missing_slots
+
     fig = sp.make_subplots(
         rows=shape[0],
         cols=shape[1],
         subplot_titles=subplot_titles,
         column_widths=column_widths,
+        specs=specs,
     )
 
     for idx, traces in enumerate(subfig_traces):
