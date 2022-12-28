@@ -61,7 +61,7 @@ def make_subplots(
     subplot_titles = [subfig.layout.title.text for subfig in subfig_list]
 
     specs: List[List[dict]] = [[{} for _ in range(shape[1])] for _ in range(shape[0])]
-    n_missing_slots = np.prod(shape) - len(subfig_list)
+    n_missing_slots = int(np.prod(shape) - len(subfig_list))
     if n_missing_slots in range(1, shape[1]) and fill_row:
         specs[-1][-1 - n_missing_slots]["colspan"] = 1 + n_missing_slots
 

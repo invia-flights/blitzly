@@ -77,7 +77,7 @@ class TestSubplots:
             column_widths=[0.7, 0.3],
             title="A figure with unequal column widths",
             size=(800, 800),
-            show=True,
+            show=False,
         )
         np.testing.assert_equal(
             fig_to_array(fig), fig_to_array(expected_histogram_grid_unequal_columns)
