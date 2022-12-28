@@ -4,7 +4,7 @@ import numpy as np
 import plotly.subplots as sp
 from plotly.basedatatypes import BaseFigure, BaseTraceType
 
-from blitzly.etc.utils import save_show_return
+from blitzly.etc.utils import save_show_return, update_figure_layout
 
 
 def make_subplots(
@@ -62,15 +62,7 @@ def make_subplots(
         for trace in traces:
             fig.append_trace(trace, row=row + 1, col=col + 1)
 
-    if title:
-        fig.update_layout(
-            title=f"<i><b>{title}</b></i>",
-        )
-    if size:
-        fig.update_layout(
-            width=size[0],
-            height=size[1],
-        )
+    fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
 
 

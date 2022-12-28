@@ -1,4 +1,4 @@
-from typing import Any, Optional, Union
+from typing import Any, Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
@@ -27,6 +27,36 @@ def save_show_return(
         fig.write_html(write_html_path)
     if show:
         fig.show()
+    return fig
+
+
+def update_figure_layout(
+    fig: BaseFigure,
+    title: Optional[str] = None,
+    size: Optional[Tuple[int, int]] = None,
+) -> BaseFigure:
+
+    """
+    Updates the figure by setting the title and also scales the plot to the given size.
+
+    Args:
+        fig (BaseFigure): The Plotly figure.
+        title (str): Title of the plot.
+        size (Optional[Tuple[int, int]): Size of the plot.
+
+    Returns:
+        BaseFigure: The Plotly figure.
+    """
+
+    if title:
+        fig.update_layout(
+            title=f"<i><b>{title}</b></i>",
+        )
+    if size:
+        fig.update_layout(
+            width=size[0],
+            height=size[1],
+        )
     return fig
 
 
