@@ -17,6 +17,13 @@ def expected_histogram_grid():
     )
 
 
+@pytest.fixture(scope="session")
+def expected_histogram_grid_unequal_columns():
+    return joblib.load(
+        "tests/expected_figs/subplots/make_subplots/expected_histogram_grid_unequal_columns.joblib"
+    )
+
+
 class TestSubplots:
     @staticmethod
     def test_subplots(expected_histogram_grid):
@@ -49,4 +56,22 @@ class TestSubplots:
         assert (
             str(error.value)
             == "The number of subfigures (4) is too large for the provided `shape` (2, 1)."
+        )
+
+    @staticmethod
+    def test_subplots_unequal_columns(expected_histogram_grid_unequal_columns):
+        np.random.seed(42)
+        subfig = simple_histogram(
+            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+        )
+        fig = make_subplots(
+            [subfig, subfig, subfig, subfig],
+            shape=(2, 2),
+            column_widths=[0.7, 0.3],
+            title="A figure with unequal column widths",
+            size=(800, 800),
+            show=True,
+        )
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(expected_histogram_grid_unequal_columns)
         )

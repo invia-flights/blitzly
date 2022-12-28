@@ -11,6 +11,7 @@ def make_subplots(
     subfig_list: List[BaseFigure],
     shape: Tuple[int, int],
     title: Optional[str] = None,
+    column_widths: Optional[List[float]] = None,
     size: Optional[Tuple[int, int]] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -37,6 +38,7 @@ def make_subplots(
         subfig_list (List[BaseFigure]): A list of figure objects.
         shape (Tuple[int, int]): The grid shape of the subplots.
         title (str): Title of the plot.
+        column_width (Optional[List[float]]): The width of each column in the subplot grid.
         size (Optional[Tuple[int, int]): Size of the plot.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -60,6 +62,7 @@ def make_subplots(
         rows=shape[0],
         cols=shape[1],
         subplot_titles=subplot_titles,
+        column_widths=column_widths,
     )
 
     for idx, traces in enumerate(subfig_traces):
