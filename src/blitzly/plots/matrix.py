@@ -163,7 +163,5 @@ def pearson_corr_matrix(
         **(plotly_kwargs or {}),
     )
 
-    fig["data"][0]["showscale"] = show_scale
-
-    fig = update_figure_layout(fig, title, size)
+    fig = update_figure_layout(fig, title, size, show_scale=show_scale)
     return save_show_return(fig, write_html_path, show)

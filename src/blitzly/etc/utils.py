@@ -35,6 +35,7 @@ def update_figure_layout(
     title: Optional[str] = None,
     size: Optional[Tuple[int, int]] = None,
     show_legend: Optional[bool] = None,
+    show_scale: Optional[bool] = None,
 ) -> BaseFigure:
 
     """
@@ -44,6 +45,7 @@ def update_figure_layout(
         fig (BaseFigure): The Plotly figure.
         title (Optional[str]): Title of the plot.
         show_legend (Optional[bool]): Whether to show the legend.
+        show_scale (Optional[bool]): Whether to show the scale.
         size (Optional[Tuple[int, int]): Size of the plot.
 
     Returns:
@@ -57,6 +59,9 @@ def update_figure_layout(
 
     if show_legend is not None:
         fig.update_layout(showlegend=show_legend)
+
+    if show_scale is not None:
+        fig["data"][0]["showscale"] = show_scale
 
     if size:
         fig.update_layout(
