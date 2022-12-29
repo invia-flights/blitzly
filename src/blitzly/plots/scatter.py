@@ -20,7 +20,7 @@ def scatter_matrix(
     marker_line_color: str = "white",
     marker_line_width: float = 0.5,
     marker_color_scale: str = "Plasma",
-    size: Optional[int] = None,
+    size: Optional[Tuple[int, int]] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
@@ -68,7 +68,7 @@ def scatter_matrix(
         marker_line_color (str): Color of the marker line.
         marker_line_width (float): Width of the marker line.
         marker_color_scale (str): Color scale of the markers.
-        size (Optional[int]): Size of the plot.
+        size (Optional[Tuple[int, int]): Size of the plot.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
@@ -102,12 +102,7 @@ def scatter_matrix(
         )
     )
 
-    if size:
-        fig.update_layout(
-            width=size,
-            height=size,
-        )
-    fig = update_figure_layout(fig, title)
+    fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
 
 

@@ -1,4 +1,4 @@
-from typing import List, Optional, Union
+from typing import List, Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
@@ -19,6 +19,7 @@ def binary_confusion_matrix(
     normalize: Optional[str] = None,
     show_scale: bool = False,
     color_scale: str = "Plasma",
+    size: Optional[Tuple[int, int]] = None,
     plotly_kwargs: Optional[dict] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -45,6 +46,7 @@ def binary_confusion_matrix(
             If None, confusion matrix will not be normalized.
         show_scale (Optional[bool]): Whether to show the color scale.
         color_scale (Optional[str]): The color scale of the confusion matrix.
+        size (Optional[Tuple[int, int]]): The size of the plot.
         plotly_kwargs (Optional[dict]): Additional keyword arguments for Plotly.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -82,7 +84,7 @@ def binary_confusion_matrix(
     fig.update_layout(margin=dict(t=100, l=180))
     fig["data"][0]["showscale"] = show_scale
 
-    fig = update_figure_layout(fig, title)
+    fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
 
 
@@ -90,7 +92,7 @@ def pearson_corr_matrix(
     data: Union[pd.DataFrame, NDArray],
     title: str = "Pearson correlation matrix",
     show_scale: bool = False,
-    size: Optional[int] = None,
+    size: Optional[Tuple[int, int]] = None,
     decimal_places: int = 4,
     labels: Optional[List[str]] = None,
     row_var: bool = True,
@@ -133,7 +135,7 @@ def pearson_corr_matrix(
         title (Optional[str]): The title of the correlation matrix.
         show_scale (Optional[bool]): Whether to show the color scale.
         decimal_places (Optional[int]): The number of decimal places to round the values to. This only applies to the values shown on the plot.
-        size (Optional[int]): The size of the correlation matrix.
+        size (Optional[Tuple[int, int]): Size of the plot.
         labels (Optional[List[str]]): The labels of the columns. If a Pandas DataFrame is passed, the column names will be used.
         row_var (Optional[bool]): If rowvar is True (default), then each row represents a variable, with observations in the columns.
             Otherwise, the relationship is transposed: each column represents a variable, while the rows contain observations.
@@ -161,9 +163,7 @@ def pearson_corr_matrix(
         **(plotly_kwargs or {}),
     )
 
-    if size:
-        fig.update_layout(height=size, width=size)
     fig["data"][0]["showscale"] = show_scale
 
-    fig = update_figure_layout(fig, title)
+    fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
