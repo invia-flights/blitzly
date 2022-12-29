@@ -31,12 +31,30 @@ def expected_histogram_grid_filled_row():
     )
 
 
+@pytest.fixture(scope="session")
+def expected_histogram_grid_axes_labels():
+    return joblib.load(
+        "tests/expected_figs/subplots/make_subplots/expected_histogram_grid_axes_labels.joblib"
+    )
+
+
+@pytest.fixture(scope="session")
+def expected_histogram_grid_shared_axes():
+    return joblib.load(
+        "tests/expected_figs/subplots/make_subplots/expected_histogram_grid_shared_axes.joblib"
+    )
+
+
 class TestSubplots:
     @staticmethod
     def test_subplots(expected_histogram_grid):
         np.random.seed(42)
         subfig = simple_histogram(
-            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+            pd.Series(np.random.randn(100), name="a"),
+            show=False,
+            title="Histogram",
+            x_label="",
+            y_label="",
         )
         fig = make_subplots(
             [subfig, subfig, subfig, subfig],
@@ -69,7 +87,11 @@ class TestSubplots:
     def test_subplots_unequal_columns(expected_histogram_grid_unequal_columns):
         np.random.seed(42)
         subfig = simple_histogram(
-            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+            pd.Series(np.random.randn(100), name="a"),
+            show=False,
+            title="Histogram",
+            x_label="",
+            y_label="",
         )
         fig = make_subplots(
             [subfig, subfig, subfig, subfig],
@@ -87,7 +109,11 @@ class TestSubplots:
     def test_subplots_filled_row(expected_histogram_grid_filled_row):
         np.random.seed(42)
         subfig = simple_histogram(
-            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+            pd.Series(np.random.randn(100), name="a"),
+            show=False,
+            title="Histogram",
+            x_label="",
+            y_label="",
         )
         fig = make_subplots(
             [subfig, subfig, subfig, subfig],
@@ -99,4 +125,58 @@ class TestSubplots:
         )
         np.testing.assert_equal(
             fig_to_array(fig), fig_to_array(expected_histogram_grid_filled_row)
+        )
+
+    @staticmethod
+    def test_subplots_axes_labels(expected_histogram_grid_axes_labels):
+        np.random.seed(42)
+        subfig_list = [
+            simple_histogram(
+                pd.Series(np.random.randn(100), name="a"),
+                show=False,
+                title=f"Histogram-{i}",
+                x_label=f"x-axis label-{i}",
+                y_label=f"y-axis label-{i}",
+            )
+            for i in range(1, 5)
+        ]
+        fig = make_subplots(
+            subfig_list,
+            shape=(2, 2),
+            title="Subplots with axes labels",
+            size=(800, 800),
+            show=False,
+        )
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(expected_histogram_grid_axes_labels)
+        )
+
+    @staticmethod
+    def test_subplots_shared_axes(expected_histogram_grid_shared_axes):
+        np.random.seed(42)
+        subfig_list = [
+            simple_histogram(
+                pd.Series(np.random.randn(100), name="a"),
+                show=False,
+                title="",
+                x_label=f"x-axis label-{i}",
+                y_label=f"y-axis label-{i}",
+            )
+            for i in range(1, 5)
+        ]
+        fig = make_subplots(
+            subfig_list,
+            shape=(2, 2),
+            title="Subplots with shared axes",
+            size=(800, 800),
+            show=False,
+            shared_xaxes=True,
+            shared_yaxes=True,
+            plotly_kwargs={
+                "vertical_spacing": 0.02,
+                "horizontal_spacing": 0.02,
+            },
+        )
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(expected_histogram_grid_shared_axes)
         )

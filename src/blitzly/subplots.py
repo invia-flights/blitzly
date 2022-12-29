@@ -13,6 +13,9 @@ def make_subplots(
     title: Optional[str] = None,
     column_widths: Optional[List[float]] = None,
     fill_row: bool = False,
+    shared_xaxes: bool = False,
+    shared_yaxes: bool = False,
+    plotly_kwargs: Optional[dict] = None,
     size: Optional[Tuple[int, int]] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -41,6 +44,9 @@ def make_subplots(
         title (str): Title of the plot.
         column_width (Optional[List[float]]): The width of each column in the subplot grid.
         fill_row (bool): If True, resize the last subplot in the grid to fill the row.
+        shared_xaxes (bool): Share the x-axis labels along each column.
+        shared_yaxes (bool): Share the y-axis labels along each row.
+        plotly_kwargs (Optional[dict]): Additional keyword arguments to pass to Plotly `subplots.make_subplots`.
         size (Optional[Tuple[int, int]): Size of the plot.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -60,6 +66,11 @@ def make_subplots(
 
     subplot_titles = [subfig.layout.title.text for subfig in subfig_list]
 
+    subplot_axes_labels = [
+        [subfig.layout.xaxis.title.text for subfig in subfig_list],
+        [subfig.layout.yaxis.title.text for subfig in subfig_list],
+    ]
+
     specs: List[List[dict]] = [[{} for _ in range(shape[1])] for _ in range(shape[0])]
     n_missing_slots = int(np.prod(shape) - len(subfig_list))
     if n_missing_slots in range(1, shape[1]) and fill_row:
@@ -71,6 +82,9 @@ def make_subplots(
         subplot_titles=subplot_titles,
         column_widths=column_widths,
         specs=specs,
+        shared_xaxes=shared_xaxes,
+        shared_yaxes=shared_yaxes,
+        **plotly_kwargs if plotly_kwargs else {},
     )
 
     for idx, traces in enumerate(subfig_traces):
@@ -78,6 +92,17 @@ def make_subplots(
         col = idx % shape[1]
         for trace in traces:
             fig.append_trace(trace, row=row + 1, col=col + 1)
+
+        if row != shape[0] - 1 and shared_xaxes:
+            subplot_axes_labels[0][idx] = ""
+        if col != 0 and shared_yaxes:
+            subplot_axes_labels[1][idx] = ""
+        fig.update_xaxes(
+            title_text=subplot_axes_labels[0][idx], row=row + 1, col=col + 1
+        )
+        fig.update_yaxes(
+            title_text=subplot_axes_labels[1][idx], row=row + 1, col=col + 1
+        )
 
     fig.update_layout(showlegend=False)
     fig = update_figure_layout(fig, title, size)
