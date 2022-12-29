@@ -54,7 +54,7 @@ def scatter_matrix(
         diagonal_visible=False,
         marker_color_scale="Rainbow",
         marker_line_color="blue",
-        size=500,
+        size=(500, 500),
     )
     ```
 

@@ -102,10 +102,10 @@ Gives you this:
         diagonal_visible=False,
         marker_color_scale="Rainbow",
         marker_line_color="blue",
-        size=500,
+        size=(500, 500),
     )
 ```
-Gives you:
+Gives you this:
 
 <img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/scatter_matrix.png" alt="scatter-matrix plot" width="500" height="500"/>
 
