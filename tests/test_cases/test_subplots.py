@@ -50,7 +50,11 @@ class TestSubplots:
     def test_subplots(expected_histogram_grid):
         np.random.seed(42)
         subfig = simple_histogram(
-            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+            pd.Series(np.random.randn(100), name="a"),
+            show=False,
+            title="Histogram",
+            x_label="",
+            y_label="",
         )
         fig = make_subplots(
             [subfig, subfig, subfig, subfig],
@@ -83,7 +87,11 @@ class TestSubplots:
     def test_subplots_unequal_columns(expected_histogram_grid_unequal_columns):
         np.random.seed(42)
         subfig = simple_histogram(
-            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+            pd.Series(np.random.randn(100), name="a"),
+            show=False,
+            title="Histogram",
+            x_label="",
+            y_label="",
         )
         fig = make_subplots(
             [subfig, subfig, subfig, subfig],
@@ -101,7 +109,11 @@ class TestSubplots:
     def test_subplots_filled_row(expected_histogram_grid_filled_row):
         np.random.seed(42)
         subfig = simple_histogram(
-            pd.Series(np.random.randn(100), name="a"), show=False, title="Histogram"
+            pd.Series(np.random.randn(100), name="a"),
+            show=False,
+            title="Histogram",
+            x_label="",
+            y_label="",
         )
         fig = make_subplots(
             [subfig, subfig, subfig, subfig],
