@@ -109,9 +109,10 @@ def multi_bar(
         )
 
     fig.update_layout(barmode="stack" if stack else "group", xaxis_tickangle=-45)
-    fig.update_layout(showlegend=show_legend and mark_x_labels is None)
 
-    fig = update_figure_layout(fig, title, size)
+    fig = update_figure_layout(
+        fig, title, size, (show_legend and mark_x_labels is None)
+    )
     return save_show_return(fig, write_html_path, show)
 
 

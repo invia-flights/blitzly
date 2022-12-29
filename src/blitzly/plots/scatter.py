@@ -21,6 +21,7 @@ def scatter_matrix(
     marker_line_width: float = 0.5,
     marker_color_scale: str = "Plasma",
     size: Optional[Tuple[int, int]] = None,
+    show_legend: Optional[bool] = False,
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
@@ -69,6 +70,7 @@ def scatter_matrix(
         marker_line_width (float): Width of the marker line.
         marker_color_scale (str): Color scale of the markers.
         size (Optional[Tuple[int, int]): Size of the plot.
+        show_legend (Optional[bool]): Whether to show the legend.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
@@ -102,7 +104,7 @@ def scatter_matrix(
         )
     )
 
-    fig = update_figure_layout(fig, title, size)
+    fig = update_figure_layout(fig, title, size, show_legend)
     return save_show_return(fig, write_html_path, show)
 
 
@@ -189,10 +191,9 @@ def multi_scatter(
                 y=df[item[1]],
                 mode=modes[idx] if modes else "markers",
                 name=list(df.columns)[idx],
-                showlegend=show_legend,
                 **plotly_kwargs or {},
             )
         )
 
-    fig = update_figure_layout(fig, title, size)
+    fig = update_figure_layout(fig, title, size, show_legend)
     return save_show_return(fig, write_html_path, show)

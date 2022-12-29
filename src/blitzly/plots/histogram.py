@@ -69,11 +69,10 @@ def simple_histogram(
         fig.add_trace(go.Histogram(x=d, **plotly_kwargs if plotly_kwargs else {}))
 
     fig.update_layout(barmode="overlay")
-    fig.update_layout(showlegend=show_legend)
     fig.update_xaxes(title_text=x_label)
     fig.update_yaxes(title_text=y_label)
     fig.update_traces(opacity=opacity)
 
-    fig = update_figure_layout(fig, title, size)
+    fig = update_figure_layout(fig, title, size, show_legend)
 
     return save_show_return(fig, write_html_path, show)
