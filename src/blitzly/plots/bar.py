@@ -1,6 +1,6 @@
 # pylint: disable=disallowed-name
 
-from typing import List, Optional, Union
+from typing import List, Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
@@ -22,6 +22,7 @@ def multi_bar(
     text_position: str = "none",
     hover_texts: Optional[List[str]] = None,
     errors: Optional[Union[pd.DataFrame, pd.Series, NDArray]] = None,
+    size: Optional[Tuple[int, int]] = None,
     show_legend: bool = True,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -61,6 +62,7 @@ def multi_bar(
         text_position (Optional[str]): The position of the text. Can be "auto", "inside", "outside", "none".
         hover_texts (Optional[List[str]]): The hover texts for the data.
         errors (Optional[Union[pd.DataFrame, pd.Series, NDArray]]): The errors for the data.
+        size (Optional[Tuple[int, int]): Size of the plot.
         show_legend (Optional[bool]): Whether to show the legend.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -107,9 +109,10 @@ def multi_bar(
         )
 
     fig.update_layout(barmode="stack" if stack else "group", xaxis_tickangle=-45)
-    fig.update_layout(showlegend=show_legend and mark_x_labels is None)
 
-    fig = update_figure_layout(fig, title)
+    fig = update_figure_layout(
+        fig, title, size, (show_legend and mark_x_labels is None)
+    )
     return save_show_return(fig, write_html_path, show)
 
 

@@ -1,11 +1,11 @@
-from typing import Optional, Union
+from typing import Optional, Tuple, Union
 
 import pandas as pd
 import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
 
-from blitzly.etc.utils import check_data, save_show_return
+from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
 
 def simple_histogram(
@@ -15,6 +15,7 @@ def simple_histogram(
     title: str = "Histogram",
     x_label: str = "x",
     y_label: str = "y",
+    size: Optional[Tuple[int, int]] = None,
     plotly_kwargs: Optional[dict] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -49,6 +50,7 @@ def simple_histogram(
         title (Optional[str]): The title of the histogram.
         x_label (Optional[str]): The label of the x-axis.
         y_label (Optional[str]): The label of the y-axis.
+        size (Optional[Tuple[int, int]): Size of the plot.
         plotly_kwargs (Optional[dict]): Additional keyword arguments to pass to Plotly `Histogram`.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -67,10 +69,10 @@ def simple_histogram(
         fig.add_trace(go.Histogram(x=d, **plotly_kwargs if plotly_kwargs else {}))
 
     fig.update_layout(barmode="overlay")
-    fig.update_layout(title_text=title)
-    fig.update_layout(showlegend=show_legend)
     fig.update_xaxes(title_text=x_label)
     fig.update_yaxes(title_text=y_label)
     fig.update_traces(opacity=opacity)
+
+    fig = update_figure_layout(fig, title, size, show_legend)
 
     return save_show_return(fig, write_html_path, show)
