@@ -60,6 +60,11 @@ def make_subplots(
 
     subplot_titles = [subfig.layout.title.text for subfig in subfig_list]
 
+    subplot_axes_labels = [
+        [subfig.layout.xaxis.title.text for subfig in subfig_list],
+        [subfig.layout.yaxis.title.text for subfig in subfig_list],
+    ]
+
     specs: List[List[dict]] = [[{} for _ in range(shape[1])] for _ in range(shape[0])]
     n_missing_slots = int(np.prod(shape) - len(subfig_list))
     if n_missing_slots in range(1, shape[1]) and fill_row:
@@ -78,6 +83,12 @@ def make_subplots(
         col = idx % shape[1]
         for trace in traces:
             fig.append_trace(trace, row=row + 1, col=col + 1)
+        fig.update_xaxes(
+            title_text=subplot_axes_labels[0][idx], row=row + 1, col=col + 1
+        )
+        fig.update_yaxes(
+            title_text=subplot_axes_labels[1][idx], row=row + 1, col=col + 1
+        )
 
     fig.update_layout(showlegend=False)
     fig = update_figure_layout(fig, title, size)

@@ -31,6 +31,13 @@ def expected_histogram_grid_filled_row():
     )
 
 
+@pytest.fixture(scope="session")
+def expected_histogram_grid_axes_labels():
+    return joblib.load(
+        "tests/expected_figs/subplots/make_subplots/expected_histogram_grid_axes_labels.joblib"
+    )
+
+
 class TestSubplots:
     @staticmethod
     def test_subplots(expected_histogram_grid):
@@ -99,4 +106,28 @@ class TestSubplots:
         )
         np.testing.assert_equal(
             fig_to_array(fig), fig_to_array(expected_histogram_grid_filled_row)
+        )
+
+    @staticmethod
+    def test_subplots_axes_labels(expected_histogram_grid_axes_labels):
+        np.random.seed(42)
+        subfig_list = [
+            simple_histogram(
+                pd.Series(np.random.randn(100), name="a"),
+                show=False,
+                title=f"Histogram-{i}",
+                x_label=f"x-axis label-{i}",
+                y_label=f"y-axis label-{i}",
+            )
+            for i in range(1, 5)
+        ]
+        fig = make_subplots(
+            subfig_list,
+            shape=(2, 2),
+            title="Subplots with axes labels",
+            size=(800, 800),
+            show=False,
+        )
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(expected_histogram_grid_axes_labels)
         )
