@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/invia-flights/blitzly/compare/v0.3.1...v0.3.2) (2022-12-30)
+
+
+### Documentation
+
+* minor improvements ([#32](https://github.com/invia-flights/blitzly/issues/32)) ([9a262d9](https://github.com/invia-flights/blitzly/commit/9a262d9e543d9ae23b93b953417d2043f90f5eb3))
+
 ## [0.3.1](https://github.com/invia-flights/blitzly/compare/v0.3.0...v0.3.1) (2022-12-30)
 
 
