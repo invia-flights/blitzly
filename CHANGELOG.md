@@ -6,7 +6,6 @@
 ### Bug Fixes
 
 * raise numpy version to fix the issue with running the playground on colab ([c19c7b7](https://github.com/invia-flights/blitzly/commit/c19c7b78f912479aea97a7facf80ecd468e6fe29))
-* raise numpy version to fix the issue with running the playground on colab ([0db6a0e](https://github.com/invia-flights/blitzly/commit/0db6a0e94c018bad119c1bbc9bf40533848543aa))
 
 ## [0.3.0](https://github.com/invia-flights/blitzly/compare/v0.2.5...v0.3.0) (2022-12-30)
 
