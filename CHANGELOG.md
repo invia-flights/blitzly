@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3](https://github.com/invia-flights/blitzly/compare/v0.3.2...v0.3.3) (2022-12-30)
+
+
+### Bug Fixes
+
+* missing lines in dumbbell subplots ([#36](https://github.com/invia-flights/blitzly/issues/36)) ([6dcf76d](https://github.com/invia-flights/blitzly/commit/6dcf76d2d66b90772fa6e6ba2038516d05f7d104))
+
 ## [0.3.2](https://github.com/invia-flights/blitzly/compare/v0.3.1...v0.3.2) (2022-12-30)
 
 
