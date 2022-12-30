@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blitzly"
-version = "0.3.2"
+version = "0.3.3"
 description = "Lightning-fast way to get plots with Plotly"
 authors = ["Christopher Lemke <christopher.lemke@invia.de>", "Prem Srinivasan <prem.srinivasan@invia.de>"]
 packages = [{ include = "blitzly", from = "src" }]
