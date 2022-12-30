@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/invia-flights/blitzly/compare/v0.2.5...v0.3.0) (2022-12-30)
+
+
+### Features
+
+* add subplots ([8c537a3](https://github.com/invia-flights/blitzly/commit/8c537a318e6a02ff58f597ec5c9a9e287aac9d32))
+
 ## [0.2.5](https://github.com/invia-flights/blitzly/compare/v0.2.4...v0.2.5) (2022-12-22)
 
 
