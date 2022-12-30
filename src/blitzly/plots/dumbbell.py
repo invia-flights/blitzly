@@ -66,34 +66,31 @@ def simple_dumbbell(
     if isinstance(data, np.ndarray):
         data = pd.DataFrame(data)
 
-    fig = go.Figure(
-        data=[
-            go.Scatter(
-                x=data.iloc[:, 0],
-                y=data.index,
-                mode="markers",
-                name=data.columns[0],
-                **plotly_kwargs if plotly_kwargs else {},
-            ),
-            go.Scatter(
-                x=data.iloc[:, 1],
-                y=data.index,
-                mode="markers",
-                name=data.columns[1],
-                **plotly_kwargs if plotly_kwargs else {},
-            ),
-        ]
-    )
+    fig = go.Figure()
 
     for index, row in data.iterrows():
-        fig.add_shape(
-            type="line",
-            layer="below",
-            x0=row.iloc[0],
-            x1=row.iloc[1],
-            y0=index,
-            y1=index,
-            line=dict(width=marker_line_width),
+        fig.add_trace(
+            go.Scatter(
+                x=[row.iloc[0], row.iloc[1]],
+                y=[index, index],
+                mode="lines",
+                showlegend=False,
+                line={
+                    "color": "black",
+                    "width": marker_line_width,
+                },
+            )
+        )
+
+    for column_idx, column_name in enumerate(data.columns):
+        fig.add_trace(
+            go.Scatter(
+                x=data.iloc[:, column_idx],
+                y=data.index,
+                mode="markers",
+                name=column_name,
+                **plotly_kwargs if plotly_kwargs else {},
+            )
         )
 
     fig.update_traces(
