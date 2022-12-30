@@ -18,6 +18,9 @@
 ## Introduction 🎉
 Plotly is great and powerful. But with great power comes great responsibility 🕸. And sometimes you just want to get a plot up and running as fast as possible. That's where blitzly ⚡️ comes in. It provides a set of functions that allow you to create plots with Plotly in a lightning-fast way. It's not meant to replace Plotly, but rather to complement it.
 
+Check out some examples in the [Jupyter notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb):<br>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/invia-flights/blitzly/blob/main/examples/playground.ipynb)
+
 ## Install the package 📦
 If you are using [pip](https://pip.pypa.io/en/stable/), you can install the package with the following command:
 ```bash
@@ -56,7 +59,7 @@ poetry install
 | [`subplots`](https://invia-flights.github.io/blitzly/plots/subplots/) | [`make_subplots`](https://invia-flights.github.io/blitzly/plots/subplots/#blitzly.subplots.make_subplots) | Create subplots using figure objects created with any of the above available plots. |
 
 ## Usage 🤌
-Here are some examples. You can also check out the [playground notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) 📒.
+Here are some examples. You can also open the [playground notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) 📒.
 
 **[`multi_bar`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_bar):**
 ```python

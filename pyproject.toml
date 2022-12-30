@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "blitzly"
-version = "0.3.0"
+version = "0.3.1"
 description = "Lightning-fast way to get plots with Plotly"
 authors = ["Christopher Lemke <christopher.lemke@invia.de>", "Prem Srinivasan <prem.srinivasan@invia.de>"]
 packages = [{ include = "blitzly", from = "src" }]
@@ -27,7 +27,7 @@ python = ">=3.8,<3.12"
 
 plotly = "5.11.0"
 pandas = "1.5.2"
-numpy = "1.24.1"
+numpy = "1.23.5"
 nbformat = "5.7.1"
 scikit-learn = "1.2.0"
 

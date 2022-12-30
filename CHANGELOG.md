@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/invia-flights/blitzly/compare/v0.3.0...v0.3.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* raise numpy version to fix the issue with running the playground on colab ([c19c7b7](https://github.com/invia-flights/blitzly/commit/c19c7b78f912479aea97a7facf80ecd468e6fe29))
+
 ## [0.3.0](https://github.com/invia-flights/blitzly/compare/v0.2.5...v0.3.0) (2022-12-30)
 
 
