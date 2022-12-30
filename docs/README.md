@@ -49,6 +49,12 @@ poetry install
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`scatter_matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix) | Plots a scatter matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`multi_scatter`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.multi_scatter) | Create a multi scatter plot. It can be used to visualize the relationship between multiple variables from the same Pandas DataFrame. |
 
+### Subplots 👨‍👩‍👧‍👦
+
+| Module | Method | Description |
+| ------ | ------ | ----------- |
+| [`subplots`](https://invia-flights.github.io/blitzly/plots/subplots/) | [`make_subplots`](https://invia-flights.github.io/blitzly/plots/subplots/#blitzly.subplots.make_subplots) | Create subplots using figure objects created with any of the above available plots. |
+
 ## Usage 🤌
 Here are some examples. You can also check out the [playground notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) 📒.
 
@@ -96,10 +102,10 @@ Gives you this:
         diagonal_visible=False,
         marker_color_scale="Rainbow",
         marker_line_color="blue",
-        size=500,
+        size=(500, 500),
     )
 ```
-Gives you:
+Gives you this:
 
 <img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/scatter_matrix.png" alt="scatter-matrix plot" width="500" height="500"/>
 

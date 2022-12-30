@@ -59,7 +59,7 @@ class TestScatterMatrix:
 
         fig = scatter_matrix(
             df,
-            size=500,
+            size=(500, 500),
             show=False,
         )
         np.testing.assert_equal(

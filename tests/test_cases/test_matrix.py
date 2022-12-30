@@ -119,7 +119,9 @@ class TestPearsonCorrMatrix:
         valid_pearson_corr_matrix_without_label_with_size,
     ):
 
-        fig = pearson_corr_matrix(valid_pearson_corr_matrix_data, size=500, show=False)
+        fig = pearson_corr_matrix(
+            valid_pearson_corr_matrix_data, size=(500, 500), show=False
+        )
         np.testing.assert_equal(
             fig_to_array(fig),
             fig_to_array(valid_pearson_corr_matrix_without_label_with_size),
