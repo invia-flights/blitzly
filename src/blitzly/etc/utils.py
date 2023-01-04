@@ -109,6 +109,10 @@ def check_data(
         max_rows (Optional[int]): The maximum number of rows the data must have.
         min_columns (Optional[int]): The minimum number of columns the data must have.
         max_columns (Optional[int]): The maximum number of columns the data must have.
+        as_pandas (bool): Whether to keep data as or convert data to pd.DataFrame
+
+    Returns:
+        Union[pd.DataFrame, NDArray]: The data that passes all checks, and is converted to the required dtype.
 
     Raises:
         TypeError: If the data is not a DataFrame, numpy array, or list of values.
