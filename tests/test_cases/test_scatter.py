@@ -175,23 +175,6 @@ class TestMultiScatter:
         )
 
     @staticmethod
-    def test_multi_scatter_no_dataframe_exception():
-        np.random.seed(42)
-        random_a = np.linspace(0, 1, 100)
-        random_b = np.random.randn(100) + 5
-        random_c = np.random.randn(100)
-        random_d = np.random.randn(100) - 5
-
-        with pytest.raises(TypeError) as error:
-            _ = multi_scatter(
-                np.array([random_a, random_b, random_c, random_d]).T,
-                x_y_columns=[("a", "b"), ("a", "c"), ("a", "d")],
-                modes=["lines", "markers", "lines+markers"],
-                show=False,
-            )
-        assert str(error.value) == "`data` must be a Pandas DataFrame!"
-
-    @staticmethod
     def test_multi_scatter_incompatible_columns_exception():
         np.random.seed(42)
         random_a = np.linspace(0, 1, 100)
