@@ -1,6 +1,5 @@
 from typing import Optional, Tuple, Union
 
-import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from numpy.typing import NDArray
@@ -59,12 +58,7 @@ def simple_slope(
         BaseFigure: The slope plot.
     """
 
-    data = check_data(
-        data, min_rows=1, min_columns=2, max_columns=2, keep_as_pandas=True
-    )
-
-    if isinstance(data, np.ndarray):
-        data = pd.DataFrame(data)
+    data = check_data(data, min_rows=1, min_columns=2, max_columns=2, as_pandas=True)
 
     data_max = data.to_numpy().max()
     data_min = data.to_numpy().min()

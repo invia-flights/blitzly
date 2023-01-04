@@ -79,7 +79,7 @@ def check_data(
     max_rows: Optional[int] = None,
     min_columns: Optional[int] = None,
     max_columns: Optional[int] = None,
-    keep_as_pandas: bool = False,
+    as_pandas: bool = False,
 ) -> Union[NDArray[Any], pd.DataFrame, pd.Series]:
     """
     Checks if the data is valid for plotting. The function checks for:
@@ -109,6 +109,10 @@ def check_data(
         max_rows (Optional[int]): The maximum number of rows the data must have.
         min_columns (Optional[int]): The minimum number of columns the data must have.
         max_columns (Optional[int]): The maximum number of columns the data must have.
+        as_pandas (bool): Whether to keep data as or convert data to pd.DataFrame
+
+    Returns:
+        Union[pd.DataFrame, NDArray]: The data that passes all checks, and is converted to the required dtype.
 
     Raises:
         TypeError: If the data is not a DataFrame, numpy array, or list of values.
@@ -124,6 +128,9 @@ def check_data(
             Please choose between a DataFrame, numpy array, or list of values.
         """
         )
+
+    if isinstance(data, np.ndarray) and as_pandas:
+        df = pd.DataFrame(data)
 
     if isinstance(data, (pd.DataFrame, pd.Series)):
         df = data.copy()
@@ -160,7 +167,7 @@ def check_data(
     if max_columns and data.shape[1] > max_columns:
         raise ValueError(f"The data must have a maximum of {max_columns} column(s)!")
 
-    if "df" in locals() and keep_as_pandas:
+    if "df" in locals() and as_pandas:
         return df
 
     return data.copy()
