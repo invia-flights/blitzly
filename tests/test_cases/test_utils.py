@@ -68,10 +68,10 @@ class TestCheckData:
 
     @staticmethod
     def test_check_data_with_keep_as_pandas():
-        data = check_data(pd.DataFrame(np.array([[1, 2]])), keep_as_pandas=True)
+        data = check_data(pd.DataFrame(np.array([[1, 2]])), as_pandas=True)
         assert isinstance(data, pd.DataFrame)
 
     @staticmethod
     def test_check_data_with_convert_to_pandas():
-        data = check_data(np.array([[1, 2]]), keep_as_pandas=True)
+        data = check_data(np.array([[1, 2]]), as_pandas=True)
         assert isinstance(data, pd.DataFrame)

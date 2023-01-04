@@ -79,7 +79,7 @@ def check_data(
     max_rows: Optional[int] = None,
     min_columns: Optional[int] = None,
     max_columns: Optional[int] = None,
-    keep_as_pandas: bool = False,
+    as_pandas: bool = False,
 ) -> Union[NDArray[Any], pd.DataFrame, pd.Series]:
     """
     Checks if the data is valid for plotting. The function checks for:
@@ -125,7 +125,7 @@ def check_data(
         """
         )
 
-    if isinstance(data, np.ndarray) and keep_as_pandas:
+    if isinstance(data, np.ndarray) and as_pandas:
         df = pd.DataFrame(data)
 
     if isinstance(data, (pd.DataFrame, pd.Series)):
@@ -163,7 +163,7 @@ def check_data(
     if max_columns and data.shape[1] > max_columns:
         raise ValueError(f"The data must have a maximum of {max_columns} column(s)!")
 
-    if "df" in locals() and keep_as_pandas:
+    if "df" in locals() and as_pandas:
         return df
 
     return data.copy()

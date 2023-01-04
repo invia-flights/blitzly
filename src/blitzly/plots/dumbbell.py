@@ -58,9 +58,7 @@ def simple_dumbbell(
         BaseFigure: The dumbbell plot.
     """
 
-    data = check_data(
-        data, min_rows=1, min_columns=2, max_columns=2, keep_as_pandas=True
-    )
+    data = check_data(data, min_rows=1, min_columns=2, max_columns=2, as_pandas=True)
 
     fig = go.Figure()
 

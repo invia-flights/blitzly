@@ -162,7 +162,7 @@ def multi_scatter(
         BaseFigure: The multi scatter plot.
     """
 
-    df = check_data(data, min_rows=1, min_columns=1, keep_as_pandas=True)
+    df = check_data(data, min_rows=1, min_columns=1, as_pandas=True)
 
     if len([i for i in list(sum(x_y_columns, ())) if i not in df.columns]) > 0:
         raise ValueError(
