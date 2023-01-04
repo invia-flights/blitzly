@@ -164,9 +164,6 @@ def multi_scatter(
 
     df = check_data(data, min_rows=1, min_columns=1, keep_as_pandas=True)
 
-    if isinstance(df, pd.DataFrame) is False:
-        raise TypeError("`data` must be a Pandas DataFrame!")
-
     if len([i for i in list(sum(x_y_columns, ())) if i not in df.columns]) > 0:
         raise ValueError(
             f"""

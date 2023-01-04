@@ -125,6 +125,9 @@ def check_data(
         """
         )
 
+    if isinstance(data, np.ndarray) and keep_as_pandas:
+        df = pd.DataFrame(data)
+
     if isinstance(data, (pd.DataFrame, pd.Series)):
         df = data.copy()
         data = data.to_numpy()
