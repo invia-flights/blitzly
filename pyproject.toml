@@ -7,7 +7,7 @@ packages = [{ include = "blitzly", from = "src" }]
 readme = "docs/README.md"
 documentation = "https://invia-flights.github.io/blitzly"
 repository = "https://github.com/invia-flights/blitzly"
-license = "BSD 3-Clause"
+license = "MIT"
 
 classifiers = [
     "Topic :: Scientific/Engineering :: Information Analysis",
