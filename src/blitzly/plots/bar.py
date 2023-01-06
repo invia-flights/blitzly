@@ -11,6 +11,57 @@ from plotly.basedatatypes import BaseFigure
 from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
 
+def _check_data_ready_for_bar(
+    data: Union[pd.DataFrame, pd.Series, NDArray],
+    group_labels: List[str],
+    x_labels: List[str],
+    hover_texts: Optional[List[str]] = None,
+    errors: Optional[Union[pd.DataFrame, pd.Series, NDArray]] = None,
+) -> None:
+    """
+    Checks whether the data is ready for plotting.
+
+    Args:
+        data (Union[pd.DataFrame, pd.Series, NDArray]): The data to plot.
+        group_labels (List[str]): The labels for the groups.
+        x_labels (List[str]): The labels for the x-axis.
+        hover_texts (Optional[List[str]]): The hover texts for the data.
+        errors (Optional[Union[pd.DataFrame, pd.Series, NDArray]]): The errors for the data.
+
+    Raises:
+        ValueError: If the `data` is not at least two-dimensional.
+        ValueError: If the number of `group_labels` does not match the number of rows in the `data`.
+        ValueError: If the number of `x_labels` does not match the number of columns in the `data`.
+        ValueError: If the shape of the `errors` does not match the shape of the `data`.
+        ValueError: If the number of `hover_texts` does not match the number of columns in the `data`.
+    """
+
+    if data.ndim < 2:
+        raise ValueError(
+            f"The `data` must be at least two-dimensional! Got {data.ndim} dimension."
+        )
+
+    if data.shape[0] != len(group_labels):
+        raise ValueError(
+            f"The number of `group_labels` ({len(group_labels)}) does not match the number of rows in the `data` ({data.shape[0]})!"
+        )
+
+    if data.shape[1] != len(x_labels):
+        raise ValueError(
+            f"The number of `x_labels` ({len(x_labels)}) does not match the number of columns in the `data` ({data.shape[1]})!"
+        )
+
+    if isinstance(errors, np.ndarray) and data.shape != errors.shape:
+        raise ValueError(
+            f"The shape of the `errors` ({errors.shape}) does not match the shape of the `data` ({data.shape})!"
+        )
+
+    if hover_texts and len(hover_texts) != data.shape[1]:
+        raise ValueError(
+            f"The number of `hover_texts` ({len(hover_texts)}) does not match the number of columns in the `data` ({data.shape[1]})!"
+        )
+
+
 def multi_bar(
     data: Union[pd.DataFrame, pd.Series, NDArray],
     group_labels: List[str],
@@ -114,54 +165,3 @@ def multi_bar(
         fig, title, size, (show_legend and mark_x_labels is None)
     )
     return save_show_return(fig, write_html_path, show)
-
-
-def _check_data_ready_for_bar(
-    data: Union[pd.DataFrame, pd.Series, NDArray],
-    group_labels: List[str],
-    x_labels: List[str],
-    hover_texts: Optional[List[str]] = None,
-    errors: Optional[Union[pd.DataFrame, pd.Series, NDArray]] = None,
-) -> None:
-    """
-    Checks whether the data is ready for plotting.
-
-    Args:
-        data (Union[pd.DataFrame, pd.Series, NDArray]): The data to plot.
-        group_labels (List[str]): The labels for the groups.
-        x_labels (List[str]): The labels for the x-axis.
-        hover_texts (Optional[List[str]]): The hover texts for the data.
-        errors (Optional[Union[pd.DataFrame, pd.Series, NDArray]]): The errors for the data.
-
-    Raises:
-        ValueError: If the `data` is not at least two-dimensional.
-        ValueError: If the number of `group_labels` does not match the number of rows in the `data`.
-        ValueError: If the number of `x_labels` does not match the number of columns in the `data`.
-        ValueError: If the shape of the `errors` does not match the shape of the `data`.
-        ValueError: If the number of `hover_texts` does not match the number of columns in the `data`.
-    """
-
-    if data.ndim < 2:
-        raise ValueError(
-            f"The `data` must be at least two-dimensional! Got {data.ndim} dimension."
-        )
-
-    if data.shape[0] != len(group_labels):
-        raise ValueError(
-            f"The number of `group_labels` ({len(group_labels)}) does not match the number of rows in the `data` ({data.shape[0]})!"
-        )
-
-    if data.shape[1] != len(x_labels):
-        raise ValueError(
-            f"The number of `x_labels` ({len(x_labels)}) does not match the number of columns in the `data` ({data.shape[1]})!"
-        )
-
-    if isinstance(errors, np.ndarray) and data.shape != errors.shape:
-        raise ValueError(
-            f"The shape of the `errors` ({errors.shape}) does not match the shape of the `data` ({data.shape})!"
-        )
-
-    if hover_texts and len(hover_texts) != data.shape[1]:
-        raise ValueError(
-            f"The number of `hover_texts` ({len(hover_texts)}) does not match the number of columns in the `data` ({data.shape[1]})!"
-        )

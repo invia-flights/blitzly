@@ -13,6 +13,7 @@ repos:
             "ci",
             "docs",
             "feat",
+            "bug",
             "fix",
             "refactor",
             "revert",
@@ -21,6 +22,7 @@ repos:
             "perf",
             "resolve",
             "merge",
+            "maintain",
           ]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -40,6 +42,11 @@ repos:
       - id: debug-statements
       - id: fix-byte-order-marker
       - id: forbid-new-submodules
+
+  - repo: https://github.com/bwhmather/ssort
+    rev: v0.11.6
+    hooks:
+      - id: ssort
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.3.1

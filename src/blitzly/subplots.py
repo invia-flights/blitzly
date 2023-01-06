@@ -7,6 +7,26 @@ from plotly.basedatatypes import BaseFigure, BaseTraceType
 from blitzly.etc.utils import save_show_return, update_figure_layout
 
 
+def _check_shape_for_subplots(
+    subfig_list: List[BaseFigure], shape: Tuple[int, int]
+) -> None:
+    """
+    Checks whether the `shape` is compatible for making subplots.
+
+    Args:
+        subfig_list (List[BaseFigure]): A list of figure objects.
+        shape (Tuple[int, int]): The grid shape of the subplots.
+
+    Raises:
+        ValueError: If the provided `shape` is too small for the list of subfigures.
+    """
+
+    if len(subfig_list) > np.prod(shape):
+        raise ValueError(
+            f"The number of subfigures ({len(subfig_list)}) is too large for the provided `shape` {shape}."
+        )
+
+
 def make_subplots(
     subfig_list: List[BaseFigure],
     shape: Tuple[int, int],
@@ -107,23 +127,3 @@ def make_subplots(
     fig.update_layout(showlegend=False)
     fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
-
-
-def _check_shape_for_subplots(
-    subfig_list: List[BaseFigure], shape: Tuple[int, int]
-) -> None:
-    """
-    Checks whether the `shape` is compatible for making subplots.
-
-    Args:
-        subfig_list (List[BaseFigure]): A list of figure objects.
-        shape (Tuple[int, int]): The grid shape of the subplots.
-
-    Raises:
-        ValueError: If the provided `shape` is too small for the list of subfigures.
-    """
-
-    if len(subfig_list) > np.prod(shape):
-        raise ValueError(
-            f"The number of subfigures ({len(subfig_list)}) is too large for the provided `shape` {shape}."
-        )
