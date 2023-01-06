@@ -155,7 +155,7 @@ Let's go through the code step by step:
     ```
     **Nay!** 😢
 
-2. Every function in blitzly ⚡️ need to provide the following arguments:
+2. Every function in blitzly ⚡️ requires the following arguments:
     ```python
     plotly_kwargs: Optional[dict] = None,
     show: bool = True,
@@ -177,6 +177,6 @@ Let's go through the code step by step:
 
 9. Don't forget to write some meaningful unit tests. The tests should cover all possible use cases of the function and should be located in the `tests/test_cases` folder and should be named `test_<function_name_with_use_case>.py`.
 
-10. Documentation: Please add your new blitly ⚡️ plot to the list in the [`README.me`](https://github.com/invia-flights/blitzly#available-plots-so-far-) file. If you think your plot implementation is worth to be documented even more, feel free to add it together with a short description to the end of the [`playground.ipynb`](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) notebook.
+10. Documentation: Please add your new blitly ⚡️ plot to the list in the [`README.md`](https://github.com/invia-flights/blitzly#available-plots-so-far-) file. If you think your plot implementation is worth to be documented even more, feel free to add it together with a short description to the end of the [`playground.ipynb`](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) notebook.
 
-That's it! 🎉 Happy ploding! 📊👩‍💻 If you have any questions feel free to contact us!
+That's it! 🎉 Happy ploding (plotting + coding)! 📊👩‍💻 If you have any questions feel free to contact us!
