@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies and project
         run: |
           poetry env use python3.10
-          poetry install
+          poetry install --with dev
       - uses: pre-commit/action@v3.0.0
         env:
           SKIP: poetry-lock,poetry-export
