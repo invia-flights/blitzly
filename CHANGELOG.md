@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.4.0](https://github.com/invia-flights/blitzly/compare/v0.3.3...v0.4.0) (2023-01-06)
+
+
+### Features
+
+* add slope plots ([#38](https://github.com/invia-flights/blitzly/issues/38)) ([252358a](https://github.com/invia-flights/blitzly/commit/252358a7b6a6155f2298ce701630092d4e480c07))
+
+
+### CI/CD
+
+* enable caching ([#40](https://github.com/invia-flights/blitzly/issues/40)) ([d9e3220](https://github.com/invia-flights/blitzly/commit/d9e3220983c00c056ee404074b9c0b3377cffc7c))
+* fix code-cov action ([b2ede0e](https://github.com/invia-flights/blitzly/commit/b2ede0e3b51b8d69ae98eab4914aafb1dfb4e123))
+
+
+### Maintenance
+
+* `utils.check_data` ([#39](https://github.com/invia-flights/blitzly/issues/39)) ([f335f5a](https://github.com/invia-flights/blitzly/commit/f335f5a857f4e0b7ffbc244ce076968f7c35043f))
+* set dev dependencies to optional ([863e173](https://github.com/invia-flights/blitzly/commit/863e173ddbed22f0dc77aa2ec8afc68ad406d848))
+
+
+### Documentation
+
+* improve contributing.md and some minor improvements ([#41](https://github.com/invia-flights/blitzly/issues/41)) ([effc214](https://github.com/invia-flights/blitzly/commit/effc214bc0114e2aaf032d468c0373a3e8d3b2f5))
+
 ## [0.3.3](https://github.com/invia-flights/blitzly/compare/v0.3.2...v0.3.3) (2022-12-30)
 
 
