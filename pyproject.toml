@@ -7,12 +7,15 @@ packages = [{ include = "blitzly", from = "src" }]
 readme = "docs/README.md"
 documentation = "https://invia-flights.github.io/blitzly"
 repository = "https://github.com/invia-flights/blitzly"
-license = "BSD 3-Clause"
+license = "MIT"
+include = ["CHANGELOG.md"]
 
 classifiers = [
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
     "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Scientific/Engineering :: Visualization",
-    "Intended Audience :: Science/Research",
+    "Typing :: Typed",
 ]
 keywords = [
     "python",
@@ -21,6 +24,12 @@ keywords = [
     "plotly",
     "plotting",
 ]
+
+[tool.poetry.urls]
+Changelog = "https://github.com/invia-flights/blitzly/blob/main/CHANGELOG.md"
+Issues = "https://github.com/invia-flights/blitzly/issues"
+Discussions = "https://github.com/invia-flights/blitzly/discussions"
+Contributing = "https://github.com/invia-flights/blitzly/blob/main/docs/CONTRIBUTING.md"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
@@ -33,7 +42,7 @@ scikit-learn = "1.2.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
-pytest-cov = "4.0.0"
+pytest-cov = "^4.0.0"
 joblib = "1.2.0"
 pillow = "9.3.0"
 kaleido = "0.2.1"
@@ -46,14 +55,15 @@ mypy = "^0.991"
 pylint = "^2.15.9"
 pre-commit = "^2.20.0"
 nbstripout = "^0.6.1"
+ssort = "^0.11.6"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "1.4.2"
 mkdocstrings = {extras = ["python"], version = "0.19.1"}
-mkdocs-material = "8.5.11"
+mkdocs-material = "9.0.2"
 
 [tool.poetry.group.dev]
-optional = false
+optional = true
 
 [tool.poetry.group.test]
 optional = true
