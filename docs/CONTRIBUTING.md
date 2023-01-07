@@ -7,7 +7,7 @@ We are using [Poetry](https://python-poetry.org/) to manage the dependencies, fo
 
 If you want to start working on the project. The first thing you have to do is:
 ```bash
-poetry install --with test
+poetry install --with dev --with test
 ```
 This installs all needed dependencies for development and testing.
 
