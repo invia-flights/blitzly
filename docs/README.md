@@ -5,7 +5,6 @@
 [![DeployPackage](https://github.com/invia-flights/blitzly/actions/workflows/deploy-package.yml/badge.svg)](https://github.com/invia-flights/blitzly/actions/workflows/deploy-package.yml)
 [![Testing](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml/badge.svg?branch=main)](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml)
 [![codecov](https://codecov.io/gh/invia-flights/blitzly/branch/develop/graph/badge.svg?token=ROCDJJV8JV)](https://codecov.io/gh/invia-flights/blitzly)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/invia-flights/blitzly/blob/main/examples/playground.ipynb)
 [![pypi](https://img.shields.io/pypi/v/blitzly)](https://pypi.org/project/blitzly/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/blitzly)](https://pypistats.org/packages/blitzly)
 [![python version](https://img.shields.io/pypi/pyversions/blitzly?logo=python&logoColor=yellow)](https://www.python.org/downloads/)
