@@ -21,8 +21,8 @@ def simple_histogram(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Create a simple histogram from a pandas DataFrame, numpy array, or list of values.
+    """Create a simple histogram from a pandas DataFrame, numpy array, or list
+    of values.
 
     Example:
     ```python

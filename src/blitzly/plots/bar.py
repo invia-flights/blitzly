@@ -18,8 +18,7 @@ def _check_data_ready_for_bar(
     hover_texts: Optional[List[str]] = None,
     errors: Optional[Union[pd.DataFrame, pd.Series, NDArray]] = None,
 ) -> None:
-    """
-    Checks whether the data is ready for plotting.
+    """Checks whether the data is ready for plotting.
 
     Args:
         data (Union[pd.DataFrame, pd.Series, NDArray]): The data to plot.
@@ -79,10 +78,10 @@ def multi_bar(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Creates a bar chart with multiple groups. Each group is represented by a bar. The bars are grouped by the x-axis.
-    The number of `group_labels` must be equal to the number of rows in the data.
-    The number of `x_labels` must be equal to the number of columns in the data.
+    """Creates a bar chart with multiple groups. Each group is represented by a
+    bar. The bars are grouped by the x-axis. The number of `group_labels` must
+    be equal to the number of rows in the data. The number of `x_labels` must
+    be equal to the number of columns in the data.
 
     Example:
     ```python

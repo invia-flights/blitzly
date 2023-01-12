@@ -10,8 +10,7 @@ from blitzly.etc.utils import save_show_return, update_figure_layout
 def _check_shape_for_subplots(
     subfig_list: List[BaseFigure], shape: Tuple[int, int]
 ) -> None:
-    """
-    Checks whether the `shape` is compatible for making subplots.
+    """Checks whether the `shape` is compatible for making subplots.
 
     Args:
         subfig_list (List[BaseFigure]): A list of figure objects.
@@ -42,10 +41,10 @@ def make_subplots(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Creates subplots using a provided list of figure objects.
-    `plotly.subplots.make_subplots` requires the use of traces. This function is an
-    alternative implementation that directly uses previously-created figure objects.
+    """Creates subplots using a provided list of figure objects.
+    `plotly.subplots.make_subplots` requires the use of traces. This function
+    is an alternative implementation that directly uses previously-created
+    figure objects.
 
     Example:
     ```python
