@@ -51,8 +51,10 @@ poetry install
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`pearson_corr_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.pearson_corr_matrix) | Plots a Pearson product-moment correlation coefficients matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`scatter_matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix) | Plots a scatter matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`multi_scatter`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.multi_scatter) | Create a multi scatter plot. It can be used to visualize the relationship between multiple variables from the same Pandas DataFrame. |
+| [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`dimensionality_reduction`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.dimensionality_reduction) | Creates a plot to visualize higher dimensionality reduced data using matrix decomposition |
 
-### Subplots 👨‍👩‍👧‍👦
+
+### Subplots 👩‍👩‍👧‍👦
 
 | Module | Method | Description |
 | ------ | ------ | ----------- |
@@ -60,6 +62,23 @@ poetry install
 
 ## Usage 🤌
 Here are some examples. You can also open the [playground notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) 📒.
+
+**[`dimensionality_reduction`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.scatter.dimensionality_reduction):**
+```python
+from blitzly.plots.scatter import dimensionality_reduction
+import plotly.express as px
+
+df = px.data.iris()
+fig = dimensionality_reduction(
+    df,
+    n_components=2,
+    target_column="species",
+    reduction_funcs=["PCA", "TNSE"],
+)
+```
+Gives you this:
+<img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/dimensionality_reduction.png" alt="dimensionality reduction plot" width="1000" height="555"/>
+
 
 **[`multi_bar`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_bar):**
 ```python
@@ -80,7 +99,6 @@ multi_bar(
 )
 ```
 Gives you this:
-
 <img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/multi_bars.png" alt="multi bars plot" width="1000" height="555"/>
 
 **[`scatter matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix):**
@@ -109,7 +127,6 @@ Gives you this:
     )
 ```
 Gives you this:
-
 <img src="https://github.com/invia-flights/blitzly/raw/main/docs/assets/images/example_plots/scatter_matrix.png" alt="scatter-matrix plot" width="500" height="500"/>
 
 ## Contributing 👩‍💻
