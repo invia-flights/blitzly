@@ -50,30 +50,80 @@ def expected_multi_scatter_with_valid_values_size():
 
 
 @pytest.fixture(scope="session")
-def expected_dimensionality_reduction_with_valid_values():
+def expected_dimensionality_reduction_with_valid_values_2d():
     return joblib.load(
-        "tests/expected_figs/scatter/dimensionality_reduction/expected_with_valid_values.joblib"
+        "tests/expected_figs/scatter/dimensionality_reduction/expected_with_valid_values_2d.joblib"
+    )
+
+
+@pytest.fixture(scope="session")
+def expected_dimensionality_reduction_with_valid_values_3d():
+    return joblib.load(
+        "tests/expected_figs/scatter/dimensionality_reduction/expected_with_valid_values_3d.joblib"
+    )
+
+
+@pytest.fixture(scope="session")
+def expected_dimensionality_reduction_with_valid_values_2d_tsne():
+    return joblib.load(
+        "tests/expected_figs/scatter/dimensionality_reduction/expected_with_valid_values_2d_tsne.joblib"
     )
 
 
 class TestDimensionalityReductionScatter:
     @staticmethod
-    def test_dimensionality_reduction_with_valid_values(
-        expected_dimensionality_reduction_with_valid_values,
+    def test_dimensionality_reduction_with_valid_values_2d(
+        expected_dimensionality_reduction_with_valid_values_2d,
     ):
         df = px.data.iris()
         fig = dimensionality_reduction(
             df,
             n_components=2,
             target_column="species",
-            reduction_funcs="PCA",
+            reduction_funcs=["PCA", "PCA", "PCA"],
             reduction_func_kwargs={"random_state": 42},
             show=False,
         )
 
         np.testing.assert_equal(
             fig_to_array(fig),
-            fig_to_array(expected_dimensionality_reduction_with_valid_values),
+            fig_to_array(expected_dimensionality_reduction_with_valid_values_2d),
+        )
+
+    @staticmethod
+    def test_dimensionality_reduction_with_valid_values_2d_tsne(
+        expected_dimensionality_reduction_with_valid_values_2d_tsne,
+    ):
+        df = px.data.iris()
+        fig = dimensionality_reduction(
+            df,
+            n_components=2,
+            target_column="species",
+            reduction_funcs=["TSNE", "TSNE"],
+            show=False,
+        )
+
+        np.testing.assert_equal(
+            fig_to_array(fig),
+            fig_to_array(expected_dimensionality_reduction_with_valid_values_2d_tsne),
+        )
+
+    @staticmethod
+    def test_dimensionality_reduction_with_valid_values_3d(
+        expected_dimensionality_reduction_with_valid_values_3d,
+    ):
+        df = px.data.iris()
+        fig = dimensionality_reduction(
+            df,
+            n_components=3,
+            target_column="species",
+            reduction_funcs=["PCA"],
+            show=False,
+        )
+
+        np.testing.assert_equal(
+            fig_to_array(fig),
+            fig_to_array(expected_dimensionality_reduction_with_valid_values_3d),
         )
 
     @staticmethod

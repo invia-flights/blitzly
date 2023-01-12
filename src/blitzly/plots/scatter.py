@@ -99,7 +99,7 @@ def dimensionality_reduction(
     numerical_df = scaler.fit_transform(numerical_df)
 
     plots = []
-    for func in set(reduction_funcs):
+    for func in reduction_funcs:
 
         if func not in func_list:
             raise ValueError(
@@ -146,7 +146,7 @@ def dimensionality_reduction(
     else:
         shape = (len_plots // 2 + 1, 2)
 
-    show_legend = show_legend if show_legend and len(plots)==1 else False
+    show_legend = show_legend if show_legend and len(plots) == 1 else False
 
     fig = (
         make_subplots(
