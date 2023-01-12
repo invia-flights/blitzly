@@ -1,9 +1,14 @@
 import joblib
 import numpy as np
 import pandas as pd
+import plotly.express as px
 import pytest
 
-from blitzly.plots.scatter import multi_scatter, scatter_matrix
+from blitzly.plots.scatter import (
+    dimensionality_reduction,
+    multi_scatter,
+    scatter_matrix,
+)
 from tests.helper import fig_to_array
 
 # pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name, disallowed-name
@@ -42,6 +47,146 @@ def expected_multi_scatter_with_valid_values_size():
     return joblib.load(
         "tests/expected_figs/scatter/multi_scatter/expected_multi_scatter_with_valid_values_size.joblib"
     )
+
+
+@pytest.fixture(scope="session")
+def expected_dimensionality_reduction_with_valid_values_2d():
+    return joblib.load(
+        "tests/expected_figs/scatter/dimensionality_reduction/expected_with_valid_values_2d.joblib"
+    )
+
+
+@pytest.fixture(scope="session")
+def expected_dimensionality_reduction_with_valid_values_3d():
+    return joblib.load(
+        "tests/expected_figs/scatter/dimensionality_reduction/expected_with_valid_values_3d.joblib"
+    )
+
+
+@pytest.fixture(scope="session")
+def expected_dimensionality_reduction_with_valid_values_2d_tsne():
+    return joblib.load(
+        "tests/expected_figs/scatter/dimensionality_reduction/expected_with_valid_values_2d_tsne.joblib"
+    )
+
+
+class TestDimensionalityReductionScatter:
+    @staticmethod
+    def test_dimensionality_reduction_with_valid_values_2d(
+        expected_dimensionality_reduction_with_valid_values_2d,
+    ):
+        df = px.data.iris()
+        fig = dimensionality_reduction(
+            df,
+            n_components=2,
+            target_column="species",
+            reduction_funcs=["PCA", "PCA", "PCA"],
+            reduction_func_kwargs={"random_state": 42},
+            show=False,
+        )
+
+        np.testing.assert_equal(
+            fig_to_array(fig),
+            fig_to_array(expected_dimensionality_reduction_with_valid_values_2d),
+        )
+
+    @staticmethod
+    def test_dimensionality_reduction_with_valid_values_2d_tsne(
+        expected_dimensionality_reduction_with_valid_values_2d_tsne,
+    ):
+        df = px.data.iris()
+        fig = dimensionality_reduction(
+            df,
+            n_components=2,
+            target_column="species",
+            reduction_funcs=["TSNE", "TSNE"],
+            show=False,
+        )
+
+        np.testing.assert_equal(
+            fig_to_array(fig),
+            fig_to_array(expected_dimensionality_reduction_with_valid_values_2d_tsne),
+        )
+
+    @staticmethod
+    def test_dimensionality_reduction_with_valid_values_3d(
+        expected_dimensionality_reduction_with_valid_values_3d,
+    ):
+        df = px.data.iris()
+        fig = dimensionality_reduction(
+            df,
+            n_components=3,
+            target_column="species",
+            reduction_funcs=["PCA"],
+            show=False,
+        )
+
+        np.testing.assert_equal(
+            fig_to_array(fig),
+            fig_to_array(expected_dimensionality_reduction_with_valid_values_3d),
+        )
+
+    @staticmethod
+    def test_dimensionality_reduction_with_reduction_func_exception():
+        df = px.data.iris()[:10]
+        with pytest.raises(ValueError) as error:
+            _ = dimensionality_reduction(
+                df,
+                n_components=2,
+                target_column="species",
+                reduction_funcs="not_a_func",
+                show=False,
+            )
+        assert (
+            str(error.value)
+            == "reduction_func must be one of ['NMF', 'PCA', 'IncrementalPCA', 'KernelPCA', 'MiniBatchSparsePCA', 'SparsePCA', 'TruncatedSVD', 'TSNE']! `not_a_func` not supported."
+        )
+
+    @staticmethod
+    def test_dimensionality_reduction_with_invalid_n_components_exception():
+        df = px.data.iris()[:10]
+        with pytest.raises(ValueError) as error:
+            _ = dimensionality_reduction(
+                df,
+                target_column="species",
+                n_components=5,
+                reduction_funcs=["PCA"],
+                show=False,
+            )
+        assert str(error.value) == "`n_components` must be 2 or 3!"
+
+    @staticmethod
+    def test_dimensionality_reduction_with_invalid_scaler_func_exception():
+        df = px.data.iris()[:10]
+        with pytest.raises(ValueError) as error:
+            _ = dimensionality_reduction(
+                df,
+                target_column="species",
+                n_components=5,
+                reduction_funcs="PCA",
+                scaler_func="not_a_func",
+                show=False,
+            )
+        assert (
+            str(error.value)
+            == "scaler_func must be one of ['StandardScaler', 'MinMaxScaler]! `not_a_func` not supported."
+        )
+
+    @staticmethod
+    def test_dimensionality_reduction_dimension_with_warning():
+        df = px.data.iris()
+        with pytest.raises(Warning) as warning:
+            _ = dimensionality_reduction(
+                df,
+                n_components=3,
+                target_column="species",
+                reduction_funcs=["PCA", "TSNE"],
+                show=False,
+            )
+        assert (
+            str(warning.value)
+            == "Cannot plot more than one plot in 3D! Please either set `n_components` to 2 or `reduction_funcs` to one function."
+        )
 
 
 class TestScatterMatrix:
