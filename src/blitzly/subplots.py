@@ -36,6 +36,7 @@ def make_subplots(
     shared_xaxes: bool = False,
     shared_yaxes: bool = False,
     plotly_kwargs: Optional[dict] = None,
+    show_legend: bool = False,
     size: Optional[Tuple[int, int]] = None,
     show: bool = True,
     write_html_path: Optional[str] = None,
@@ -67,6 +68,7 @@ def make_subplots(
         shared_xaxes (bool): Share the x-axis labels along each column.
         shared_yaxes (bool): Share the y-axis labels along each row.
         plotly_kwargs (Optional[dict]): Additional keyword arguments to pass to Plotly `subplots.make_subplots`.
+        show_legend (bool): Whether to show the legend.
         size (Optional[Tuple[int, int]): Size of the plot.
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
@@ -124,6 +126,6 @@ def make_subplots(
             title_text=subplot_axes_labels[1][idx], row=row + 1, col=col + 1
         )
 
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=show_legend)
     fig = update_figure_layout(fig, title, size)
     return save_show_return(fig, write_html_path, show)
