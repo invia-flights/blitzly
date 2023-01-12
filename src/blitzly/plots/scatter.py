@@ -139,12 +139,7 @@ def dimensionality_reduction(
         plots.append(update_figure_layout(fig, title + f" ({func})", size=None))
 
     len_plots = len(plots)
-    if len_plots == 1:
-        shape = (1, 1)
-    elif len_plots % 2 == 0:
-        shape = (len_plots // 2, 2)
-    else:
-        shape = (len_plots // 2 + 1, 2)
+    shape = (int(np.ceil(len_plots / 2)), min(len_plots, 2))
 
     show_legend = show_legend if show_legend and len(plots) == 1 else False
 
