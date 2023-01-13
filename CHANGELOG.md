@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.5.0](https://github.com/invia-flights/blitzly/compare/v0.4.0...v0.5.0) (2023-01-13)
+
+
+### Features
+
+* add dimensionality_reduction ([#44](https://github.com/invia-flights/blitzly/issues/44)) ([170c39a](https://github.com/invia-flights/blitzly/commit/170c39ac4ea2c005d4e3d928389c0fb4c8c6f0ad))
+
+
+### Documentation
+
+* small fixes in the documentation ([9ba1f0c](https://github.com/invia-flights/blitzly/commit/9ba1f0c9e0ceca4967705072f63be095d69dc898))
+
+
+### Maintenance
+
+* add more pre-commit hooks ([#45](https://github.com/invia-flights/blitzly/issues/45)) ([6bcb05c](https://github.com/invia-flights/blitzly/commit/6bcb05c63f44515f1ceb83edc528b20f7a3f3b98))
+
+
+### CI/CD
+
+* add github action `reset-develop` ([#46](https://github.com/invia-flights/blitzly/issues/46)) ([3b20cb9](https://github.com/invia-flights/blitzly/commit/3b20cb9ba037c282e52237d70a7706ab3f6fdd09))
+
 ## [0.4.0](https://github.com/invia-flights/blitzly/compare/v0.3.3...v0.4.0) (2023-01-06)
 
 
