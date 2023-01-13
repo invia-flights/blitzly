@@ -10,8 +10,8 @@ def save_show_return(
     fig: BaseFigure, write_html_path: Optional[str] = None, show: bool = True
 ) -> BaseFigure:
 
-    """
-    Saves the figure if needed, shows the figure if needed, and returns a it.
+    """Saves the figure if needed, shows the figure if needed, and returns a
+    it.
 
     Args:
         fig (BaseFigure): The Plotly figure.
@@ -38,8 +38,8 @@ def update_figure_layout(
     show_scale: Optional[bool] = None,
 ) -> BaseFigure:
 
-    """
-    Updates the figure by setting the title and also scales the plot to the given size.
+    """Updates the figure by setting the title and also scales the plot to the
+    given size.
 
     Args:
         fig (BaseFigure): The Plotly figure.
@@ -81,8 +81,7 @@ def check_data(
     max_columns: Optional[int] = None,
     as_pandas: bool = False,
 ) -> Union[NDArray[Any], pd.DataFrame, pd.Series]:
-    """
-    Checks if the data is valid for plotting. The function checks for:
+    """Checks if the data is valid for plotting. The function checks for:
 
     - The data is a DataFrame or numpy array of values.
 

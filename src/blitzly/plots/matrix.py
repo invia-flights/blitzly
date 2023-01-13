@@ -25,8 +25,7 @@ def binary_confusion_matrix(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Creates a confusion matrix for binary classification.
+    """Creates a confusion matrix for binary classification.
 
     Example:
     ```python

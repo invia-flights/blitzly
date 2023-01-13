@@ -29,10 +29,11 @@ def dimensionality_reduction(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Create a scatter plot of the dimensionality reduction representation of the data provided.
-    Multiple dimensionality reduction functions can be used. The data is scaled using the `scaler_func`.
-    If multiple functions are used, the plots are arranged in a grid using
+    """Create a scatter plot of the dimensionality reduction representation of
+    the data provided. Multiple dimensionality reduction functions can be used.
+    The data is scaled using the `scaler_func`. If multiple functions are used,
+    the plots are arranged in a grid using.
+
     [`make_subplots`](https://invia-flights.github.io/blitzly/plots/subplots/#blitzly.subplots.make_subplots) from blitzly ⚡️.
 
     Example:
@@ -63,7 +64,6 @@ def dimensionality_reduction(
         show (bool): Whether to show the figure.
         write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
             If None, the histogram will not be saved.
-
     """
 
     func_list = [
@@ -175,11 +175,11 @@ def scatter_matrix(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Create a scatter matrix plot. It can be used to visualize the relationship between multiple variables.
-    The scatter matrix is a grid of scatter plots, one for each pair of variables in the data. The diagonal
-    plots are histograms of the corresponding variables. It is also useful for visualizing the distribution of each
-    variable.
+    """Create a scatter matrix plot. It can be used to visualize the
+    relationship between multiple variables. The scatter matrix is a grid of
+    scatter plots, one for each pair of variables in the data. The diagonal
+    plots are histograms of the corresponding variables. It is also useful for
+    visualizing the distribution of each variable.
 
     Example:
     ```python
@@ -269,9 +269,8 @@ def multi_scatter(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Create a multi scatter plot. It can be used to visualize the relationship between
-    multiple variables from the same Pandas DataFrame.
+    """Create a multi scatter plot. It can be used to visualize the
+    relationship between multiple variables from the same Pandas DataFrame.
 
     Example:
     ```python
