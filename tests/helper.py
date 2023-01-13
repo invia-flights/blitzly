@@ -8,8 +8,7 @@ from plotly.graph_objects import Figure
 
 
 def fig_to_array(fig: Figure) -> NDArray[Any]:
-    """
-    Convert a plotly figure to a numpy array.
+    """Convert a plotly figure to a numpy array.
 
     Args:
         fig (plotly.graph_objects.Figure): The plotly figure which should be converted.

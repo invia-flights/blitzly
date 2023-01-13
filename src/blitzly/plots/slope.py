@@ -20,11 +20,10 @@ def simple_slope(
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
 
-    """
-    Creates a slope plot. These are useful to show the difference between
+    """Creates a slope plot. These are useful to show the difference between
     two sets of data which have the same categories. For instance, it can be
-    used to compare two binary classifiers by plotting the various classification
-    metrics.
+    used to compare two binary classifiers by plotting the various
+    classification metrics.
 
     Example:
     ```python
