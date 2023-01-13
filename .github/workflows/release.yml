@@ -15,3 +15,26 @@ jobs:
           default-branch: main
           pull-request-header: ":robot: I have created a release *beep* *boop*. This was predictable."
           changelog-types: '[{"type":"maintain","section":"Maintenance","hidden":false},{"type":"resolve","section":"Miscellaneous","hidden":true},{"type":"add","section":"Features","hidden":false},{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"bug","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":true},{"type":"test","section":"Tests","hidden":false},{"type":"ci","section":"CI/CD","hidden":false},{"type":"refactor","section":"Maintenance","hidden":false},{"type":"perf","section":"Maintenance","hidden":false},{"type":"revert","section":"Maintenance","hidden":true},{"type":"docs","section":"Documentation","hidden":false},{"type":"security","section":"Security","hidden":false}]'
+
+  reset-develop:
+    if: ${{ startsWith(github.event.head_commit.message, 'chore(main)') }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Git checkout main
+      uses: actions/checkout@v3
+      with:
+        ref: main
+    - name: Git checkout develop
+      uses: actions/checkout@v3
+      with:
+        ref: develop
+    - name: Git reset develop
+      run: |
+        git --version
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git status
+        git branch -a
+        git log -n 5 --oneline
+        git reset --hard remotes/origin/main
+        git push --force-with-lease
