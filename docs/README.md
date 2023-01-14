@@ -63,17 +63,17 @@ poetry install
 ## Usage 🤌
 Here are some examples. You can also open the [playground notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) 📒.
 
-**[`dimensionality_reduction`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.scatter.dimensionality_reduction):**
+**[`dimensionality_reduction`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.dimensionality_reduction):**
 ```python
 from blitzly.plots.scatter import dimensionality_reduction
 import plotly.express as px
 
 df = px.data.iris()
-fig = dimensionality_reduction(
-    df,
-    n_components=2,
-    target_column="species",
-    reduction_funcs=["PCA", "TNSE"],
+dimensionality_reduction(
+  df,
+  n_components=2,
+  target_column="species",
+  reduction_funcs=["PCA", "TNSE"],
 )
 ```
 Gives you this:

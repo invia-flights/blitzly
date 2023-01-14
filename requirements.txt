@@ -302,9 +302,9 @@ pyrsistent==0.19.3 ; python_version >= "3.8" and python_version < "3.12" \
 python-dateutil==2.8.2 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86 \
     --hash=sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9
-pytz==2022.7 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:7ccfae7b4b2c067464a6733c6261673fdb8fd1be905460396b97a073e9fa683a \
-    --hash=sha256:93007def75ae22f7cd991c84e02d434876818661f8df9ad5df9e950ff4e52cfd
+pytz==2022.7.1 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0 \
+    --hash=sha256:78f4f37d8198e0627c5f1143240bb0206b8691d8d7ac6d78fee88b78733f8c4a
 pywin32==305 ; sys_platform == "win32" and platform_python_implementation != "PyPy" and python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:109f98980bfb27e78f4df8a51a8198e10b0f347257d1e265bb1a32993d0c973d \
     --hash=sha256:13362cc5aa93c2beaf489c9c9017c793722aeb56d3e5166dadd5ef82da021fe1 \
