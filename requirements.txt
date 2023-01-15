@@ -446,9 +446,8 @@ typing-extensions==4.4.0 ; python_version >= "3.8" and python_version < "3.12" \
 virtualenv==20.17.1 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:ce3b1684d6e1a20a3e5ed36795a97dfc6af29bc3970ca8dab93e11ac6094b3c4 \
     --hash=sha256:f8b927684efc6f1cc206c9db297a570ab9ad0e51c16fa9e45487d36d1905c058
-wcwidth==0.2.5 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784 \
-    --hash=sha256:c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83
+wcwidth==0.2.6 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0
 wrapt==1.14.1 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:00b6d4ea20a906c0ca56d84f93065b398ab74b927a7a3dbd470f6fc503f95dc3 \
     --hash=sha256:01c205616a89d09827986bc4e859bcabd64f5a0662a7fe95e0d359424e0e071b \

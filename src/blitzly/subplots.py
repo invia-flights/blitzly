@@ -62,7 +62,7 @@ def make_subplots(
         subfig_list (List[BaseFigure]): A list of figure objects.
         shape (Tuple[int, int]): The grid shape of the subplots.
         title (str): Title of the plot.
-        column_width (Optional[List[float]]): The width of each column in the subplot grid.
+        column_widths (Optional[List[float]]): The width of each column in the subplot grid.
         fill_row (bool): If True, resize the last subplot in the grid to fill the row.
         shared_xaxes (bool): Share the x-axis labels along each column.
         shared_yaxes (bool): Share the y-axis labels along each row.
