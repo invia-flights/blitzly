@@ -112,7 +112,7 @@ def make_subplots(
         row = idx // shape[1]
         col = idx % shape[1]
         for trace in traces:
-            fig.append_trace(trace, row=row + 1, col=col + 1)
+            fig.add_trace(trace, row=row + 1, col=col + 1)
 
         if row != shape[0] - 1 and shared_xaxes:
             subplot_axes_labels[0][idx] = ""
