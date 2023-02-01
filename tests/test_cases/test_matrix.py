@@ -91,7 +91,6 @@ class TestPearsonCorrMatrix:
     def test_matrix_with_valid_pandas_data(
         valid_pearson_corr_matrix_data, valid_pearson_corr_matrix_from_pandas
     ):
-
         df = pd.DataFrame(
             valid_pearson_corr_matrix_data, columns=["foo", "bar", "blitzly"]
         )
@@ -105,7 +104,6 @@ class TestPearsonCorrMatrix:
     def test_matrix_with_valid_numpy_data_with_label(
         valid_pearson_corr_matrix_data, valid_pearson_corr_matrix_from_pandas
     ):
-
         fig = pearson_corr_matrix(
             valid_pearson_corr_matrix_data, labels=["foo", "bar", "blitzly"], show=False
         )
@@ -118,7 +116,6 @@ class TestPearsonCorrMatrix:
         valid_pearson_corr_matrix_data,
         valid_pearson_corr_matrix_without_label_with_size,
     ):
-
         fig = pearson_corr_matrix(
             valid_pearson_corr_matrix_data, size=(500, 500), show=False
         )

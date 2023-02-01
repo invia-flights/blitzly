@@ -24,7 +24,6 @@ def binary_confusion_matrix(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Creates a confusion matrix for binary classification.
 
     Example:
@@ -99,7 +98,6 @@ def pearson_corr_matrix(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """
     Creates Pearson product-moment correlation coefficients matrix
     using NumPy's [`corrcoef`](https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html#numpy-corrcoef) function.
