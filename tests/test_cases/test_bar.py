@@ -1,8 +1,12 @@
 import joblib
 import numpy as np
+import pandas as pd
 import pytest
+from sklearn.datasets import make_classification
+from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestClassifier
+from sklearn.model_selection import train_test_split
 
-from blitzly.plots.bar import multi_bar
+from blitzly.plots.bar import model_feature_importances, multi_bar
 from tests.helper import fig_to_array
 
 # pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name
@@ -23,6 +27,108 @@ def expected_2d_numpy_highlighted():
     return joblib.load(
         "tests/expected_figs/bar/multi_chart/2d_numpy_with_error_highlighted.joblib"
     )
+
+
+@pytest.fixture(scope="session")
+def expected_model_feature_importances_horizontal():
+    return joblib.load(
+        "tests/expected_figs/bar/model_feature_importances/expected_model_feature_importances_horizontal.joblib"
+    )
+
+
+@pytest.fixture(scope="session")
+def expected_model_feature_importances_vertical():
+    return joblib.load(
+        "tests/expected_figs/bar/model_feature_importances/expected_model_feature_importances_vertical.joblib"
+    )
+
+
+class TestFeatureImportancesChart:
+    @staticmethod
+    def test_feature_importances_chart_horizontal(
+        expected_model_feature_importances_horizontal,
+    ):
+        X, y = make_classification(
+            n_samples=10,
+            n_features=4,
+            n_informative=2,
+            n_redundant=0,
+            random_state=42,
+            shuffle=False,
+        )
+
+        X = pd.DataFrame(X, columns=["foo", "bar", "blitz", "licht"])
+        y = pd.Series(y)
+
+        X_train, X_test, y_train, _ = train_test_split(
+            X, y, random_state=42, shuffle=False
+        )
+
+        model = RandomForestClassifier(random_state=42)
+        model.fit(X_train, y_train)
+
+        fig = model_feature_importances(X_test, model, show=False)
+        np.testing.assert_equal(
+            fig_to_array(fig),
+            fig_to_array(expected_model_feature_importances_horizontal),
+        )
+
+    @staticmethod
+    def test_feature_importances_chart_vertical(
+        expected_model_feature_importances_vertical,
+    ):
+        X, y = make_classification(
+            n_samples=10,
+            n_features=4,
+            n_informative=2,
+            n_redundant=0,
+            random_state=42,
+            shuffle=False,
+        )
+
+        X = pd.DataFrame(X, columns=["foo", "bar", "blitz", "licht"])
+        y = pd.Series(y)
+
+        X_train, X_test, y_train, _ = train_test_split(
+            X, y, random_state=42, shuffle=False
+        )
+
+        model = RandomForestClassifier(random_state=42)
+        model.fit(X_train, y_train)
+
+        fig = model_feature_importances(X_test, model, horizontal=False, show=False)
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(expected_model_feature_importances_vertical)
+        )
+
+    @staticmethod
+    def test_feature_importances_chart_exception():
+        with pytest.raises(AttributeError) as error:
+            X, y = make_classification(
+                n_samples=10,
+                n_features=4,
+                n_informative=2,
+                n_redundant=0,
+                random_state=42,
+                shuffle=False,
+            )
+
+            X = pd.DataFrame(X, columns=["foo", "bar", "blitz", "licht"])
+            y = pd.Series(y)
+
+            X_train, X_test, y_train, _ = train_test_split(
+                X, y, random_state=42, shuffle=False
+            )
+
+            model = HistGradientBoostingRegressor(random_state=42)
+            model.fit(X_train, y_train)
+
+            _ = model_feature_importances(X_test, model, show=False)
+
+        assert (
+            str(error.value)
+            == "The model does not have a `feature_importances_` attribute!"
+        )
 
 
 class TestMultiChart:

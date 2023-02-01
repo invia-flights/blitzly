@@ -28,7 +28,6 @@ def dimensionality_reduction(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Create a scatter plot of the dimensionality reduction representation of
     the data provided. Multiple dimensionality reduction functions can be used.
     The data is scaled using the `scaler_func`. If multiple functions are used,
@@ -100,7 +99,6 @@ def dimensionality_reduction(
 
     plots = []
     for func in reduction_funcs:
-
         if func not in func_list:
             raise ValueError(
                 f"reduction_func must be one of {func_list}! `{func}` not supported."
@@ -174,7 +172,6 @@ def scatter_matrix(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Create a scatter matrix plot. It can be used to visualize the
     relationship between multiple variables. The scatter matrix is a grid of
     scatter plots, one for each pair of variables in the data. The diagonal
@@ -268,7 +265,6 @@ def multi_scatter(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Create a multi scatter plot. It can be used to visualize the
     relationship between multiple variables from the same Pandas DataFrame.
 
