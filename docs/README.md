@@ -44,6 +44,7 @@ poetry install
 ## Available plots (so far 🚀)
 | Module | Method | Description |
 | ------ | ------ | ----------- |
+| [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`model_feature_importances`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.model_feature_importances) | Creates a bar chart with the feature importance of a model. |
 | [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart) | Creates a bar chart with multiple groups. |
 | [`dumbbell`](https://invia-flights.github.io/blitzly/plots/dumbbell/) | [`simple_dumbbell`](https://invia-flights.github.io/blitzly/plots/dumbbell/#blitzly.plots.dumbbell.simple_dumbbell) | Plots a dumbbell plot. This can be used to compare two columns of data to visualize changes. |
 | [`histogram`](https://invia-flights.github.io/blitzly/plots/histogram/) | [`simple_histogram`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
