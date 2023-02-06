@@ -77,7 +77,6 @@ def multi_bar(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Creates a bar chart with multiple groups. Each group is represented by a
     bar. The bars are grouped by the x-axis. The number of `group_labels` must
     be equal to the number of rows in the data. The number of `x_labels` must
@@ -141,9 +140,7 @@ def multi_bar(
     for idx, dt in enumerate(data):
         error_dict = None
         if isinstance(errors, np.ndarray) and stack is False:
-            error = errors[
-                idx,
-            ]
+            error = errors[idx,]
             error_dict = dict(type="data", array=error, visible=True)
         fig.add_trace(
             go.Bar(

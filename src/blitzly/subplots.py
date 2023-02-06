@@ -40,7 +40,6 @@ def make_subplots(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Creates subplots using a provided list of figure objects.
     `plotly.subplots.make_subplots` requires the use of traces. This function
     is an alternative implementation that directly uses previously-created

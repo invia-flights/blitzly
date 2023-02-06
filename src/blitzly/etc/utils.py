@@ -9,7 +9,6 @@ from plotly.basedatatypes import BaseFigure
 def save_show_return(
     fig: BaseFigure, write_html_path: Optional[str] = None, show: bool = True
 ) -> BaseFigure:
-
     """Saves the figure if needed, shows the figure if needed, and returns a
     it.
 
@@ -37,7 +36,6 @@ def update_figure_layout(
     show_legend: Optional[bool] = None,
     show_scale: Optional[bool] = None,
 ) -> BaseFigure:
-
     """Updates the figure by setting the title and also scales the plot to the
     given size.
 
