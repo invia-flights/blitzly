@@ -1,6 +1,16 @@
 default_language_version:
   python: python3.10
 
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: "develop"
+  autoupdate_commit_msg: "ci: pre-commit autoupdate"
+  autoupdate_schedule: weekly
+  skip: [poetry-lock, poetry-export]
+
 repos:
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v2.1.1
@@ -96,7 +106,7 @@ repos:
         args: ["--profile=black"]
 
   - repo: https://github.com/PyCQA/pylint
-    rev: v2.16.0b1
+    rev: v2.16.1
     hooks:
       - id: pylint
         args: ["--rcfile=pyproject.toml"]
