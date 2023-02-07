@@ -52,9 +52,9 @@ kaleido = "0.2.1"
 black = {extras = ["jupyter"], version = "^23.1.0"}
 bandit = "^1.7.4"
 isort = "^5.11.4"
-mypy = "^0.991"
-pylint = "^2.15.10"
-pre-commit = "^2.21.0"
+mypy = "^1.0.0"
+pylint = "^2.16.1"
+pre-commit = "^3.0.4"
 nbstripout = "^0.6.1"
 ssort = "^0.11.6"
 
