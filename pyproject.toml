@@ -106,10 +106,6 @@ warn_return_any = false
 no_namespace_packages = true
 exclude = ["tests", "docs"]
 
-[tool.black]
-target-version = ['py311']
-
-
 [tool.isort]
 profile = "black"
 skip_glob = ["docs/*"]

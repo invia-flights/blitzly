@@ -447,9 +447,9 @@ stack-data==0.6.2 ; python_version >= "3.8" and python_version < "3.12" \
 stevedore==4.1.1 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:7f8aeb6e3f90f96832c301bff21a7eb5eefbe894c88c506483d355565d88cc1a \
     --hash=sha256:aa6436565c069b2946fe4ebff07f5041e0c8bf18c7376dd29edf80cf7d524e4e
-tenacity==8.1.0 ; python_version >= "3.8" and python_version < "3.12" \
-    --hash=sha256:35525cd47f82830069f0d6b73f7eb83bc5b73ee2fff0437952cedf98b27653ac \
-    --hash=sha256:e48c437fdf9340f5666b92cd7990e96bc5fc955e1298baf4a907e3972067a445
+tenacity==8.2.0 ; python_version >= "3.8" and python_version < "3.12" \
+    --hash=sha256:a43bcd8910406e0884ca0db3db7bed581f389c1d05165e992a1ddabfc81df05e \
+    --hash=sha256:b723061a78ed0f4524190eae321d3d84100227d51c5677035b6615d91895e0d6
 threadpoolctl==3.1.0 ; python_version >= "3.8" and python_version < "3.12" \
     --hash=sha256:8b99adda265feb6773280df41eece7b2e6561b772d21ffd52e372f999024907b \
     --hash=sha256:a335baacfaa4400ae1f0d8e3a58d6674d2f8828e3716bb2802c44955ad391380
