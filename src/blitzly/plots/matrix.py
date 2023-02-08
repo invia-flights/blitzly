@@ -1,4 +1,5 @@
 import itertools
+import warnings
 from typing import Dict, List, Optional, Tuple, Union
 
 import numpy as np
@@ -216,7 +217,7 @@ def cramers_v_corr_matrix(
     )
 
     if all(x == np.object_ for x in list(data.dtypes)) is False:
-        raise Warning(
+        warnings.warn(
             """All columns should be from type `object` since the encoding is done internally.
         But don't worry. It should work anyway."""
         )
