@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/invia-flights/blitzly/compare/v0.5.0...v0.6.0) (2023-02-08)
+
+
+### Features
+
+* add feature importances plot ([2ecf137](https://github.com/invia-flights/blitzly/commit/2ecf137b4fc25737871defc1300c7fbec70b0bde))
+
 ## [0.5.0](https://github.com/invia-flights/blitzly/compare/v0.4.0...v0.5.0) (2023-01-13)
 
 
