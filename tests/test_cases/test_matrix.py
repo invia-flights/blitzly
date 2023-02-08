@@ -112,12 +112,12 @@ class TestCramersVCorrelationMatrix:
 
     @staticmethod
     def test_matrix_with_numerical_data(cramers_v_corr_matrix_test_numerical_data):
-        with pytest.raises(Warning) as warning:
+        with pytest.warns(UserWarning) as warning:
             _ = cramers_v_corr_matrix(
                 cramers_v_corr_matrix_test_numerical_data, show=False
             )
         assert (
-            str(warning.value)
+            str(warning[0].message)
             == """All columns should be from type `object` since the encoding is done internally.
         But don't worry. It should work anyway."""
         )
