@@ -40,7 +40,6 @@ def make_subplots(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Creates subplots using a provided list of figure objects.
     `plotly.subplots.make_subplots` requires the use of traces. This function
     is an alternative implementation that directly uses previously-created
@@ -62,7 +61,7 @@ def make_subplots(
         subfig_list (List[BaseFigure]): A list of figure objects.
         shape (Tuple[int, int]): The grid shape of the subplots.
         title (str): Title of the plot.
-        column_width (Optional[List[float]]): The width of each column in the subplot grid.
+        column_widths (Optional[List[float]]): The width of each column in the subplot grid.
         fill_row (bool): If True, resize the last subplot in the grid to fill the row.
         shared_xaxes (bool): Share the x-axis labels along each column.
         shared_yaxes (bool): Share the y-axis labels along each row.
@@ -112,7 +111,7 @@ def make_subplots(
         row = idx // shape[1]
         col = idx % shape[1]
         for trace in traces:
-            fig.append_trace(trace, row=row + 1, col=col + 1)
+            fig.add_trace(trace, row=row + 1, col=col + 1)
 
         if row != shape[0] - 1 and shared_xaxes:
             subplot_axes_labels[0][idx] = ""

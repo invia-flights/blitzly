@@ -19,7 +19,6 @@ def simple_dumbbell(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Creates a dumbbell plot. These are useful to show the difference between
     two sets of data which have the same categories. For instance, it can be
     used to compare two binary classifiers by plotting the various

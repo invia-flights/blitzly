@@ -1,9 +1,10 @@
 # pylint: disable=disallowed-name
 
-from typing import List, Optional, Tuple, Union
+from typing import Any, List, Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
+import plotly.express as px
 import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
@@ -61,6 +62,78 @@ def _check_data_ready_for_bar(
         )
 
 
+def model_feature_importances(
+    X_test: pd.DataFrame,
+    model: Any,
+    title: str = "Feature importance",
+    horizontal: bool = True,
+    size: Optional[Tuple[int, int]] = None,
+    show: bool = True,
+    write_html_path: Optional[str] = None,
+) -> BaseFigure:
+    """Creates a bar chart with the feature importance of a model.
+
+    Example:
+    ```python
+    from blitzly.plots.bar import model_feature_importance
+    import pandas as pd
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.datasets import make_classification
+    from sklearn.model_selection import train_test_split
+
+    X, y = make_classification(
+        n_samples=100,
+        n_features=4,
+        n_informative=2,
+        n_redundant=0,
+        random_state=42,
+        shuffle=False,
+    )
+
+    X = pd.DataFrame(X, columns=["foo", "bar", "blitz", "licht"])
+    y = pd.Series(y)
+
+    X_train, X_test, y_train, _ = train_test_split(X, y)
+
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+
+    model_feature_importances(X_test, model)
+
+    Args:
+        X_test (pd.DataFrame): The test data for the model. You can also use the `train` data but it is recommend to use `test`.
+        model (Any): The model to get the feature importance from. The model must have a `feature_importances_` attribute!
+        title (Optional[str]): The title of the plot. Defaults to "Feature importance".
+        horizontal (bool): Whether to plot the bar chart horizontally or vertically.
+        size (Optional[Tuple[int, int]]): The size of the plot.
+        show (bool): Whether to show the plot.
+        write_html_path (Optional[str]): The path to write the plot as HTML.
+
+    Raises:
+        AttributeError: If the model does not have a `feature_importances_` attribute.
+
+    Returns:
+        BaseFigure: The plotly figure.
+    """
+
+    if hasattr(model, "feature_importances_"):
+        df = pd.DataFrame(
+            {"feature": X_test.columns, "importance": model.feature_importances_}
+        ).sort_values("importance", ascending=True)
+    else:
+        raise AttributeError(
+            "The model does not have a `feature_importances_` attribute!"
+        )
+
+    if horizontal:
+        fig = px.bar(df, x="importance", y="feature")
+    else:
+        fig = px.bar(df, x="feature", y="importance")
+
+    fig = update_figure_layout(fig, title, size)
+    return save_show_return(fig, write_html_path, show)
+
+
 def multi_bar(
     data: Union[pd.DataFrame, pd.Series, NDArray],
     group_labels: List[str],
@@ -77,7 +150,6 @@ def multi_bar(
     show: bool = True,
     write_html_path: Optional[str] = None,
 ) -> BaseFigure:
-
     """Creates a bar chart with multiple groups. Each group is represented by a
     bar. The bars are grouped by the x-axis. The number of `group_labels` must
     be equal to the number of rows in the data. The number of `x_labels` must
@@ -141,9 +213,7 @@ def multi_bar(
     for idx, dt in enumerate(data):
         error_dict = None
         if isinstance(errors, np.ndarray) and stack is False:
-            error = errors[
-                idx,
-            ]
+            error = errors[idx,]
             error_dict = dict(type="data", array=error, visible=True)
         fig.add_trace(
             go.Bar(

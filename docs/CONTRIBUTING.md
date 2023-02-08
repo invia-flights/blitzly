@@ -1,5 +1,4 @@
 # How to contribute
-
 Thank 🙏 you for your interest in contributing to this project! Please read this document to get started.
 
 ## Poetry
@@ -54,8 +53,7 @@ The following steps will give a short guide on how to contribute to this project
 your extra branch(es).
 
 ## Example
-This is a simple example of a possible implementation of a new function:
-```python
+```python title="Example of a new plot function"
 def simple_dumbbell(
     data: Union[pd.DataFrame, NDArray],
     title: str = "Dumbbell plot",
@@ -145,23 +143,23 @@ def simple_dumbbell(
 
 Let's go through the code step by step:
 1. To make blitzly ⚡️ simple to use try to provide as many default arguments as possible. Also don't forget to add type hints:
-    ```python
-    title: str = "Dumbbell plot"
-    ```
-    **Yea!** 🥳
 
-    ```python
-    title
-    ```
-    **Nay!** 😢
+```python title="Yea! 🥳"
+title: str = "Dumbbell plot"
+```
+
+```python title="Nay! 😢"
+title
+```
+
 
 2. Every function in blitzly ⚡️ requires the following arguments:
-    ```python
-    plotly_kwargs: Optional[dict] = None,
-    show: bool = True,
-    write_html_path: Optional[str] = None
-    ```
-    More about this in the next steps.
+```python
+plotly_kwargs: Optional[dict] = None,
+show: bool = True,
+write_html_path: Optional[str] = None
+```
+More about this in the next steps.
 
 3. Each function should return `BaseFigure`. This gives the user the possibility to use the returned Plotly figure in every possible way.
 
@@ -179,4 +177,5 @@ Let's go through the code step by step:
 
 10. Documentation: Please add your new blitly ⚡️ plot to the list in the [`README.md`](https://github.com/invia-flights/blitzly#available-plots-so-far-) file. If you think your plot implementation is worth to be documented even more, feel free to add it together with a short description to the end of the [`playground.ipynb`](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) notebook.
 
-That's it! 🎉 Happy ploding (plotting + coding)! 📊👩‍💻 If you have any questions feel free to contact us!
+!!! tip "Get in touch"
+    That's it! 🎉 Happy ploding (plotting + coding)! 📊👩‍💻 If you have any questions feel free to contact us!

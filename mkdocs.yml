@@ -2,25 +2,32 @@ site_name: "blitzly ⚡️"
 site_dir: public
 docs_dir: ./docs
 repo_url: https://github.com/invia-flights/blitzly
+site_url: https://invia-flights.github.io/blitzly/
 markdown_extensions:
   - attr_list
   - md_in_html
   - meta
   - tables
-  - pymdownx.highlight:
-      anchor_linenums: true
+  - admonition
+  - def_list
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.details
   - pymdownx.superfences
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.arithmatex:
       generic: true
   - toc:
-      permalink: True
+      permalink: true
+
 theme:
   icon:
     repo: fontawesome/brands/github
@@ -52,7 +59,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          rendering:
+          options:
             show_root_heading: false
 
 extra_javascript:

@@ -44,10 +44,12 @@ poetry install
 ## Available plots (so far 🚀)
 | Module | Method | Description |
 | ------ | ------ | ----------- |
+| [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`model_feature_importances`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.model_feature_importances) | Creates a bar chart with the feature importance of a model. |
 | [`bar`](https://invia-flights.github.io/blitzly/plots/bar/) | [`multi_chart`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.bar.multi_chart) | Creates a bar chart with multiple groups. |
 | [`dumbbell`](https://invia-flights.github.io/blitzly/plots/dumbbell/) | [`simple_dumbbell`](https://invia-flights.github.io/blitzly/plots/dumbbell/#blitzly.plots.dumbbell.simple_dumbbell) | Plots a dumbbell plot. This can be used to compare two columns of data to visualize changes. |
 | [`histogram`](https://invia-flights.github.io/blitzly/plots/histogram/) | [`simple_histogram`](https://invia-flights.github.io/blitzly/plots/histogram/#blitzly.plots.histogram.simple_histogram) | Plots a histogram with one ore more distributions. |
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`binary_confusion_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.binary_confusion_matrix) | Plots a confusion matrix for binary classification data. |
+| [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`cramers_v_corr_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.cramers_v_corr_matrix) | Cramer's V correlation for categorical features. |
 | [`matrix`](https://invia-flights.github.io/blitzly/plots/matrix/) | [`pearson_corr_matrix`](https://invia-flights.github.io/blitzly/plots/matrix/#blitzly.plots.matrix.pearson_corr_matrix) | Plots a Pearson product-moment correlation coefficients matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`scatter_matrix`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.scatter_matrix) | Plots a scatter matrix. |
 | [`scatter`](https://invia-flights.github.io/blitzly/plots/scatter/) | [`multi_scatter`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.multi_scatter) | Create a multi scatter plot. It can be used to visualize the relationship between multiple variables from the same Pandas DataFrame. |
@@ -63,17 +65,17 @@ poetry install
 ## Usage 🤌
 Here are some examples. You can also open the [playground notebook](https://github.com/invia-flights/blitzly/blob/main/examples/playground.ipynb) 📒.
 
-**[`dimensionality_reduction`](https://invia-flights.github.io/blitzly/plots/bar/#blitzly.plots.scatter.dimensionality_reduction):**
+**[`dimensionality_reduction`](https://invia-flights.github.io/blitzly/plots/scatter/#blitzly.plots.scatter.dimensionality_reduction):**
 ```python
 from blitzly.plots.scatter import dimensionality_reduction
 import plotly.express as px
 
 df = px.data.iris()
-fig = dimensionality_reduction(
-    df,
-    n_components=2,
-    target_column="species",
-    reduction_funcs=["PCA", "TNSE"],
+dimensionality_reduction(
+  df,
+  n_components=2,
+  target_column="species",
+  reduction_funcs=["PCA", "TNSE"],
 )
 ```
 Gives you this:
