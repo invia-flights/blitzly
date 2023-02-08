@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/invia-flights/blitzly/compare/v0.6.0...v0.6.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* issue with init.py ([925eefe](https://github.com/invia-flights/blitzly/commit/925eefe7ba947557456712a44930a0535d686818))
+
 ## [0.6.0](https://github.com/invia-flights/blitzly/compare/v0.5.0...v0.6.0) (2023-02-08)
 
 
