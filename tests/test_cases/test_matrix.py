@@ -3,7 +3,11 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from blitzly.plots.matrix import binary_confusion_matrix, pearson_corr_matrix
+from blitzly.plots.matrix import (
+    binary_confusion_matrix,
+    cramers_v_corr_matrix,
+    pearson_corr_matrix,
+)
 from tests.helper import fig_to_array
 
 # pylint: disable=missing-function-docstring, missing-class-docstring, redefined-outer-name
@@ -49,6 +53,74 @@ def valid_binary_classification_data():
 @pytest.fixture()
 def valid_multi_class_classification_data():
     return np.array([[1, 0, 2, 1, 0, 2], [2, 2, 1, 1, 0, 1], [2, 0, 1, 2, 0, 1]])
+
+
+@pytest.fixture()
+def cramers_v_corr_matrix_test_data():
+    return pd.DataFrame(
+        {
+            "foo": [
+                "1",
+                "1",
+                "1",
+                "2",
+                "2",
+                "2",
+            ],
+            "bar": ["3", "2", "3", "7", "5", "7"],
+            "blitzly": ["9", "3", "4", "6", "7", "9"],
+            "licht": ["1", "1", "1", "2", "2", "2"],
+        }
+    )
+
+
+@pytest.fixture()
+def cramers_v_corr_matrix_test_numerical_data():
+    return pd.DataFrame(
+        {
+            "foo": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                2,
+            ],
+            "bar": [3, 2, 3, 7, 5, 7],
+            "blitzly": [9, 3, 4, 6, 7, 9],
+            "licht": [1, 1, 1, 2, 2, 2],
+        }
+    )
+
+
+@pytest.fixture()
+def valid_cramers_v_corr_matrix_from_pandas():
+    return joblib.load(
+        "tests/expected_figs/matrix/cramers_v_corr_matrix/valid_cramers_v_corr_matrix_from_pandas.joblib"
+    )
+
+
+class TestCramersVCorrelationMatrix:
+    @staticmethod
+    def test_matrix_with_valid_pandas_data(
+        cramers_v_corr_matrix_test_data, valid_cramers_v_corr_matrix_from_pandas
+    ):
+        fig = cramers_v_corr_matrix(cramers_v_corr_matrix_test_data, show=False)
+        np.testing.assert_equal(
+            fig_to_array(fig), fig_to_array(valid_cramers_v_corr_matrix_from_pandas)
+        )
+
+    @staticmethod
+    def test_matrix_with_numerical_data(cramers_v_corr_matrix_test_numerical_data):
+        with pytest.raises(Warning) as warning:
+            _ = cramers_v_corr_matrix(
+                cramers_v_corr_matrix_test_numerical_data, show=False
+            )
+        assert (
+            str(warning.value)
+            == """All columns should be from type `object` since the encoding is done internally.
+        But don't worry. It should work anyway."""
+        )
 
 
 class TestBinaryConfusionMatrix:

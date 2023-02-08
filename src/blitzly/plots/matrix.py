@@ -1,4 +1,5 @@
-from typing import List, Optional, Tuple, Union
+import itertools
+from typing import Dict, List, Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
@@ -6,7 +7,9 @@ import plotly.figure_factory as ff
 import plotly.graph_objects as go
 from numpy.typing import NDArray
 from plotly.basedatatypes import BaseFigure
+from scipy import stats
 from sklearn.metrics import confusion_matrix as sk_confusion_matrix
+from sklearn.preprocessing import OrdinalEncoder
 
 from blitzly.etc.utils import check_data, save_show_return, update_figure_layout
 
@@ -156,6 +159,96 @@ def pearson_corr_matrix(
             texttemplate="%{text}",
             x=labels,
             y=labels,
+        ),
+        **(plotly_kwargs or {}),
+    )
+
+    fig = update_figure_layout(fig, title, size, show_scale=show_scale)
+    return save_show_return(fig, write_html_path, show)
+
+
+def cramers_v_corr_matrix(
+    data: pd.DataFrame,
+    title: str = "Cramer's V correlation matrix",
+    show_scale: bool = False,
+    size: Tuple[int, int] = (700, 700),
+    decimal_places: int = 3,
+    plotly_kwargs: Optional[dict] = None,
+    show: bool = True,
+    write_html_path: Optional[str] = None,
+) -> BaseFigure:
+    """[Cramer's V correlation](https://www.wikiwand.com/en/Cram%C3%A9r%27s_V)
+    matrix. It can be used to get the correlations between nominal variables.
+
+    Example:
+    ```python
+    from blitzly.matrix import cramers_v_corr_matrix
+    import pandas as pd
+
+    df = pd.DataFrame(
+        {
+            "foo": ["1", "1", "1", "2", "2", "2"],
+            "bar": ["3", "2", "3", "7", "5", "7"],
+            "blitzly": ["9", "3", "4", "6", "7", "9"],
+            "licht": ["1", "1", "1", "2", "2", "2"],
+        }
+    )
+
+    fig = cramers_v_corr_matrix(df)
+    ```
+
+    Args:
+        data (pd.DataFrame): The data which should be plotted. All columns need to be nominal/categorical.
+        title (Optional[str]): The title of the correlation matrix.
+        show_scale (Optional[bool]): Whether to show the color scale.
+        decimal_places (Optional[int]): The number of decimal places to round the values to. This only applies to the values shown on the plot.
+        size (Optional[Tuple[int, int]): Size of the plot.
+        plotly_kwargs (Optional[dict]): Additional keyword arguments for Plotly.
+        show (bool): Whether to show the figure.
+        write_html_path (Optional[str]): The path to which the histogram should be written as an HTML file.
+
+    Returns:
+        BaseFigure: The figure.
+    """
+
+    data = check_data(
+        data, min_columns=2, min_rows=2, as_pandas=True, only_numerical_values=False
+    )
+
+    if all(x == np.object_ for x in list(data.dtypes)) is False:
+        raise Warning(
+            """All columns should be from type `object` since the encoding is done internally.
+        But don't worry. It should work anyway."""
+        )
+
+    d: Dict[str, List[Union[str, float]]] = {
+        "Feature1": [],
+        "Feature2": [],
+        "Correlation": [],
+    }
+    data = pd.DataFrame(OrdinalEncoder().fit_transform(data) + 1, columns=data.columns)
+
+    for _, x in enumerate(itertools.combinations(data.columns, r=2)):
+        temp_data = np.array(pd.crosstab(data[x[0]], data[x[1]]))
+
+        chi2 = stats.chi2_contingency(temp_data, correction=False)[0]
+        n = np.sum(temp_data)
+        minimum_dimension = min(temp_data.shape) - 1
+        res = np.sqrt((chi2 / n) / minimum_dimension)
+
+        d["Feature1"].append(x[0])
+        d["Feature2"].append(x[1])
+        d["Correlation"].append(res)
+
+    df = pd.DataFrame(d)
+
+    fig = go.Figure(
+        data=go.Heatmap(
+            z=df["Correlation"],
+            text=np.round(df["Correlation"], decimals=decimal_places),
+            texttemplate="%{text}",
+            x=d["Feature1"],
+            y=d["Feature2"],
         ),
         **(plotly_kwargs or {}),
     )
