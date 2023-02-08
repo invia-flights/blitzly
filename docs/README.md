@@ -2,8 +2,8 @@
 # blitzly ⚡️
 ***Lightning-fast way to get plots with Plotly***
 
-[![DeployPackage](https://github.com/invia-flights/blitzly/actions/workflows/deploy-package.yml/badge.svg)](https://github.com/invia-flights/blitzly/actions/workflows/deploy-package.yml)
-[![Testing](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml/badge.svg?branch=main)](https://github.com/invia-flights/blitzly/actions/workflows/testing.yml)
+[![Release](https://github.com/invia-flights/blitzly/actions/workflows/release.yml/badge.svg)](https://github.com/invia-flights/blitzly/actions/workflows/release.yml)
+[![ChecksAndTesting](https://github.com/invia-flights/blitzly/actions/workflows/checks-testing.yml/badge.svg)](https://github.com/invia-flights/blitzly/actions/workflows/checks-testing.yml)
 [![codecov](https://codecov.io/gh/invia-flights/blitzly/branch/develop/graph/badge.svg?token=ROCDJJV8JV)](https://codecov.io/gh/invia-flights/blitzly)
 [![pypi](https://img.shields.io/pypi/v/blitzly)](https://pypi.org/project/blitzly/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/blitzly)](https://pypistats.org/packages/blitzly)
