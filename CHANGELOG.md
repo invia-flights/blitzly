@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/invia-flights/blitzly/compare/v0.6.1...v0.6.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* warning implementation ([#64](https://github.com/invia-flights/blitzly/issues/64)) ([f0f11d5](https://github.com/invia-flights/blitzly/commit/f0f11d53a03d0d6ee58258fdc73a825eed20d604))
+
 ## [0.6.1](https://github.com/invia-flights/blitzly/compare/v0.6.0...v0.6.1) (2023-02-08)
 
 
