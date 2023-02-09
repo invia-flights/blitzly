@@ -34,11 +34,11 @@ Contributing = "https://github.com/invia-flights/blitzly/blob/main/docs/CONTRIBU
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
 
-plotly = "5.13.0"
-pandas = "1.5.2"
-numpy = "1.23.5"
-nbformat = "5.7.2"
-scikit-learn = "1.2.0"
+plotly = "^5.13.0"
+pandas = "^1.5.2"
+numpy = "^1.23.5"
+nbformat = "^5.7.2"
+scikit-learn = "^1.2.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
