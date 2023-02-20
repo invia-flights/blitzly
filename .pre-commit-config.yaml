@@ -76,12 +76,12 @@ repos:
         files: pyproject.toml
 
   - repo: https://github.com/PyCQA/docformatter
-    rev: v1.6.0.rc1
+    rev: v1.5.1
     hooks:
       - id: docformatter
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.6.1
+    rev: 1.6.3
     hooks:
       - id: nbqa-check-ast
       - id: nbqa-mypy
@@ -112,13 +112,13 @@ repos:
         args: ["--profile=black"]
 
   - repo: https://github.com/PyCQA/pylint
-    rev: v2.16.1
+    rev: v2.16.2
     hooks:
       - id: pylint
         args: ["--rcfile=pyproject.toml"]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.0.0
+    rev: v1.0.1
     hooks:
       - id: mypy
         args:
